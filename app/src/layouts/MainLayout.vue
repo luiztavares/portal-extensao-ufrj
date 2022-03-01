@@ -6,7 +6,7 @@
         <q-search v-model="search"></q-search>
         <q-btn flat label="Destaques"> </q-btn>
         <q-btn flat label="Vagas"> </q-btn>
-        <q-btn flat label="Lives"> </q-btn>
+        <q-btn flat label="Lives" v-on:click="this.$router.push('/lives')"> </q-btn>
         <q-btn flat label="Informações"> </q-btn>
         <q-btn flat label="Notícias"> </q-btn>
       </q-toolbar>
