@@ -147,7 +147,7 @@
           </q-card>
         </div>
       </div>
-      <q-btn class="col-1" label="Veja todas as Lives"></q-btn>
+      <q-btn v-on:click="this.$router.push('/lives')" class="col-1" label="Veja todas as Lives"></q-btn>
     </q-page>
   </div>
 </template>

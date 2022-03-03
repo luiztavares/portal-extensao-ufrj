@@ -1,6 +1,6 @@
 <template>
   <q-card flat vertical class="my-card" :style="'border-color: ' + acao.cor">
-    <q-card-section class="q-pa-none video_wrapper" height="500px">
+    <q-card-section class="q-pa-none video_wrapper bg-black" height="500px">
       <iframe
         src="https://www.youtube.com/embed/Xz3bMCj6BFI"
         title="YouTube video player"
@@ -33,9 +33,10 @@ export default defineComponent({
 
 <style scoped>
 .my-card {
+  background-color: HoneyDew;
   width: 100%;
   max-width: 400px;
-  min-width: 300px;
+  min-width: 260px;
   border-style: outset;
 }
 
