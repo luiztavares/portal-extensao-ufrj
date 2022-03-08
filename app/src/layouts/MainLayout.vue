@@ -15,6 +15,11 @@
     <q-page-container>
       <router-view />
     </q-page-container>
+          <q-footer elevated class = 'q-pa-md'>
+            <p class="text-h6 text-center">
+ Este Portal tem como objetivo informar aos estudantes, docentes, técnicos administrativos e comunidade externa das ações e serviços disponíveis e promovidos pela Pró-Reitoria de Extensão (PR-5) da Universidade Federal do Rio de Janeiro.
+            </p>
+      </q-footer>
   </q-layout>
 </template>
 

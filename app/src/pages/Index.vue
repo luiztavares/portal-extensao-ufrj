@@ -18,11 +18,9 @@
       >
         <q-carousel-slide name="style" class="row no-wrap">
           <div class="col-7 column justify-center">
-            <p class="col-3 text-h1 text-white">Última Newsletter</p>
-            <p class="col-2 text-h4 text-white q-pa-md">
-              Acesse nossa newsletter e fique por dentro de tudo que aconteceu
-              no mês
-            </p>
+            <p class="col text-h2 text-white">Conheça a Newsletter Comunica Extensão</p>
+            <p class="col text-h5 text-white q-pa-md">
+A Comunica Extensão é uma newsletter mensal, produzida pela Pró-Reitoria de Extensão da UFRJ, que reúne os principais informes, chamadas-públicas, eventos e notícias da universidade e que envolvem toda a comunidade extensionista. Além disso, faz uma curadoria das ações de extensão que estão com vagas abertas para estudantes e divulga as principais novidades da Extensão UFRJ.            </p>
             <q-btn
               flat
               class="col-1"
@@ -38,11 +36,25 @@
           >
           </q-img>
         </q-carousel-slide>
-        <q-carousel-slide name="tv" class="column no-wrap flex-center">
-          <q-icon name="live_tv" />
-          <div class="q-mt-md text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        <q-carousel-slide name="podcast" class="row no-wrap">
+          <div class="col-7 column justify-center">
+            <p class="col text-h2 text-white">Conheça o Comunica Extensão Podcast</p>
+            <p class="col text-h5 text-white q-pa-md">
+O podcast Comunica Extensão é um programa da Pró-Reitoria de Extensão da UFRJ, em parceria com a Rádio UFRJ, que te ajuda a acompanhar as ações extensionistas da universidade. Você encontra novidades e entrevistas que promovem debates entre a Extensão e o Estado do Rio de Janeiro, com todo o seu circuito cultural, formativo e econômico. 
+</p>
+            <div class="row col-1 no-wrap"><p class="col-4 text-h3 text-white">Ouça em: </p>
+            <q-btn class='col-1' flat icon="img:https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" />
+            <q-btn class='col-1' flat icon="img:https://upload.wikimedia.org/wikipedia/commons/e/e7/Podcasts_%28iOS%29.svg" />
+
+</div>
           </div>
+          <q-img
+            id="comunica-img"
+            class="col-5 rounded-borders"
+            src="images/podcast.jpg"
+            fit="fill"
+          >
+          </q-img>
         </q-carousel-slide>
       </q-carousel>
     </q-page>
@@ -82,7 +94,7 @@
           </q-card>
         </div>
       </div>
-      <q-btn class="col-1" label="Veja todas as ações"></q-btn>
+      <q-btn v-on:click="this.$router.push('/acoes')" class="col-1" label="Veja todas as ações"></q-btn>
     </q-page>
 
     <q-page class="column bg-yellow q-pa-xl">
@@ -154,12 +166,16 @@
 
 <script>
 import { defineComponent } from "vue";
+import '@quasar/extras/fontawesome-v5'
+
+
 
 export default defineComponent({
   name: "PageIndex",
   data: function () {
     return {
       slide: "style",
+
       acoes: [
         {
           titulo: "América Latina Póscolonial: estudos de caso.",
