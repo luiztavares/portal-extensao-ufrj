@@ -8,10 +8,17 @@ const routes = [
     ]
   },
   {
+    path: '/acoes',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/Acoes.vue') }
+    ]
+  },
+  {
     path: '/lives',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Lives.vue') }
+      { path: '', component: () => import('pages/Lives.vue') },
     ]
   },
 
