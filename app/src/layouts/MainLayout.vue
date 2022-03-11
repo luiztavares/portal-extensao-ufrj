@@ -2,9 +2,8 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar class="q-ma-md">
-        <q-toolbar-title> PORTAL Extensão UFRJ </q-toolbar-title>
-        <q-search v-model="search"></q-search>
-        <q-btn flat label="Destaques"> </q-btn>
+        <q-toolbar-title @click="this.$router.push('/')"> PORTAL Extensão UFRJ </q-toolbar-title>
+        <q-btn flat label="Destaques" @click="scrollToAnchorPoint('destaque')"> </q-btn>
         <q-btn flat label="Vagas"> </q-btn>
         <q-btn flat label="Lives" v-on:click="this.$router.push('/lives')"> </q-btn>
         <q-btn flat label="Informações"> </q-btn>
@@ -32,6 +31,12 @@ export default defineComponent({
     return { search: "" };
   },
   components: {},
+  methods:{
+        scrollToAnchorPoint(refName) {
+            const el = this.$refs[refName]
+            el.scrollIntoView({ behavior: 'smooth'})
+        }
+  },
 
   setup() {},
 });

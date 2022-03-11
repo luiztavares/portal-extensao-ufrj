@@ -59,39 +59,12 @@ O podcast Comunica Extensão é um programa da Pró-Reitoria de Extensão da UFR
       </q-carousel>
     </q-page>
 
-    <q-page class="column q-pa-xl">
+    <q-page ref='destaque' id='destaque' class="column q-pa-xl">
       <span class="col-1 text-h2">Ações em Destaque</span>
-      <div class="col row q-pa-xl items-center">
-        <div class="col" v-for="acao in acoes" :key="acao">
-          <div>
-            <q-tooltip class="text-h4 q-pa-xl q-ma-xl">
-              Cursos para complementar sua formação acadêmica e cidadã O Curso
-              de Extensão é responsável por garantir uma formação livre em um
-              determinado tema e é oferecido tanto para o público externo,
-              quanto para a universidade. Um Curso pode ser presencial ou à
-              distância, teórico ou prático e ter a duração de semanas ou meses,
-              a depender de cada coordenação.
-            </q-tooltip>
-            <q-chip
-              square
-              :color="acao.cor"
-              text-color="white"
-              icon="alarm"
-              :label="acao.modalidade"
-            />
-          </div>
-          <q-card flat class="my-card" :style="'border-color: ' + acao.cor">
-            <img src="https://cdn.quasar.dev/img/mountains.jpg" />
-
-            <q-card-section>
-              <div class="text-h6">{{ acao.titulo }}</div>
-              <div class="text-subtitle2">{{ acao.coordenador }}</div>
-            </q-card-section>
-
-            <q-card-section class="q-pt-none">
-              {{ acao.descricao }}
-            </q-card-section>
-          </q-card>
+      <div class="col row q-pa-xl justify-around">
+        <div class="col-3 q-ma-md" v-for="projeto in projetos" :key="projeto">
+          <home-card  :acao="projeto">
+          </home-card>
         </div>
       </div>
       <q-btn v-on:click="this.$router.push('/acoes')" class="col-1" label="Veja todas as ações"></q-btn>
@@ -167,14 +140,18 @@ O podcast Comunica Extensão é um programa da Pró-Reitoria de Extensão da UFR
 <script>
 import { defineComponent } from "vue";
 import '@quasar/extras/fontawesome-v5'
+import axios from "axios";
+import HomeCard from "../components/HomeCard.vue";
 
 
 
 export default defineComponent({
+  components: { HomeCard },
   name: "PageIndex",
   data: function () {
     return {
       slide: "style",
+      projetos: [],
 
       acoes: [
         {
@@ -206,6 +183,20 @@ export default defineComponent({
       ],
     };
   },
+  methods:{
+    getProjetos(){
+      axios.get(
+          "http://192.168.100.10:8000/home/",
+        ).then(response => {this.projetos = response.data.data,
+          console.log(this.projetos)
+        })
+    },
+
+
+  },
+    mounted() {
+    this.getProjetos();
+  },
 });
 </script>
 
@@ -223,9 +214,11 @@ export default defineComponent({
   border-radius: 5%;
 }
 
+
 .my-card {
   width: 100%;
-  max-width: 400px;
+  min-width: 400px;
+  min-height: 400px;
   border-style: outset;
 }
 </style>
