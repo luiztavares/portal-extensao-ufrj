@@ -1,6 +1,6 @@
 <template>
-  <div>
     <q-page class="hero">
+      <p class='text-h5 text-bold q-px-md q-my-sm'><span style='color: magenta;'>>></span> Em destaque</p>
       <q-carousel
         v-model="slide"
         transition-prev="jump-right"
@@ -14,86 +14,68 @@
         navigation
         padding
         arrows
-        class="bg-purple shadow-1"
+        class="bg-purple shadow-1 "
       >
-        <q-carousel-slide name="style" class="row no-wrap">
-          <div class="col-7 column justify-center">
-            <p class="col text-h2 text-white">Conheça a Newsletter Comunica Extensão</p>
-            <p class="col text-h5 text-white q-pa-md">
-A Comunica Extensão é uma newsletter mensal, produzida pela Pró-Reitoria de Extensão da UFRJ, que reúne os principais informes, chamadas-públicas, eventos e notícias da universidade e que envolvem toda a comunidade extensionista. Além disso, faz uma curadoria das ações de extensão que estão com vagas abertas para estudantes e divulga as principais novidades da Extensão UFRJ.            </p>
-            <q-btn
-              flat
-              class="col-1"
-              label="Inscreva-se Aqui"
-              color="green"
-            ></q-btn>
-          </div>
-          <q-img
-            id="comunica-img"
-            class="col-5 rounded-borders"
-            src="images/comunica-01-2022.png"
-            fit="fill"
-          >
-          </q-img>
-        </q-carousel-slide>
-        <q-carousel-slide name="podcast" class="row no-wrap">
-          <div class="col-7 column justify-center">
-            <p class="col text-h2 text-white">Conheça o Comunica Extensão Podcast</p>
-            <p class="col text-h5 text-white q-pa-md">
-O podcast Comunica Extensão é um programa da Pró-Reitoria de Extensão da UFRJ, em parceria com a Rádio UFRJ, que te ajuda a acompanhar as ações extensionistas da universidade. Você encontra novidades e entrevistas que promovem debates entre a Extensão e o Estado do Rio de Janeiro, com todo o seu circuito cultural, formativo e econômico. 
-</p>
-            <div class="row col-1 no-wrap"><p class="col-4 text-h3 text-white">Ouça em: </p>
-            <q-btn class='col-1' flat icon="img:https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" />
-            <q-btn class='col-1' flat icon="img:https://upload.wikimedia.org/wikipedia/commons/e/e7/Podcasts_%28iOS%29.svg" />
+        <q-carousel-slide
+          name="style"
+          img-src="images/comunica-01-2022.png"
+          class="row no-wrap slideimage"
+        >
+          <div class="q-ma-xl custom-caption absolute-bottom-right ">
+            <q-btn color='purple' label='Inscrever' :to="{ name: 'Comunica'}"> </q-btn>
+        </div>
 
-</div>
-          </div>
-          <q-img
-            id="comunica-img"
-            class="col-5 rounded-borders"
-            src="images/podcast.jpg"
-            fit="fill"
-          >
-          </q-img>
         </q-carousel-slide>
+          <q-carousel-slide
+          name="podcast"
+          img-src="images/podcast.jpg"
+          class="slideimage row no-wrap"
+        >
+          <div class="q-ma-xl custom-caption absolute-bottom-left">
+              <q-btn
+                class="col-1"
+                flat
+                icon="img:https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
+              />
+              <q-btn
+                class="col-1"
+                flat
+                icon="img:https://upload.wikimedia.org/wikipedia/commons/e/e7/Podcasts_%28iOS%29.svg"
+              />
+            </div>
+
+
+        </q-carousel-slide>
+      
       </q-carousel>
     </q-page>
 
-    <q-page ref='destaque' id='destaque' class="column q-pa-xl">
-      <span class="col-1 text-h2">Ações em Destaque</span>
-      <div class="col row q-pa-xl justify-around">
-        <div class="col-3 q-ma-md" v-for="projeto in projetos" :key="projeto">
-          <home-card  :acao="projeto">
-          </home-card>
+    <q-page ref="destaque" id="destaque" class=" ">
+      <p class="q-px-md q-my-md  text-h5 text-bold"> <span style='color: magenta;'>>></span> Descubra o que fazer em ABRIL</p>
+      <div class="col row q-pa-sm justify-around">
+        <div class="col-auto q-ma-sm" v-for="(projeto, index) in projetos" :key="projeto">
+          <home-card :vaga='false' :acao="projeto" :index='index'> </home-card>
         </div>
       </div>
-      <q-btn v-on:click="this.$router.push('/acoes')" class="col-1" label="Veja todas as ações"></q-btn>
+      <q-btn
+        v-on:click="this.$router.push('/acoes')"
+        class="col-1"
+        label="Veja todas as ações"
+      ></q-btn>
     </q-page>
 
     <q-page class="column bg-yellow q-pa-xl">
       <span class="col-1 text-h2">Vagas em Destaque</span>
-      <div class="col row q-pa-xl items-center">
-        <div class="col" v-for="acao in acoes" :key="acao">
-          <q-card
-            flat
-            vertical
-            class="my-card"
-            :style="'border-color: ' + acao.cor"
-          >
-            <img src="https://cdn.quasar.dev/img/mountains.jpg" />
-
-            <q-card-section>
-              <div class="text-h6">{{ acao.titulo }}</div>
-              <div class="text-subtitle2">{{ acao.coordenador }}</div>
-            </q-card-section>
-
-            <q-card-section class="q-pt-none">
-              {{ acao.descricao }}
-            </q-card-section>
-          </q-card>
+      <div class="col row q-pa-sm justify-around">
+        <div class="col-auto q-ma-sm" v-for="(projeto, index) in vagas" :key="projeto">
+          <home-card :vaga='true' :acao="projeto" :index='index'> </home-card>
         </div>
       </div>
-      <q-btn class="col-1" label="Veja todas as vagas"></q-btn>
+      <q-btn
+        v-on:click="this.$router.push('/acoes')"
+        class="col-1 q-mt-xl"
+        label="Veja todas as vagas"
+      ></q-btn>
     </q-page>
 
     <q-page class="column bg-green q-pa-xl">
@@ -103,8 +85,8 @@ O podcast Comunica Extensão é um programa da Pró-Reitoria de Extensão da UFR
         <q-tab>Próximas</q-tab>
         <q-tab>Passadas</q-tab>
       </q-tabs>
-      <div class="col row q-pa-xl items-center">
-        <div class="col" v-for="acao in acoes" :key="acao">
+      <div class="col row q-pa-xl  justify-around">
+        <div class="col-3 q-ma-xl" v-for="acao in acoes" :key="acao">
           <q-card
             flat
             vertical
@@ -132,18 +114,20 @@ O podcast Comunica Extensão é um programa da Pró-Reitoria de Extensão da UFR
           </q-card>
         </div>
       </div>
-      <q-btn v-on:click="this.$router.push('/lives')" class="col-1" label="Veja todas as Lives"></q-btn>
+      <q-btn
+        v-on:click="this.$router.push('/lives')"
+        class="col-1"
+        label="Veja todas as Lives"
+      ></q-btn>
     </q-page>
-  </div>
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import '@quasar/extras/fontawesome-v5'
+import "@quasar/extras/fontawesome-v5";
 import axios from "axios";
 import HomeCard from "../components/HomeCard.vue";
-
-
+import json from "../../public/home.json";
 
 export default defineComponent({
   components: { HomeCard },
@@ -152,6 +136,7 @@ export default defineComponent({
     return {
       slide: "style",
       projetos: [],
+      vagas:[],
 
       acoes: [
         {
@@ -183,27 +168,28 @@ export default defineComponent({
       ],
     };
   },
-  methods:{
-    getProjetos(){
-      axios.get(
-          "http://192.168.100.10:8000/home/",
-        ).then(response => {this.projetos = response.data.data,
-          console.log(this.projetos)
-        })
-    },
-
-
+  created(){
+    this.windowHeight = window.innerHeight + 'px'
   },
-    mounted() {
-    this.getProjetos();
+  methods: {
+    getProjetos() {
+      axios.get("http://127.0.0.1:8000/home/").then((response) => {
+        (this.projetos = response.data.data), console.log(this.projetos);
+        this.vagas = response.data.data.slice(0,3)
+      });
+    },
+    getProjetosLocal(){
+      this.projetos = json.data
+      this.vagas = this.projetos.slice(0,3)
+    },
+  },
+  mounted() {
+    this.getProjetosLocal();
   },
 });
 </script>
 
 <style scoped>
-.hero {
-  background-size: 100% 100%;
-}
 
 .q-carousel {
   min-height: inherit;
@@ -214,11 +200,20 @@ export default defineComponent({
   border-radius: 5%;
 }
 
-
 .my-card {
   width: 100%;
   min-width: 400px;
   min-height: 400px;
-  border-style: outset;
+}
+
+.text-shadow-black{
+  text-shadow: 1px 1px 2px black;
+}
+
+
+.slideimage{
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 </style>

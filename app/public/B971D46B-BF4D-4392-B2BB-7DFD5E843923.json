@@ -1,0 +1,249 @@
+{
+    "data": {
+        "type": "Evento",
+        "id": "B971D46B-BF4D-4392-B2BB-7DFD5E843923",
+        "attributes": {
+            "informacoes_da_acao_de_extensao": {
+                "id": "B971D46B-BF4D-4392-B2BB-7DFD5E843923",
+                "centro": "Centro de Ciencias da Saude",
+                "unidade": "Instituto de Biofísica Carlos Chagas Filho",
+                "titulo": "@labiofun: da bancada para sua casa. O que os fungos fazem por nós?",
+                "modalidade": "Evento",
+                "area_tematica_principal": "Saúde",
+                "area_tematica_secundaria": "Meio ambiente",
+                "objetivos_de_desenvolvimento_sustentavel": "todo",
+                "coordenador_da_acao_de_extensao": "SUSANA FRASES CARVAJAL",
+                "Resumo": "Cada vez mais, as redes sociais passaram a fazer parte do cotidiano da sociedade. Mais do que entreter, essas redes podem se tornar ferramentas de interação valiosas para auxiliar no aprendizado e na interação com a sociedade. Nesse sentido, a ação @labiofun, criado em dezembro de 2020 e veiculado através do Instagram, pretende incentivar o interesse da sociedade pela Ciência, especificamente pela Micologia. As, principais, ações envolvem conscientização ao uso correto de fármacos, difusão de informação sobre prevenção contra doenças infecciosas fúngicas em humanos e animais, curiosidades gerais associadas aos fungos, bem como prestigiar os micologistas do nosso País. O cerne da ação é aproximar a Academia da Sociedade através de conteúdos autênticos e criativos onde a dinâmica de interação, proativa, dará-se através de: I) comentários nas postagens II) e-mail III) direct messenger IV) enquetes e, V) lives, onde esses conteúdos serão mediados por alunos de graduação, pós-graduação, pós-doutores, professores e profissionais da área com distintos saberes (Biólogos, Médicos, Médicos Veterinários, Farmacêuticos, Químicos, etc.), assim promovendo a “disseminação” do conhecimento trazendo luz a micologia e sua importância social seja como agentes infecciosos, na economia ou na indústria.",
+                "Contato": "susanafrases@biof.ufrj.br",
+                "data_de_inicio": "2021-05-03",
+                "data_de_termino": "2022-05-02",
+                "objetivos": "O objetivo geral da ação @labiofun é levar de forma direta, ilustrativa e interativa o conhecimento científico para a sociedade. Assim eles serão partícipes da luta contra as infecções fúngicas e da importância dos fungos para a Ciência e sociedade. Como objetivos específicos temos: 1. Criar conteúdos originais em linguagem acessível; 2. Demonstrar a importância dos fungos na Ciência e para a sociedade; 3. Difundir conhecimento sobre fungos de importância médica, mostrando seus mecanismos de prevenção através da educação sanitária; 4. Conscientizar quanto aos riscos da automedicação; 5. Desenvolver conteúdos sobre as micoses mais relevantes que afetam os animais e quais dessas doenças podem ou não ter potencial zoonótico; 6. Incentivar o cuidado e ética com os animais através do conhecimento; 7. Estimular curiosidade científica e novos conhecimentos de forma direta, ilustrativa e interativa; 8. Divulgar e valorizar os cientistas de renome internacional no país; 9. Explorar a multidisciplinariedade científica e incentivar o trabalho em equipe. 10. Interagir com a sociedade de forma ativa usando redes sociais pelos canais de comunicação ativos, ouvindo as demandas e respondendo as curiosidades que o nosso público questione.",
+                "links_para_redes_sociaus_e_sites": "Instagram de depósito do conteúdo.: @labiofun",
+                "endereco": "Avenida Carlos Chagas Filho, 373, IBCCF\nCidade Universitária, Rio de Janeiro - Rio de Janeiro\nCEP: 21941-902",
+                "publico_da_acao": "Público interno à UFRJ (estudantes, docentes e técnicos) e Externo",
+                "carga_horaria": 90
+            },
+            "caracterizacao_de_eventos": {
+                "id": 2,
+                "duracao_do_evento_em_numero_de_dias": 365,
+                "quantitativo_de_publico": 400,
+                "numero_da_edicao_do_evento": 1,
+                "tema_geral_do_evento": "A ação usa o Instagram onde: Segundas-feiras: “A hora do farmacêutico” é promovido o uso racional de remédios. Terças: “Converse com o veterinário”: são explicadas as micoses com potencial zoonótico, sanitário e econômico. Quartas: “você sabia que”: é estimulada a curiosidade científica de forma agradável e divertida. Quintas: “Conhecendo os micologistas brasileiros”. Mostra-se à sociedade os cientistas brasileiros com reconhecimento internacional e suas pesquisas. Sextas: “A hora das micoses”. São divulgadas as micoses e mecanismos de prevenção através da Educação sanitária. Sábados: “Conhecendo os colaboradores”. Apresenta-se a multidisciplinaridade científica do nosso laboratório. Domingos: “Enquete micológica”. Revisam-se os conteúdos da programação semanal mediante métodos divertidos. A interação dialógica garantirá um diálogo com os interlocutores de forma direta e dinâmica por: comentários nas postagens, direct Messenger, enquetes e, lives (rodas de conversas) quinzenalmente."
+            },
+            "instituicoes_parceiras": [
+                {
+                    "id": 1006,
+                    "nome": "FIOCRUZ",
+                    "tipo_de_parceiro": "Colaboração científica",
+                    "forma_de_institucionalizacao": "Outro(s)",
+                    "email": "rodrigo.paes@ini.fiocruz.br",
+                    "endereco": "Avenida Brasil 4365\nManguinhos, Rio de Janeiro - Rio de Janeiro\n21040-360",
+                    "tipo_de_instituicao": "nacionais"
+                }
+            ],
+            "escolas_participantes": [],
+            "equipe_de_realizacao": [
+                {
+                    "id": 22799,
+                    "periodo_de_participacao": {
+                        "id": 22799,
+                        "inicio": "2021-04-12",
+                        "fim": null
+                    },
+                    "nome": "BRUNO DE ALMEIDA CARLOS DE CARVALHO PONTES",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 22800,
+                    "periodo_de_participacao": {
+                        "id": 22800,
+                        "inicio": "2021-04-12",
+                        "fim": null
+                    },
+                    "nome": "DARIO CORRÊA JUNIOR",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 22801,
+                    "periodo_de_participacao": {
+                        "id": 22801,
+                        "inicio": "2021-04-12",
+                        "fim": null
+                    },
+                    "nome": "GLAUBER RIBEIRO DE SOUSA ARAÚJO",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 22802,
+                    "periodo_de_participacao": {
+                        "id": 22802,
+                        "inicio": "2021-04-12",
+                        "fim": null
+                    },
+                    "nome": "GUSTAVO DORNELLES MACHADO",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 22803,
+                    "periodo_de_participacao": {
+                        "id": 22803,
+                        "inicio": "2021-04-12",
+                        "fim": null
+                    },
+                    "nome": "IARA BASTOS DE ANDRADE",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 22804,
+                    "periodo_de_participacao": {
+                        "id": 22804,
+                        "inicio": "2021-04-12",
+                        "fim": null
+                    },
+                    "nome": "MARCUS VINICIUS DE ARAUJO RODRIGUES",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 22805,
+                    "periodo_de_participacao": {
+                        "id": 22805,
+                        "inicio": "2021-04-12",
+                        "fim": null
+                    },
+                    "nome": "MARIANA LUCY MESQUITA RAMOS",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 22806,
+                    "periodo_de_participacao": {
+                        "id": 22806,
+                        "inicio": "2021-04-12",
+                        "fim": null
+                    },
+                    "nome": "RAVYNI STEFANI GONCALVES DE SOUZA",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 22807,
+                    "periodo_de_participacao": {
+                        "id": 22807,
+                        "inicio": "2021-04-12",
+                        "fim": null
+                    },
+                    "nome": "SUSANA FRASES CARVAJAL",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 22808,
+                    "periodo_de_participacao": {
+                        "id": 22808,
+                        "inicio": "2021-04-12",
+                        "fim": null
+                    },
+                    "nome": "VINICIUS ALVES DO NASCIMENTO",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 22809,
+                    "periodo_de_participacao": {
+                        "id": 22809,
+                        "inicio": "2021-04-12",
+                        "fim": null
+                    },
+                    "nome": "BRUNA LOPES ARCOVERDE",
+                    "tipo": "externo"
+                },
+                {
+                    "id": 22810,
+                    "periodo_de_participacao": {
+                        "id": 22810,
+                        "inicio": "2021-04-12",
+                        "fim": null
+                    },
+                    "nome": "RODRIGO DE ALMEIDA PAES",
+                    "tipo": "externo"
+                },
+                {
+                    "id": 22811,
+                    "periodo_de_participacao": {
+                        "id": 22811,
+                        "inicio": "2021-11-05",
+                        "fim": null
+                    },
+                    "nome": "AMANDA DE SOUZA ARAUJO",
+                    "tipo": "extensionista"
+                },
+                {
+                    "id": 22812,
+                    "periodo_de_participacao": {
+                        "id": 22812,
+                        "inicio": "2021-11-26",
+                        "fim": null
+                    },
+                    "nome": "BEATRIZ ALBUQUERQUE CUSTODIO DE OLIVEIRA",
+                    "tipo": "extensionista"
+                },
+                {
+                    "id": 22813,
+                    "periodo_de_participacao": {
+                        "id": 22813,
+                        "inicio": "2021-11-05",
+                        "fim": null
+                    },
+                    "nome": "BEATRIZ BARBOZA FERNANDES",
+                    "tipo": "extensionista"
+                },
+                {
+                    "id": 22814,
+                    "periodo_de_participacao": {
+                        "id": 22814,
+                        "inicio": "2021-07-06",
+                        "fim": null
+                    },
+                    "nome": "BIANCA PESTANA DE ALVARENGA",
+                    "tipo": "extensionista"
+                },
+                {
+                    "id": 22815,
+                    "periodo_de_participacao": {
+                        "id": 22815,
+                        "inicio": "2022-02-23",
+                        "fim": null
+                    },
+                    "nome": "BRUNA COELHO DE ALMEIDA",
+                    "tipo": "extensionista"
+                },
+                {
+                    "id": 22816,
+                    "periodo_de_participacao": {
+                        "id": 22816,
+                        "inicio": "2022-02-07",
+                        "fim": null
+                    },
+                    "nome": "FELIPE DA PAIXAO BASTOS",
+                    "tipo": "extensionista"
+                },
+                {
+                    "id": 22817,
+                    "periodo_de_participacao": {
+                        "id": 22817,
+                        "inicio": "2021-11-05",
+                        "fim": null
+                    },
+                    "nome": "MARCELLA FONTE SILVA",
+                    "tipo": "extensionista"
+                },
+                {
+                    "id": 22818,
+                    "periodo_de_participacao": {
+                        "id": 22818,
+                        "inicio": "2021-07-07",
+                        "fim": null
+                    },
+                    "nome": "MARIA ALICE ESTEVES DA SILVA",
+                    "tipo": "extensionista"
+                }
+            ]
+        }
+    }
+}

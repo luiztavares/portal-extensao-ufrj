@@ -1,0 +1,141 @@
+{
+    "data": {
+        "type": "Curso",
+        "id": "35641D7A-3FB9-4019-9A44-EC79385DF6AE",
+        "attributes": {
+            "informacoes_da_acao_de_extensao": {
+                "id": "35641D7A-3FB9-4019-9A44-EC79385DF6AE",
+                "centro": "Campus de Macaé",
+                "unidade": "Setor de Pessoal - Macaé",
+                "titulo": "Abordagens Diferenciadas em Aulas de Química, Física, Biologia e Matemática para Professores da Educação Básica",
+                "modalidade": "Curso",
+                "area_tematica_principal": "Educação",
+                "area_tematica_secundaria": "Comunicação",
+                "objetivos_de_desenvolvimento_sustentavel": "todo",
+                "coordenador_da_acao_de_extensao": "WILLIAN TASSIO GOMES NOVATO",
+                "Resumo": "A presente proposta visa a divulgação de novas estratégias didáticas para abordagens diferenciadas no ensino de ciências da natureza, junto aos professores da educação básica, estagiários e estudantes de licenciatura, com ênfase nos cursos de química e física, por meio de plataformas virtuais de videoconferências. Nesta capacitação, serão apresentadas ferramentas digitais que podem ser utilizadas no planejamento e desenvolvimento de aulas, mediante planejamento rápido e de fácil compreensão, principalmente em adaptação no contexto pós-pandêmico. Somado a isso, temáticas atuais serão abordadas de maneira inteiramente digital, visando interligar áreas diversas como: Construção de tintas específicas, Estratégias de \"Gamificação\" e \"aula show\". A capacitação será ofertada por módulos, que serão estruturados em 4 encontros, 1 vez ao mês, devidamente agendados por semestre. Todo o percurso formativo ocorrerá de maneira online, gratuito e haverá a certificação de 80 horas/módulo para os participantes, com exigência de 75% de participação. Para acessar o detalhamento da metodologia de execução, dias e horários, será necessário que o participante acesse o site da UFRJ – Campus Macaé, onde o link para o site do projeto será previamente divulgado. Limite de apenas 20 pessoas por módulo. A inscrição será por ordem de chegada disponibilizada no preenchimento da lista de inscrição no site do projeto.",
+                "Contato": "willian.tg.novato@gmail.com",
+                "data_de_inicio": "2020-07-10",
+                "data_de_termino": "2023-12-10",
+                "objetivos": "A ação visa a adaptação e ampliação dos conhecimentos dos profissionais de educação básica e estudantes de graduação de Química e áreas afins da região Norte Fluminense do Estado do Rio de Janeiro,com capacidade de execução em processos de transposições didáticas.Um dos objetivos da extensão universitária é providenciar uma formação diferenciada distinta das atividades de ensino,sendo assim realizada com a participação na equipe de planejamento,execução e avaliação das ações de extensão.Desta forma,a equipe de professores viabilizará temas científicos de modo a problematizá-los no âmbito escolar,proporcionando situações chamativas e interessantes para o público da educação básica e,com isso,trocar conhecimentos e formação de recursos humanos,uma vez que os professores também são alvejados na presente temática.Logo, quanto a capacitação pleiteada,teremos 3 pontos chaves de inferência quanto a ação:1)Os estudantes envolvidos nos planejamentos dos encontros terão contato imediato com os profissionais de educação básica e as logísticas envolvidas na realização do curso;2)Haverá capacitação por parte de novas alternativas de abordagens metodológicas,via plataformas de videoconferências,proporcionando destreza e capacitação para graduandos e professores da educação básica;3)Contato direto entre públicos com vivências/dificuldades/alternativas totalmente distintas,onde chegaremos em um consenso de melhor aplicação da proposta,após cada encontro,mediante estudos de casos e relatos.",
+                "links_para_redes_sociaus_e_sites": "-",
+                "endereco": "Rua Aloisio da Silva Gomes, 50, Campus UFRJ - Macaé - Prof. Aloísio Teixeira\nGranja dos Cavaleiros, Macaé - Rio de Janeiro\nCEP: 27930-560",
+                "publico_da_acao": "Público interno à UFRJ (estudantes, docentes e técnicos) e Externo",
+                "carga_horaria": 180
+            },
+            "caracterizacao_de_cursos": {
+                "id": 1,
+                "carga_horaria": 80,
+                "modalidade_do_curso": "À distância",
+                "classificacao_do_curso": "Atualização",
+                "programa_de_formacao": "Formação Continuada de Profissionais de Educação da Rede Pública de Ensino Básico",
+                "conteudo_programatico_do_curso": "- Capacitação Quanto ao Uso de Plataformas Digitais; - Fundamentos Teóricos do Processo de Ensino Aprendizagem; - Recursos Didáticos e Mediações por TDIC; - Processos Avaliativos Online; - Prática Educativa: Plano de Ensino Adaptado em Plataformas Online; - Da Instrução Para a Construção; - A Figura do Professor Facilitador com Centralização no Aluno; - Condições Para que o Aluno Construa seu Aprendizado; e - Exemplificações Práticas para Aulas de Química, Física e áreas afins: Salas Virtuais, Estudos de Casos, Aula Show, Experimentalismo, Redação Seriada Falada e Grupo de Verbalização – Grupo de Observação.",
+                "periodos_de_oferta_do_curso_nos_proximos_5_anos": 0
+            },
+            "instituicoes_parceiras": [],
+            "escolas_participantes": [],
+            "equipe_de_realizacao": [
+                {
+                    "id": 25440,
+                    "periodo_de_participacao": {
+                        "id": 25440,
+                        "inicio": "2020-07-10",
+                        "fim": null
+                    },
+                    "nome": "CAROLINA MENDES GUY",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 25441,
+                    "periodo_de_participacao": {
+                        "id": 25441,
+                        "inicio": "2020-07-10",
+                        "fim": null
+                    },
+                    "nome": "DIEGO FERNANDO DA SILVA PASCHOAL",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 25442,
+                    "periodo_de_participacao": {
+                        "id": 25442,
+                        "inicio": "2020-07-10",
+                        "fim": null
+                    },
+                    "nome": "MILENA DE AGUIAR PEREIRA",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 25443,
+                    "periodo_de_participacao": {
+                        "id": 25443,
+                        "inicio": "2020-07-10",
+                        "fim": null
+                    },
+                    "nome": "SARAH SAMANIEGO DA SILVA",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 25444,
+                    "periodo_de_participacao": {
+                        "id": 25444,
+                        "inicio": "2020-07-10",
+                        "fim": null
+                    },
+                    "nome": "WILLIAN TASSIO GOMES NOVATO",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 25445,
+                    "periodo_de_participacao": {
+                        "id": 25445,
+                        "inicio": "2020-07-10",
+                        "fim": null
+                    },
+                    "nome": "RITA DE CÁSSIA REIS",
+                    "tipo": "externo"
+                },
+                {
+                    "id": 25446,
+                    "periodo_de_participacao": {
+                        "id": 25446,
+                        "inicio": "2020-12-02",
+                        "fim": null
+                    },
+                    "nome": "CAROLINA MENDES GUY",
+                    "tipo": "extensionista"
+                },
+                {
+                    "id": 25447,
+                    "periodo_de_participacao": {
+                        "id": 25447,
+                        "inicio": "2020-12-02",
+                        "fim": null
+                    },
+                    "nome": "MILENA DE AGUIAR PEREIRA",
+                    "tipo": "extensionista"
+                },
+                {
+                    "id": 25448,
+                    "periodo_de_participacao": {
+                        "id": 25448,
+                        "inicio": "2020-12-02",
+                        "fim": null
+                    },
+                    "nome": "MURILO SARTARELLI FARAH PINTO",
+                    "tipo": "extensionista"
+                },
+                {
+                    "id": 25449,
+                    "periodo_de_participacao": {
+                        "id": 25449,
+                        "inicio": "2020-12-02",
+                        "fim": null
+                    },
+                    "nome": "SARAH SAMANIEGO DA SILVA",
+                    "tipo": "extensionista"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,306 @@
+{
+    "data": {
+        "type": "Projeto",
+        "id": "C3D4EF17-096D-4C82-93E9-7DE871141471",
+        "attributes": {
+            "informacoes_da_acao_de_extensao": {
+                "id": "C3D4EF17-096D-4C82-93E9-7DE871141471",
+                "centro": "Centro de Ciencias da Saude",
+                "unidade": "Nucleo de Tecnologia Educacional para a Saude",
+                "titulo": "Ciência em Tela",
+                "modalidade": "Projeto",
+                "area_tematica_principal": "Educação",
+                "area_tematica_secundaria": "-",
+                "objetivos_de_desenvolvimento_sustentavel": "todo",
+                "coordenador_da_acao_de_extensao": "ISABEL GOMES RODRIGUES MARTINS",
+                "Resumo": "A revista eletrônica Ciência em Tela tem por objetivo aproximar conhecimentos produzidos em diferentes espaços educativos, formais e não-formais, concebendo professores como produtores de saberes e agentes de transformação social. Estes participam da autoria e arbitragem de trabalhos submetidos à revista que disseminam resultados de pesquisa, promovem atualização de conteúdo, relatam experiências bem sucedidas e disponibilizam recursos didáticos on line. A revista é de acesso aberto e gratuito na internet e seu público alvo é de licenciandos e professores da educação básica, sobretudo aqueles ligados às áreas das ciências naturais e da saúde.",
+                "Contato": "cienciaemtela@gmail.com",
+                "data_de_inicio": "2019-01-01",
+                "data_de_termino": "2025-12-31",
+                "objetivos": "De forma geral, a publicação objetiva contribuir tanto para a melhoria da educação científica na educação básica como para a ampliação da participação cidadã na sociedade, estimulando em seus leitores o gosto pela ciência, a apreciação da natureza, das contribuições e dos limites do empreendimento científico, a compreensão de suas relações com o desenvolvimento social e fomentando ações responsáveis e comprometidas com o bem estar coletivo em nível local e global. Em particular pretende constituir-se como um veículo de atualização de professores, como um canal de disseminação e reflexão acerca de experiências educacionais bem sucedidas e como uma instância de diálogo entre diferentes espaços educativos em ciências. A revista precisa crescer no sentido de ampliar sua abrangência a países da comunidade lusófona. Os cursos de leitura e escrita, dirigidos a professores, devem ter continuidade e se efetivar em parcerias com escolas de modo a aumentar o número de submissões autoradas por professores de ciências. Devemos também continuar a sensibilizar cientistas para a necessidade de divulgar suas pesquisas aos professores. Isto tem sido viabilizado pela inclusão de um novo formato de submissão (entrevistas) e pela produção de vídeos de divulgação científica.",
+                "links_para_redes_sociaus_e_sites": "-",
+                "endereco": "Avenida Carlos Chagas Filho, 373, Bloco A, Sala 26 (NUTES)\nCidade Universitária, Rio de Janeiro - Rio de Janeiro\nCEP: 21941-902",
+                "publico_da_acao": "-",
+                "carga_horaria": 180
+            },
+            "caracterizacao_de_projetos": {
+                "id": 2,
+                "metodologia": "- Avaliação às cegas por especialistas em educação em ciências e por professores da educação básica por meio de fichas específicas. - Envolvimento de docentes, com diferentes perfis de formação disciplinar e de inserção no campo da educação e da divulgação científica, na editoria, conselho editorial e corpo de parerecistas da revista de forma a garantir o caráter interdisciplinar da proposta. - Desenvolvimento de atividades curriculares na disciplina mista 30h de atividades de extensão NUT005 e no RCS NUTZ46. - Envolvimento de estudantes de graduação e de pós-graduaçãoem atividades de estudo, planejamento, execução e investigações dos processos e produtos associados à revista, garantindo assim uma dimensão formativa para os envolvidos. - Análises das estatísticas de acessos, origem geográfica, tempo de permanência (Google Analytics) seguida de relatórios de acompanhamento dos acessos elaborados com periodicidade bimestral - Cômputo do número, do tempo médio de tramitação das submissões como indicadores de fluxo. - Consultas à comunidade para ampliação e atualização de um cadastro nacional de pareceristas com base em indicações de professores de prática de ensino de disciplinas relacionadas às ciências naturais e que também atuam na formação continuada. - Análise de contribuições e demandas de professores postados no site da revista, sobre temas de interesse, adequação às suas necessidades formativas. - Realização de ações de formação de professores.",
+                "duracao_pretendida_do_projeto": 10
+            },
+            "instituicoes_parceiras": [
+                {
+                    "id": 3,
+                    "nome": "Museu da Vida",
+                    "tipo_de_parceiro": "Instituição Federal",
+                    "forma_de_institucionalizacao": "Carta/declaração de parceria",
+                    "email": "msoares@fiocruz.br",
+                    "endereco": "Av Brasil, 4365, 21045, Manguinhos, Rio de Janeiro\n, -",
+                    "tipo_de_instituicao": "nacionais"
+                },
+                {
+                    "id": 4,
+                    "nome": "GEPES/ Colégio Pedro II",
+                    "tipo_de_parceiro": "Instituição Federal",
+                    "forma_de_institucionalizacao": "Carta/declaração de parceria",
+                    "email": "edgarmiranda620@gmail.com",
+                    "endereco": "Rua Bernardo de Vasconcelos 941\nRealengo, Rio de Janeiro - Rio de Janeiro\n21710-261",
+                    "tipo_de_instituicao": "nacionais"
+                },
+                {
+                    "id": 5,
+                    "nome": "11a Coordenadoria Regional de Educação SME RJ",
+                    "tipo_de_parceiro": "Instituição Municipal",
+                    "forma_de_institucionalizacao": "Carta/declaração de parceria",
+                    "email": "gedcre11@rioeduca.net",
+                    "endereco": "Estrada de Maracajá 1294\nGaleão, Rio de Janeiro - Rio de Janeiro\n21941-395",
+                    "tipo_de_instituicao": "nacionais"
+                },
+                {
+                    "id": 6,
+                    "nome": "Instituto de Fisica da UFRJ",
+                    "tipo_de_parceiro": "Instituição Federal",
+                    "forma_de_institucionalizacao": "Carta/declaração de parceria",
+                    "email": "deisemv@gmail.com",
+                    "endereco": "Avenida Brigadeiro Trompowski s/n\nCidade Universitária, Rio de Janeiro - Rio de Janeiro\n21941-972",
+                    "tipo_de_instituicao": "nacionais"
+                },
+                {
+                    "id": 7,
+                    "nome": "Faculdade de Educação da UFRJ",
+                    "tipo_de_parceiro": "Instituição Federal",
+                    "forma_de_institucionalizacao": "Carta/declaração de parceria",
+                    "email": "clpiccinini@gmail.com e marciaserra.f@gmail.com",
+                    "endereco": "Avenida Pasteur 250, 201 FCC\nUrca, Rio de Janeiro - Rio de Janeiro\n22290-902",
+                    "tipo_de_instituicao": "nacionais"
+                },
+                {
+                    "id": 8,
+                    "nome": "Colégio de Aplicação da UFRJ",
+                    "tipo_de_parceiro": "Instituição Federal",
+                    "forma_de_institucionalizacao": "Carta/declaração de parceria",
+                    "email": "rgrozana@gmail.com",
+                    "endereco": "Rua J J Seabra s/n\nLagoa, Rio de Janeiro - Rio de Janeiro\n22470-130",
+                    "tipo_de_instituicao": "nacionais"
+                },
+                {
+                    "id": 9,
+                    "nome": "LABDEC/ CEFET-RJ",
+                    "tipo_de_parceiro": "Instituição Federal",
+                    "forma_de_institucionalizacao": "Carta/declaração de parceria",
+                    "email": "rochamarcelo@yahoo.com.br",
+                    "endereco": "Avenida Maracanã 229\nMaracanã, Rio de Janeiro - Rio de Janeiro\n20271-110",
+                    "tipo_de_instituicao": "nacionais"
+                }
+            ],
+            "escolas_participantes": [
+                {
+                    "id": 1,
+                    "nome": "Escola Municipal Hiolanda",
+                    "tipo_de_escola": "Municipal",
+                    "email": "daviddeoliveira@gmail.com",
+                    "endereco": "Rua Inhovera s/n\nJardim Carioca, Rio de Janeiro - Rio de Janeiro\n21921-720"
+                },
+                {
+                    "id": 2,
+                    "nome": "Escola Municipal Rotary",
+                    "tipo_de_escola": "Municipal",
+                    "email": "karinedullsampaio@gmail.com",
+                    "endereco": "Rua Cambaúba 159\nJardim Guanabara, Rio de Janeiro - Rio de Janeiro\n21940-005"
+                }
+            ],
+            "equipe_de_realizacao": [
+                {
+                    "id": 32,
+                    "periodo_de_participacao": {
+                        "id": 32,
+                        "inicio": "2021-04-01",
+                        "fim": "2022-08-31"
+                    },
+                    "nome": "ALAN DE JESUS PEREIRA",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 33,
+                    "periodo_de_participacao": {
+                        "id": 33,
+                        "inicio": "2019-01-01",
+                        "fim": "2020-04-30"
+                    },
+                    "nome": "ARTHUR LUCAS DE LIMA VASCONCELOS",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 34,
+                    "periodo_de_participacao": {
+                        "id": 34,
+                        "inicio": "2019-01-01",
+                        "fim": null
+                    },
+                    "nome": "CLAUDIA LINO PICCININI",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 35,
+                    "periodo_de_participacao": {
+                        "id": 35,
+                        "inicio": "2019-01-01",
+                        "fim": null
+                    },
+                    "nome": "DAISE PIRES SILVA DE OLIVEIRA",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 36,
+                    "periodo_de_participacao": {
+                        "id": 36,
+                        "inicio": "2019-01-01",
+                        "fim": null
+                    },
+                    "nome": "DEISE MIRANDA VIANNA",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 37,
+                    "periodo_de_participacao": {
+                        "id": 37,
+                        "inicio": "2019-03-01",
+                        "fim": "2020-03-01"
+                    },
+                    "nome": "FELIPE HENRIQUE BELO BRAZ",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 38,
+                    "periodo_de_participacao": {
+                        "id": 38,
+                        "inicio": "2019-01-01",
+                        "fim": "2020-06-30"
+                    },
+                    "nome": "FERNANDA GUIMARAES DE ALMEIDA FERRAZ",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 39,
+                    "periodo_de_participacao": {
+                        "id": 39,
+                        "inicio": "2019-01-01",
+                        "fim": null
+                    },
+                    "nome": "FLORENCE DE FARIA BRASIL VIANNA",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 40,
+                    "periodo_de_participacao": {
+                        "id": 40,
+                        "inicio": "2021-12-01",
+                        "fim": null
+                    },
+                    "nome": "IRIS WETTREICH GOLDBACH",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 41,
+                    "periodo_de_participacao": {
+                        "id": 41,
+                        "inicio": "2021-05-01",
+                        "fim": "2021-10-17"
+                    },
+                    "nome": "JESSICA MARTINS SILVA",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 42,
+                    "periodo_de_participacao": {
+                        "id": 42,
+                        "inicio": "2019-01-01",
+                        "fim": null
+                    },
+                    "nome": "LUIZ MARCELO DA SILVEIRA RESENDE",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 43,
+                    "periodo_de_participacao": {
+                        "id": 43,
+                        "inicio": "2019-01-01",
+                        "fim": null
+                    },
+                    "nome": "MARCIA REGINA GARCIA",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 44,
+                    "periodo_de_participacao": {
+                        "id": 44,
+                        "inicio": "2019-01-01",
+                        "fim": null
+                    },
+                    "nome": "MARCOS CORREA DA SILVA",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 45,
+                    "periodo_de_participacao": {
+                        "id": 45,
+                        "inicio": "2019-01-01",
+                        "fim": "2020-07-31"
+                    },
+                    "nome": "ROBERTA PESSOA RODRIGUES",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 46,
+                    "periodo_de_participacao": {
+                        "id": 46,
+                        "inicio": "2019-01-01",
+                        "fim": null
+                    },
+                    "nome": "ROZANA GOMES DE ABREU",
+                    "tipo": "interno"
+                },
+                {
+                    "id": 47,
+                    "periodo_de_participacao": {
+                        "id": 47,
+                        "inicio": "2021-01-04",
+                        "fim": null
+                    },
+                    "nome": "EDGAR MIRANDA DA SILVA",
+                    "tipo": "externo"
+                },
+                {
+                    "id": 48,
+                    "periodo_de_participacao": {
+                        "id": 48,
+                        "inicio": "2019-01-01",
+                        "fim": null
+                    },
+                    "nome": "FABIO BERNARDO BASTOS",
+                    "tipo": "externo"
+                },
+                {
+                    "id": 49,
+                    "periodo_de_participacao": {
+                        "id": 49,
+                        "inicio": "2021-01-04",
+                        "fim": null
+                    },
+                    "nome": "MARCELO BORGES ROCHA",
+                    "tipo": "externo"
+                },
+                {
+                    "id": 50,
+                    "periodo_de_participacao": {
+                        "id": 50,
+                        "inicio": "2021-05-17",
+                        "fim": null
+                    },
+                    "nome": "BEATRIZ PIRES DE SOUZA",
+                    "tipo": "extensionista"
+                }
+            ]
+        }
+    }
+}

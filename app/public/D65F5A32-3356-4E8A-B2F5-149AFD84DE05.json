@@ -1,0 +1,97 @@
+{
+    "data": {
+        "type": "Evento",
+        "id": "D65F5A32-3356-4E8A-B2F5-149AFD84DE05",
+        "attributes": {
+            "informacoes_da_acao_de_extensao": {
+                "id": "D65F5A32-3356-4E8A-B2F5-149AFD84DE05",
+                "centro": "Centro de Ciencias da Saude",
+                "unidade": "Escola de Educação Física e Desportos",
+                "titulo": "'Arriscado': Dança e acrobacia",
+                "modalidade": "Evento",
+                "area_tematica_principal": "Cultura",
+                "area_tematica_secundaria": "-",
+                "objetivos_de_desenvolvimento_sustentavel": "todo",
+                "coordenador_da_acao_de_extensao": "ISABELA MARIA AZEVEDO GAMA BUARQUE",
+                "Resumo": "Este projeo busca um diálogo entre a dança contemporânea e seus diálogos com diferentes manifestações corporais, no caso a acrobacia, pensando sua relação com a sociedade atual. Nossa metodologia baseia-se nas relações teórico-empíricas, pois buscamos a relação efetiva entre teoria e prática para pensar a dança, escrever a dança e criar performances/oficinas em dança. O projeto conta com três comissões de trabalho que dividem-se em: pesquisa acadêmica (estudos teóricos, produção de textos, participação em congressos, feiras, etc); pesquisa artística (laboratórios práticos, preparação corporal e montagem do espetáculo \"Rotas em Risco\") e oficinas de dança em escolas e projetos sociais.",
+                "Contato": "isambuarque@gmail.com",
+                "data_de_inicio": "2020-04-06",
+                "data_de_termino": "2023-12-22",
+                "objetivos": "Fortalecer os estudos acerca da dança contemporânea em sua relação com o diálogo de linguagens; criar possibilidades de construção coreográfica enfocando o diálogo entre dança e acrobacia; levar o espetáculo e oficinas de dança a públicos diversos e com pouco contato com a dança; contribuir para as reflexões sobre estética e dança e, especialmente, investir na formação de plateia para dança.",
+                "links_para_redes_sociaus_e_sites": "-",
+                "endereco": "Avenida Carlos Chagas Filho, 540\nCidade Universitária, Rio de Janeiro - Rio de Janeiro\nCEP: 21941-599",
+                "publico_da_acao": "-",
+                "carga_horaria": 180
+            },
+            "caracterizacao_de_eventos": {
+                "id": 1,
+                "duracao_do_evento_em_numero_de_dias": 32,
+                "quantitativo_de_publico": 100,
+                "numero_da_edicao_do_evento": 3,
+                "tema_geral_do_evento": "Oficinas e mostras de dança."
+            },
+            "instituicoes_parceiras": [
+                {
+                    "id": 1005,
+                    "nome": "Vila Olímpica da Mangueira - Equipe de Ginástica Rítmica",
+                    "tipo_de_parceiro": "-",
+                    "forma_de_institucionalizacao": "-",
+                    "email": "",
+                    "endereco": "Rua Santos Melo 73\nSão Francisco Xavier, Rio de Janeiro - Rio de Janeiro\n20960-030",
+                    "tipo_de_instituicao": "nacionais"
+                }
+            ],
+            "escolas_participantes": [
+                {
+                    "id": 508,
+                    "nome": "Colégio Estadual Santos Dias",
+                    "tipo_de_escola": "Municipal",
+                    "email": "",
+                    "endereco": "Rua Marechal Floriano Peixoto s/n\nNeves, São Gonçalo - Rio de Janeiro\n24425-470"
+                }
+            ],
+            "equipe_de_realizacao": [
+                {
+                    "id": 22795,
+                    "periodo_de_participacao": {
+                        "id": 22795,
+                        "inicio": "2016-06-06",
+                        "fim": null
+                    },
+                    "nome": "JULIANA AZEVEDO DA SILVA PERGENTINO",
+                    "tipo": "externo"
+                },
+                {
+                    "id": 22796,
+                    "periodo_de_participacao": {
+                        "id": 22796,
+                        "inicio": "2016-03-07",
+                        "fim": null
+                    },
+                    "nome": "MARIA AUGUSTA AZEVEDO GAMA BUARQUE MACIEL",
+                    "tipo": "externo"
+                },
+                {
+                    "id": 22797,
+                    "periodo_de_participacao": {
+                        "id": 22797,
+                        "inicio": "2021-11-09",
+                        "fim": null
+                    },
+                    "nome": "MARIA EDUARDA LOBAO COSTA",
+                    "tipo": "extensionista"
+                },
+                {
+                    "id": 22798,
+                    "periodo_de_participacao": {
+                        "id": 22798,
+                        "inicio": "2022-01-24",
+                        "fim": null
+                    },
+                    "nome": "NATHALIA MOURA DE CARVALHO GARCEZ",
+                    "tipo": "extensionista"
+                }
+            ]
+        }
+    }
+}
