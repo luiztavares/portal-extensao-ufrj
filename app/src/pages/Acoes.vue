@@ -20,21 +20,74 @@
       <p class="text-h5">
         O Curso de Extensão é responsável por garantir uma formação livre em um determinado tema e é oferecido tanto para o público externo, quanto para a universidade. Um Curso pode ser presencial ou à distância, teórico ou prático e ter a duração de semanas ou meses, a depender de cada coordenação.
       </p>
-      <q-table card-class=" text-white full-height" 
-  card-style="padding: 22px; background-image: url('/images/cursos1'); background-size: cover; background-repeat: no-repeat;  " grid  :columns="columns.cursos" :pagination="pagination" :rows="cursos" />
+      <div class="q-pa-md" >
+    <q-list bordered expand-separator class="rounded-borders q-mx-xl">
+      
+      <q-expansion-item
+      class='text-h4'
+      style=" border-style: solid; border-color: #8640C4; color:#8640C4"
+       v-for='curso in cursos' :key='curso'
+        expand-separator
+        :label="curso.nome"
+      >
+        <q-card class='q-pa-xl text-h5' style=" border-top-style: solid; border-color: #8640C4; " >
+          <q-card-section >
+            {{curso['conteúdo programático']}}
+          </q-card-section>
+        </q-card>
+      </q-expansion-item>
+
+    </q-list>
+  </div>
+      <!-- <q-table card-class=" text-white full-height" 
+  card-style="padding: 22px; background-image: url('/images/cursos1'); background-size: cover; background-repeat: no-repeat;  " grid  :columns="columns.cursos" :pagination="pagination" :rows="cursos" /> -->
     </q-tab-panel>
     <q-tab-panel name='Eventos' class="q-pa-xl col">
             <p class="text-h5">
 Um Evento de Extensão é uma das formas de mostrar o resultado dos conhecimentos produzidos na Universidade, tendo como público alvo, normalmente, a própria comunidade da UFRJ. De caráter científico, artístico, esportivo, cultural ou multidisciplinar, podem ser organizados em formatos de Congressos, Seminários, Feiras, Festivais, etc., por docentes e discentes de determinada área.
       </p>
-      <q-table card-class=" text-white full-height" 
-  card-style="padding: 22px; background-image: url('/images/eventos3'); background-size: cover; background-repeat: no-repeat;  " grid  :columns="columns.eventos" :pagination="pagination" :rows="eventos" />
+      <!-- <q-table card-class=" text-white full-height" 
+  card-style="padding: 22px; background-image: url('/images/eventos3'); background-size: cover; background-repeat: no-repeat;  " grid  :columns="columns.eventos" :pagination="pagination" :rows="eventos" /> -->
+        <q-list bordered expand-separator class="rounded-borders">
+      
+      <q-expansion-item
+      class='text-h4'
+      style=" border-style: solid; border-color: #8640C4; color:#8640C4"
+       v-for='curso in eventos' :key='curso'
+        expand-separator
+        :label="curso.nome"
+      >
+        <q-card class='q-pa-xl text-h5' style=" border-top-style: solid; border-color: #8640C4; " >
+          <q-card-section >
+            {{curso['tema geral']}}
+          </q-card-section>
+        </q-card>
+      </q-expansion-item>
+
+    </q-list>
     </q-tab-panel>
     <q-tab-panel name='Projetos' class="q-pa-xl col">
             <p class="text-h5">
 Os Projetos de Extensão são ações promovidas pela comunidade acadêmica, de caráter educativo, social, cultural, científico ou tecnológico, que promovam a interação dialógica a partir do trabalho com grupos vulneráveis e/ou territórios.
       </p>
-     <q-table card-class=" text-white full-height" 
+          <q-list bordered expand-separator class="rounded-borders">
+      
+      <q-expansion-item
+      class='text-h4'
+      style=" border-style: solid; border-color: #8640C4; color:#8640C4"
+       v-for='curso in projetos' :key='curso'
+        expand-separator
+        :label="curso.nome"
+      >
+        <q-card class='q-pa-xl text-h5' style=" border-top-style: solid; border-color: #8640C4; " >
+          <q-card-section >
+            {{curso['metodologia']}}
+          </q-card-section>
+        </q-card>
+      </q-expansion-item>
+
+    </q-list>
+     <!-- <q-table card-class=" text-white full-height" 
   card-style="padding: 22px; background-image: url('/images/projetos3'); background-size: cover; background-repeat: no-repeat;  " grid  :columns="columns.projetos"  :pagination="pagination" :rows="projetos" row-key="nome">
              <template v-slot:body-cell-nome="props">
         <q-td :props="props">
@@ -47,14 +100,31 @@ Os Projetos de Extensão são ações promovidas pela comunidade acadêmica, de 
           </div>
         </q-td>
       </template>
-       </q-table>
+       </q-table> -->
     </q-tab-panel>
         <q-tab-panel name='Programas' class="q-pa-xl col">
             <p class="text-h5">
 Um Programa de Extensão é uma coleção de ações com objetivos em comum.
       </p>
-     <q-table card-class=" text-black full-height" 
-  card-style="padding: 22px; background-image: url('/images/eventos1'); background-size: cover; background-repeat: no-repeat;  " grid :columns='columns.programas'  :pagination="pagination" :rows="programas" />
+              <q-list bordered expand-separator class="rounded-borders">
+      
+      <q-expansion-item
+      class='text-h4'
+      style=" border-style: solid; border-color: #8640C4; color:#8640C4"
+       v-for='curso in programas' :key='curso'
+        expand-separator
+        :label="curso.nome"
+      >
+        <q-card class='q-pa-xl text-h5' style=" border-top-style: solid; border-color: #8640C4; " >
+          <q-card-section >
+            {{curso['conteúdo programático']}}
+          </q-card-section>
+        </q-card>
+      </q-expansion-item>
+
+    </q-list>
+     <!-- <q-table card-class=" text-black full-height" 
+  card-style="padding: 22px; background-image: url('/images/eventos1'); background-size: cover; background-repeat: no-repeat;  " grid :columns='columns.programas'  :pagination="pagination" :rows="programas" /> -->
     </q-tab-panel>
     </q-tab-panels>
   </q-page>

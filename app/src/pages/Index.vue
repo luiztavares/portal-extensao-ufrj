@@ -176,6 +176,7 @@ import "@quasar/extras/fontawesome-v5";
 import axios from "axios";
 import HomeCard from "../components/HomeCard.vue";
 import json from "../../public/home.json";
+import json2 from "../../public/acoes-13-05-2022.json";
 import VueHorizontal from "vue-horizontal";
 
 export default defineComponent({
@@ -231,7 +232,7 @@ export default defineComponent({
       });
     },
     getProjetosLocal() {
-      this.projetos = json.data;
+      this.projetos = json2;
       this.vagas = this.projetos.slice(0, 3);
     },
   },
@@ -252,9 +253,10 @@ export default defineComponent({
 }
 
 .my-card {
-  width: 100%;
   min-width: 400px;
   min-height: 400px;
+  max-width: 400px;
+
 }
 
 .text-shadow-black {

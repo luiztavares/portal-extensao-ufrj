@@ -1,11 +1,12 @@
 <template>
   <q-card  class="mycard">
-    <router-link v-ripple class="cursor-pointer relative-position" :to="'/'+ acao.attributes.modalidade+'/' + acao.id ">
-    <q-img class='' v-if='vaga == false'  :src="acao.attributes.imagem">
+    <router-link v-ripple class="cursor-pointer relative-position" :to="'/'+ acao['O que você deseja divulgar?']+'/' + acao['Link da página da ação no SIGA'] ">
+    <q-img class='' v-if='vaga == false'  :src="acao['Anexe aqui uma imagem para divulgação da vaga, caso deseje.']">
     </q-img>
       <q-card-section >
-        <div class="text-h6 text-black">{{dropTitle( acao.attributes.titulo)}}</div>
-        <div class="text-subtitle2 text-black">{{acao.attributes.coordenador_da_acao_de_extensao}}</div>
+        <div class="text-h6 text-black">{{dropTitle( acao['Título curto da ação de extensão, para divulgação em materiais gráficos e em redes sociais.'])}}</div>
+        <div class="text-subtitle2 text-black">{{acao['O que você deseja divulgar?']}} {{acao.Modalidade}}</div>
+        <div class="text-subtitle2 text-black"></div>
       </q-card-section>
 
 

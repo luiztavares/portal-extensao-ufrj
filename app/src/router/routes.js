@@ -15,6 +15,11 @@ const routes = [
     children: [{ path: "", component: () => import("pages/Lives.vue") }],
   },
   {
+    path: "/divulga",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/Divulga.vue") }],
+  },
+  {
     path: "/:catchAll(.*)*",
     component: () => import("pages/Error404.vue"),
   },
