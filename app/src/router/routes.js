@@ -51,7 +51,7 @@ const routes = [
   },
   {
     name: "Curso",
-    path: "/curso/:id",
+    path: "/curso/:index",
     component: () => import("layouts/MainLayout.vue"),
     children: [
       { path: "", component: () => import("pages/Curso.vue"), props: true },

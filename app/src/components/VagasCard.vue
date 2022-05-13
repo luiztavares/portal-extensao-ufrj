@@ -1,6 +1,6 @@
 <template>
   <q-card  class="mycard">
-    <router-link v-ripple class="cursor-pointer relative-position" :to="'/curso/'+ index ">
+    <router-link v-ripple class="cursor-pointer relative-position" :to="'/vagas/'+ index ">
     <q-img class='' v-if='vaga == false'  :src="acao['Anexe aqui uma imagem para divulgação da vaga, caso deseje.']">
     </q-img>
       <q-card-section >
@@ -76,6 +76,7 @@ export default defineComponent({
   width: 300px;
   max-width: 300px;
   height: 100%;
+
 }
 
 </style>

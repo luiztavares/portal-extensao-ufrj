@@ -63,7 +63,7 @@
       </section>
   </vue-horizontal>
 
-  <q-input class="q-pa-xl" style="max-width: 500px"
+  <!-- <q-input class="q-pa-xl" style="max-width: 500px"
         v-model="acoessearch"
         debounce="1000"
         filled
@@ -80,7 +80,7 @@
       class=""
       label="Veja todas as ações"
     ><span style="color:blue" class="q-px-sm"> V</span> </q-btn>
-    </div>
+    </div> -->
 
   </q-page>
 
@@ -94,11 +94,11 @@
         v-for="(projeto, index) in vagas"
         :key="projeto"
       >
-        <home-card :vaga="false" :acao="projeto" :index="index"> </home-card>
+        <vagas-card :vaga="false" :acao="projeto" :index="index"> </vagas-card>
       </div>
   </vue-horizontal>
 
-  <q-input class="q-pa-xl" style="max-width: 500px"
+  <!-- <q-input class="q-pa-xl" style="max-width: 500px"
         v-model="acoessearch"
         debounce="1000"
         filled
@@ -107,15 +107,15 @@
         <template v-slot:append>
           <q-icon name="search" />
         </template>
-      </q-input>
+      </q-input> -->
 
-    <div class="col row q-pa-sm justify-around">
+    <!-- <div class="col row q-pa-sm justify-around">
     <q-btn flat
       v-on:click="this.$router.push('/acoes')"
       class=""
       label="Veja todas as vagas"
     ><span style="color:blue" class="q-px-sm"> V</span> </q-btn>
-    </div>
+    </div> -->
 
   </q-page>
 
@@ -175,12 +175,13 @@ import { defineComponent } from "vue";
 import "@quasar/extras/fontawesome-v5";
 import axios from "axios";
 import HomeCard from "../components/HomeCard.vue";
-import json from "../../public/home.json";
-import json2 from "../../public/acoes-13-05-2022.json";
+import VagasCard from "../components/VagasCard.vue";
+import vagasJson from "../../public/vagas-13-05-2022.json";
+import acoesJson from "../../public/acoes-13-05-2022.json";
 import VueHorizontal from "vue-horizontal";
 
 export default defineComponent({
-  components: { HomeCard, VueHorizontal },
+  components: { HomeCard,VagasCard, VueHorizontal },
   name: "PageIndex",
   data: function () {
     return {
@@ -191,34 +192,6 @@ export default defineComponent({
       items: [...Array(20).keys()].map((i) => {
         return { title: `Item ${i}`, content: `🚀 Content ${i}` };
       }),
-      acoes: [
-        {
-          titulo: "América Latina Póscolonial: estudos de caso.",
-          coordenador: "CARLOS EDUARDO REBELLO DE MENDONCA",
-          modalidade: "Curso",
-          cor: "red",
-          descricao:
-            "Trata-se de curso onde a história política, social e econômica recente da América Latina será discutida a partir dos enfoques trazidos pela perspectiva dos estudos pós-coloniais e subalternistas, através da leitura de alguns clássicos e da literatura recente sobre alguns casos nacionais mais relevantes",
-        },
-        {
-          titulo: "América Latina Póscolonial: estudos de caso.",
-          coordenador: "CARLOS EDUARDO REBELLO DE MENDONCA",
-          modalidade: "Evento",
-          cor: "green",
-
-          descricao:
-            "Trata-se de curso onde a história política, social e econômica recente da América Latina será discutida a partir dos enfoques trazidos pela perspectiva dos estudos pós-coloniais e subalternistas, através da leitura de alguns clássicos e da literatura recente sobre alguns casos nacionais mais relevantes",
-        },
-        {
-          titulo: "América Latina Póscolonial: estudos de caso.",
-          coordenador: "CARLOS EDUARDO REBELLO DE MENDONCA",
-          modalidade: "Projeto",
-          cor: "blue",
-
-          descricao:
-            "Trata-se de curso onde a história política, social e econômica recente da América Latina será discutida a partir dos enfoques trazidos pela perspectiva dos estudos pós-coloniais e subalternistas, através da leitura de alguns clássicos e da literatura recente sobre alguns casos nacionais mais relevantes",
-        },
-      ],
     };
   },
   created() {
@@ -232,8 +205,8 @@ export default defineComponent({
       });
     },
     getProjetosLocal() {
-      this.projetos = json2;
-      this.vagas = this.projetos.slice(0, 3);
+      this.projetos = acoesJson;
+      this.vagas = vagasJson;
     },
   },
   mounted() {
