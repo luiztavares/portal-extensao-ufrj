@@ -2,7 +2,7 @@
 
   <q-page ref="destaque" id="destaque" class=" q-pa-xl">
     <p class=" q-px-sm text-h5 text-bold" style="text-shadow: 3px 3px 6px #00000030">
-      <span style="color: magenta">>></span> Cursos
+      <span style="color: magenta">>></span> Eventos
     </p>
     <div class="row">
       <div
