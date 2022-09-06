@@ -7,6 +7,7 @@
       active-color="yellow"
       align="justify"
       narrow-indicator
+      style="max-width: 600px"
     >
       <q-tab name="Cursos" label="Cursos" />
       <q-tab name="Eventos" label="Eventos" />

@@ -24,20 +24,20 @@
       >
         <q-carousel-slide
           name="info"
-          :img-src="$q.screen.gt.sm ? 'images/Slide 01.png' : 'images/Slide 01 - 1080x1080.png'"
           class="row no-wrap slideimage"
+          
         >
+        <q-img :src="$q.screen.gt.sm ? $q.screen.gt.lg ? 'images/Galera 2560x1080.png' : 'images/Slide 01.png' : 'images/Slide 01 - 1080x1080.png'" alt=""></q-img>
         </q-carousel-slide>
         <q-carousel-slide
           name="festival"
-          :img-src="$q.screen.gt.md ? 'images/Slider Festival 2022-1920x1080.png' : 'images/Slide Festival 2022 - 1080x1080.png'"
           class="row no-wrap slideimage "
         >
-        <div class="q-ma-xl custom-caption absolute-bottom">
+        <q-img :src="$q.screen.gt.sm ? $q.screen.gt.lg ? 'ima' :  'images/Slider Festival 2022-1920x1080.png' : 'images/Slide Festival 2022 - 1080x1080.png'" alt="">
+        <div class="q-ma-xl custom-caption absolute-bottom transparent">
 <q-btn color="red" label="Veja o festival aqui" :to="{ name: 'Festival' }">
         </q-btn>
-          </div> 
-
+          </div> </q-img>
         </q-carousel-slide>
         <q-carousel-slide
           name="newsletter"
@@ -216,7 +216,7 @@
     </q-page>
   </q-container>
 
-  <!-- <q-page class="column bg-lime q-pa-xl">
+  <q-page class="column bg-lime q-pa-xl">
     <div class="row">
     <p class="col q-px-sm text-h5 text-bold" style="text-shadow: 3px 3px 6px #00000030">
       <span style="color: magenta">>></span> Lives em Destaque
@@ -263,7 +263,7 @@
       class="col-1"
       label="Carregar mais"
     ></q-btn>
-  </q-page> -->
+  </q-page>
 </template>
 
 <script>
