@@ -48,7 +48,7 @@ Um Evento de Extensão é uma das formas de mostrar o resultado dos conhecimento
       </p>
       <!-- <q-table card-class=" text-white full-height" 
   card-style="padding: 22px; background-image: url('/images/eventos3'); background-size: cover; background-repeat: no-repeat;  " grid  :columns="columns.eventos" :pagination="pagination" :rows="eventos" /> -->
-        <q-list bordered expand-separator class="rounded-borders">
+        <q-list bordered expand-separator class="rounded-borders q-mx-xl">
       
       <q-expansion-item
       class='text-h4'
@@ -70,7 +70,7 @@ Um Evento de Extensão é uma das formas de mostrar o resultado dos conhecimento
             <p class="text-h5">
 Os Projetos de Extensão são ações promovidas pela comunidade acadêmica, de caráter educativo, social, cultural, científico ou tecnológico, que promovam a interação dialógica a partir do trabalho com grupos vulneráveis e/ou territórios.
       </p>
-          <q-list bordered expand-separator class="rounded-borders">
+          <q-list bordered expand-separator class="rounded-borders q-mx-xl">
       
       <q-expansion-item
       class='text-h4'
@@ -106,7 +106,7 @@ Os Projetos de Extensão são ações promovidas pela comunidade acadêmica, de 
             <p class="text-h5">
 Um Programa de Extensão é uma coleção de ações com objetivos em comum.
       </p>
-              <q-list bordered expand-separator class="rounded-borders">
+              <q-list bordered expand-separator class="rounded-borders q-mx-xl">
       
       <q-expansion-item
       class='text-h4'

@@ -1,12 +1,15 @@
 <template>
   <q-card  class="mycard">
     <router-link v-ripple class="cursor-pointer relative-position" :to="'/vagas/'+ index ">
-    <q-img class='' v-if='vaga == false'  :src="acao['Anexe aqui uma imagem para divulgação da vaga, caso deseje.']">
+    <q-img class=''  v-if='acao["Anexe aqui uma imagem para divulgação da vaga, caso deseje."] != ""' :src="acao['Anexe aqui uma imagem para divulgação da vaga, caso deseje.']">
+    </q-img>
+    <q-img class=''   v-if='acao["Anexe aqui uma imagem para divulgação da vaga, caso deseje."] == ""' src="images/vagas1">
     </q-img>
       <q-card-section >
-        <div class="text-h6 text-black">{{dropTitle( acao['Título curto da ação de extensão, para divulgação em materiais gráficos e em redes sociais.'])}}</div>
-        <div class="text-subtitle2 text-black">{{acao['O que você deseja divulgar?']}} {{acao.Modalidade}}</div>
-        <div class="text-subtitle2 text-black"></div>
+        <div class="text-h6 text-black">{{dropTitle( acao['Função da vaga'])}}</div>
+        <div class="text-subtitle2 text-black">{{dropTitle( acao['Curso ou Área de atuação do extensionista/bolsista:'])}}</div>
+        <div class="text-subtitle2 text-black">Início: {{acao['Período de inscrições - Data de Início']}}</div>
+        <div class="text-subtitle2 text-black">Fim: {{acao['Período de Inscrições - Data de Término']}}</div>
       </q-card-section>
 
 
@@ -53,7 +56,7 @@ export default defineComponent({
           cor:"white",
         },
         Vaga: {
-          imagem: "images/vagas",
+          imagem: "images/vagas1",
           corTitulo: "rgb(255,127,46)",
           cor:"white",
         },

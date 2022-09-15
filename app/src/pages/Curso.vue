@@ -1,31 +1,58 @@
 <template>
 <div v-if='informacoes' >
-  <q-page v-if='informacoes' class="hero" >
-    <q-img  height='70vh' fit='cover' src='https://auditoriacidada.org.br/wp-content/uploads/2018/01/curso-1500x575.jpg'>
-    <div class="q-pa-xl window-height text-shadow-black">
-    <div class='q-mt-xl  q-pl-xl text-h3'>{{ informacoes['Título curto da ação de extensão, para divulgação em materiais gráficos e em redes sociais.']}}</div>
-    <div class='q-mt-md  q-pl-xl text-h6'>{{ informacoes["Descreva brevemente a ação (curso ou evento), ou a atividade/serviço e como será desenvolvida."]}}</div>
-    </div>
-    </q-img>
-    <div class='text-h6 q-pl-xl q-pt-xl'>    <span class="text-h5 q-mt-xl">Data de Início:</span>
-  {{ informacoes["Período de realização - Data de Início"]}}</div>
-  <div class='text-h6 q-pl-xl'>    <span class="text-h5 q-mt-xl">Data de Término:</span>
-  {{ informacoes["Período de realização - Data de Término"]}}</div>
-  <div class='text-h6 q-pl-xl' v-if='informacoes["Início do prazo de inscrições: (se houver)"] != ""'>    <span class="text-h5 q-mt-xl">Inscrições de </span>
-  {{ informacoes["Início do prazo de inscrições: (se houver)"]}} até {{ informacoes["Fim do prazo de inscrições: (se houver)"]}}</div>
-  <div class='text-h6 q-px-xl q-pt-md' v-if='informacoes["Público alvo"] != "-"'>    <span class="text-h5 q-mt-xl">Público Alvo:</span>
-  {{ informacoes["Público alvo"]}}</div>
-  <div class='text-h6 q-pl-xl q-pt-md' v-if='informacoes["Número de vagas internas da UFRJ"] != "-"'>    <span class="text-h5 q-mt-xl">Vagas internas da UFRJ:</span>
-  {{ informacoes["Número de vagas internas da UFRJ"]}}</div>
-  <div class='text-h6 q-pl-xl' v-if='informacoes["Número de vagas externas"] != "-"'>    <span class="text-h5 q-mt-xl">Vagas externas:</span>
-  {{ informacoes["Número de vagas externas"]}}</div>
+  <q-page v-if='informacoes' class="hero q-px-xl" >
+  <p class="q-px-sm text-h5 text-bold row" style="text-shadow: 3px 3px 6px #00000030">
+      <span style="color: magenta">>> </span> {{informacoes['Título curto da ação de extensão, para divulgação em materiais gráficos e em redes sociais.']}}
+        <q-btn-toggle
+          class="float-right"
+          v-model="toggleAcoes"
+          toggle-color="primary"
+          flat
+          :options="[
+            { slot: 'one', value: 'one' },
+            { slot: 'two', value: 'two' },
+          ]"
+        >
+          <template v-slot:one>
+            <div class="row items-center no-wrap">
+              <q-icon name="list" />
+              <div class="text-center">Lista</div>
+            </div>
+          </template>
 
-  <div class='text-h6 q-pl-xl' v-if='informacoes["Número de vagas externas"] != "-"'>    <span class="text-h5 q-mt-xl">Vagas externas:</span>
-  {{ informacoes["Número de vagas externas"]}}</div>
+          <template v-slot:two>
+            <div class="row q-px-xl items-center no-wrap">
+              <q-icon name="grid_view" />
+              <div class="text-center">Grade</div>
+            </div>
+          </template>
+        </q-btn-toggle>
+  </p>
+
+
+    <q-img class='' height='50vh' fit='contain' v-if='informacoes["Anexe aqui uma imagem para divulgação do curso/evento, caso deseje."] != ""'  :src="informacoes['Anexe aqui uma imagem para divulgação do curso/evento, caso deseje.']">
+    </q-img>
+    <q-img class='' height='50vh' fit='contain' v-if='informacoes["Anexe aqui uma imagem para divulgação do curso/evento, caso deseje."] == ""'  :src="meta[informacoes['O que você deseja divulgar?']].imagem">
+    
+</q-img>
+     
+  <div class="row q-pt-xl items-center">
+      <div class="col-4 text-right q-pr-md">
+ <q-chip color="primary" outline :icon="informacoes['O que você deseja divulgar?'] == 'Curso' ? 'school' : 'celebration'" >{{informacoes['O que você deseja divulgar?']}}</q-chip>
+      <q-chip color="primary" outline :icon="informacoes.Modalidade == 'Online' ? 'public' : 'location_city'" >{{informacoes.Modalidade}}</q-chip>
+        <q-chip color="teal" outline   icon="event" >Início: {{informacoes['Período de realização - Data de Início']}}</q-chip>
+        <q-chip color="teal" outline  icon="event" >Fim: {{informacoes['Período de realização - Data de Término']}}</q-chip>
+        <q-chip color="orange" outline  icon="people" >{{dropTitle(informacoes['Público alvo'],40) }}</q-chip>
+      </div>
+    <div class=' text-h7 col-7 '>
+            <p class="text-h5 text-left"> Descrição</p>
+
+      {{ informacoes['Descreva brevemente a ação (curso ou evento) e como será desenvolvida.']}}</div>
+    </div>
 
 <div class='text-h6 text-center q-pa-xl' >
-<q-btn v-if='informacoes["Página/link de Inscrições (se houver)"] != ""' rounded label="Página de Inscrição" :href="informacoes['Página/link de Inscrições (se houver)']"></q-btn>
-<q-btn v-if='informacoes["E-mail de contato para inscrições (se houver)"] != ""' class="q-ma-sm" rounded label="Email de contato para Inscrição" :href="'mailto:'+informacoes['E-mail de contato para inscrições (se houver)']"></q-btn>
+<q-btn v-if='informacoes["Página/link de Inscrições (se houver)"] != ""' rounded label="Página de Inscrição" color='primary' target='_blank' :href="informacoes['Página/link de Inscrições (se houver)']"></q-btn>
+<q-btn v-if='informacoes["E-mail de contato para inscrições (se houver)"] != ""' class="q-ma-sm" rounded color='primary' target='_blank' label="Email de contato para Inscrição" :href="'mailto:'+informacoes['E-mail de contato para inscrições (se houver)']"></q-btn>
 
 </div>
 
@@ -34,31 +61,6 @@
 
 
   </q-page>
-    <!-- <q-page >
-    <div class="q-pa-xl  ">
-      <span class="text-h3">Objetivos:</span>
-
-    <div class='text-h6 '><span class='text-h5'> Carga Horária: </span>{{ informacoes.informacoes_da_acao_de_extensao.carga_horaria}} Horas</div>
-    <div class='text-h6 '><span class='text-h5'> Redes: </span>{{ informacoes.informacoes_da_acao_de_extensao.links_para_redes_sociaus_e_sites}}</div>
-
-    </div>
-  </q-page> -->
-
-  <!-- <q-page class='q-pa-xl bg-purple'>
-    <p class="text-h3 text-white" v-if='informacoes.instituicoes_parceiras.length'>Instituições Parceiras</p>
-    <q-chip v-for='instituicao in informacoes.instituicoes_parceiras' :key='instituicao.nome' class="glossy" color="green" text-color="white" icon-right="business">
-        {{instituicao.nome}}
-      </q-chip>
-    <p class="text-h3 text-white q-pt-xl"  v-if='informacoes.escolas_participantes.length'>Escolas</p>
-    <q-chip v-for='instituicao in informacoes.escolas_participantes' :key='instituicao.nome' class="glossy" color="orange" text-color="white" icon-right="school">
-        {{instituicao.nome}}
-      </q-chip>
-
-    <p class="text-h3 text-white q-pt-xl"  v-if='informacoes.equipe_de_realizacao.length'>Equipe</p>
-    <q-chip v-for='instituicao in informacoes.equipe_de_realizacao' :key='instituicao.nome' class="glossy" color="red" text-color="white" icon-right="person">
-        {{instituicao.nome}}
-      </q-chip>
-  </q-page> -->
 </div>
 
 
@@ -74,6 +76,9 @@ import acoesJson from "../../public/acoes-13-05-2022.json";
 export default defineComponent({
   props: ["index"],
   methods: {
+        dropTitle(titulo,size){
+      return titulo.length < size ? titulo : (titulo.slice(0,size) + ' ...')
+    },
     getCursos() {
       const url = "http://127.0.0.1:8000/cursos/"+ this.id + '/'
       console.log(url)
@@ -82,8 +87,25 @@ export default defineComponent({
       });
     },
     async getProjetosLocal() {
+      var projetos = []
+      for(var acao of acoesJson){
+        var dtstring = acao['Período de realização - Data de Início']
+        var dia = dtstring.substring(0,2)
+        var mes = dtstring.substring(3,5)
+        var ano = dtstring.substring(6,10)
+        
+        var dtstringend = acao['Período de realização - Data de Término']
+        var diaend = dtstringend.substring(0,2)
+        var mesend = dtstringend.substring(3,5)
+        var anoend = dtstringend.substring(6,10)
+        if(new Date() >= new Date(ano,mes,dia) && new Date() <= new Date(anoend,mesend,diaend))
+          projetos.push(acao)
+      }
+       projetos = projetos.reverse()
+       console.log(projetos)
+
       //this.informacoes = await import("../../public/" + this.id + '.json');
-      this.informacoes = acoesJson[this.index]
+      this.informacoes = projetos[this.index]
       console.log(this.informacoes)
     },
   },
@@ -93,6 +115,28 @@ export default defineComponent({
 
   data: function () {
     return {
+            meta: {
+        Projeto: {
+          imagem: "images/projetos1",
+          corTitulo: "rgb(89,16,236)",
+          cor:"black",
+        },
+        Evento: {
+          imagem: "images/eventos1",
+          corTitulo: "rgb(88,16,236)",
+          cor:"white",
+        },
+        Curso: {
+          imagem: "images/cursos3",
+          corTitulo: "rgb(255,255,0)",
+          cor:"white",
+        },
+        Vaga: {
+          imagem: "images/vagas1",
+          corTitulo: "rgb(255,127,46)",
+          cor:"white",
+        },
+      },
       informacoes: null,
     };
   },

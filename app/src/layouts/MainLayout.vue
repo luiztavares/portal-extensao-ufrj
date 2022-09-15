@@ -11,6 +11,8 @@
           ></q-img>
         </q-toolbar-title>
         <div class="gt-sm">
+    <q-btn round color="purple" :to="links[0].hash" glossy icon="search" />
+
           <q-btn
             style="border-right: 3px solid magenta"
             color="white"
@@ -20,11 +22,11 @@
             :key="link.label"
             :label="link.label"
             :to="link.hash"
-            class="text-no-wrap"
+            class="text-no-wrap btn"
           >
           </q-btn>
         </div>
-                <div class="lt-md">
+        <div class="lt-md">
           <q-btn class='q-mr-xl' color="purple" flat round dense icon="menu">
             <q-menu class="bg-purple text-white" auto-close>
               <q-list >
@@ -34,7 +36,7 @@
                   v-for="link in links"
                   :key="link.label"
                   :to="link.hash"
-                  class="text-no-wrap"
+                  class="text-no-wrap btn"
                 >
                   <q-item-section>
                     {{ link.label }}
@@ -47,10 +49,16 @@
       </q-toolbar>
     </q-header>
 
-    <q-page-container>
+    <q-page-container >
       <router-view />
     </q-page-container>
-    <div elevated class="bg-white q-pa-md">
+    <div elevated class="q-px-xl q-py-md" style="background-color: #0268E4; text-shadow: 3px 3px 6px #212121">
+
+      <p class="text-h6 text-center" style="color: white">
+ Este Portal tem como objetivo informar aos estudantes, docentes, técnicos administrativos e comunidade externa das ações e serviços disponíveis e promovidos pela Pró-Reitoria de Extensão (PR-5) da Universidade Federal do Rio de Janeiro.
+      </p>
+    </div>
+    <div elevated class="bg-white q-px-md">
       <div class="row justify-center">
         <q-img class="col-1" fit="contain" src="images/ufrj.png"></q-img>
         <q-img class="col-1" fit="contain" src="images/siga.jpg"></q-img>
@@ -140,13 +148,13 @@ export default defineComponent({
   data: function () {
     return {
       links: [
-        { label: "Cursos", hash: "/acoes" },
-        { label: "Eventos", hash: "/acoes" },
-        { label: "Projetos", hash: "/acoes" },
+        { label: "Cursos", hash: "/cursos" },
+        { label: "Eventos", hash: "/eventos" },
+        // { label: "Projetos", hash: "/acoes" },
         { label: "Atividades e Serviços", hash: "/acoes" },
-        { label: "Vagas", hash: "/lives" },
-        { label: "Todas as Ações", hash: "/lives" },
-        { label: "Divulge sua Ação", hash: "/" },
+        { label: "Vagas de Extensão", hash: "/vagas" },
+        { label: "Todas as Ações", hash: "/acoes" },
+        { label: "Divulge sua Ação", hash: "/divulga" },
       ],
       search: "",
     };
@@ -167,4 +175,9 @@ export default defineComponent({
 .bg-white {
   background-color: white !important;
 }
+
+.btn{
+  text-shadow: 3px 3px 6px #00000030
+}
+
 </style>
