@@ -1,88 +1,201 @@
 <template>
-<div v-if='informacoes'>
+  <div v-if="informacoes">
+    <q-page v-if="informacoes" class="hero items-center q-px-md column">
+      <p
+        class="q-px-sm text-h5 text-bold row"
+        style="text-shadow: 3px 3px 6px #00000030"
+      >
+        <span style="color: magenta">>> </span>&nbsp;
+        {{
+          informacoes[
+            "Título curto da ação de extensão para divulgação em materiais gráficos e em redes sociais"
+          ]
+        }}
+      </p>
+      <q-img
+        class=""
+        height="50vh"
+        fit="contain"
+        :src="
+          myImage(
+            informacoes[
+              'Anexe aqui uma imagem para divulgação do curso/evento, caso deseje'
+            ]
+          )
+        "
+      >
+      </q-img>
 
-  <q-page  class="hero" >
-    <q-img   height='70vh' fit='cover' src='https://pt-br.learn.canva.com/wp-content/uploads/sites/9/2020/01/evento-corporativo-1.jpg'>
-    <div class="q-pa-xl window-height text-shadow-black">
-    <div class='text-h6 q-pt-xl q-pl-xl'>Unidade: {{ informacoes.informacoes_da_acao_de_extensao.unidade}}</div>
-    <div class='text-h6 q-pl-xl'>Responsável: {{ informacoes.informacoes_da_acao_de_extensao.coordenador_da_acao_de_extensao}}</div>
-    <div class='q-mt-xl  q-pl-xl text-h3'>{{ informacoes.informacoes_da_acao_de_extensao.titulo}}</div>
-    <div class='q-mt-md  q-pl-xl text-h6'>{{ informacoes.informacoes_da_acao_de_extensao.Resumo}}</div>
-    </div>
-    </q-img>
+      <RedesSociais> </RedesSociais>
 
-  </q-page>
+      <div class="row q-pt-xl items-center">
+        <div class="col-xs-12 col-md-4 text-right q-pr-md">
+          <q-chip
+            color="primary"
+            outline
+            :icon="
+              informacoes['O que você deseja divulgar?'] == 'Curso'
+                ? 'school'
+                : 'celebration'
+            "
+            >{{ informacoes["O que você deseja divulgar?"] }}</q-chip
+          >
+          <q-chip
+            color="primary"
+            outline
+            :icon="
+              informacoes.Modalidade == 'Online' ? 'public' : 'location_city'
+            "
+            >{{ informacoes.Modalidade }}</q-chip
+          >
+          <q-chip color="teal" outline icon="event"
+            >Início:
+            {{ informacoes["Período de realização (Data de Início)"] }}</q-chip
+          >
+          <q-chip color="teal" outline icon="event"
+            >Fim:
+            {{ informacoes["Período de realização (Data de Término)"] }}</q-chip
+          >
+          <q-chip color="orange" outline icon="people">
+            <div class="chip">{{ informacoes["Público"] }}</div>
+          </q-chip>
+        </div>
+        <div class="text-h7 col-xs-12 col-md-7">
+          <p class="text-h5 text-left">Descrição</p>
 
-    <q-page >
-    <div class="q-pa-xl  ">
-      <span class="text-h3">Objetivos:</span>
-    <div class='text-h6  q-pl-xl q-pb-xl'><br> {{ informacoes.informacoes_da_acao_de_extensao.objetivos}}</div>
-    <div class='text-h6' v-if='informacoes.informacoes_da_acao_de_extensao.publico_da_acao != "-"'>    <span class="text-h5 q-mt-xl">Público Alvo:</span>
-  {{ informacoes.informacoes_da_acao_de_extensao.publico_da_acao}}</div>
-    <!-- <div class='text-h6 '><span class='text-h5'> Carga Horária: </span>{{ informacoes.informacoes_da_acao_de_extensao.carga_horaria}} Horas</div>
-    <div class='text-h6 '><span class='text-h5'> Redes: </span>{{ informacoes.informacoes_da_acao_de_extensao.links_para_redes_sociaus_e_sites}}</div>
-     -->
-    </div>
-  </q-page>
+          {{
+            informacoes[
+              "Descreva brevemente a ação (curso ou evento) e como será desenvolvida"
+            ]
+          }}
+        </div>
+      </div>
 
-  <q-page class='q-pa-xl bg-purple'>
-    <p class="text-h3 text-white" v-if='informacoes.instituicoes_parceiras.length'>Instituições Parceiras</p>
-    <q-chip v-for='instituicao in informacoes.instituicoes_parceiras' :key='instituicao.nome' class="glossy" color="green" text-color="white" icon-right="business">
-        {{instituicao.nome}}
-      </q-chip>
-    <p class="text-h3 text-white q-pt-xl"  v-if='informacoes.escolas_participantes.length'>Escolas</p>
-    <q-chip v-for='instituicao in informacoes.escolas_participantes' :key='instituicao.nome' class="glossy" color="orange" text-color="white" icon-right="school">
-        {{instituicao.nome}}
-      </q-chip>
-
-    <p class="text-h3 text-white q-pt-xl"  v-if='informacoes.equipe_de_realizacao.length'>Equipe</p>
-    <q-chip v-for='instituicao in informacoes.equipe_de_realizacao' :key='instituicao.nome' class="glossy" color="red" text-color="white" icon-right="person">
-        {{instituicao.nome}}
-      </q-chip>
-  </q-page>
- 
-</div>
-
-  
+      <div class="text-h6 text-center q-pa-xl">
+        <p v-if="informacoes['Página/link de inscrições (se houver)'] != ''">
+          Página para inscrição:
+          <a
+            target="_blank"
+            :href="informacoes['Página/link de inscrições (se houver)']"
+          >
+            {{ informacoes["Página/link de inscrições (se houver)"] }}</a
+          >
+        </p>
+        <p
+          v-if="
+            informacoes['E-mail de contato para inscrições (se houver)'] != ''
+          "
+        >
+          Email sobre inscrições
+          {{ informacoes["E-mail de contato para inscrições (se houver)"] }}
+        </p>
+        <p v-if="informacoes['E-mail para atendimento ao público'] != ''">
+          E-mail para atendimento ao público:
+          {{ informacoes["E-mail para atendimento ao público"] }}
+        </p>
+        <p v-if="informacoes['Telefone para atendimento ao público'] != ''">
+          Telefone para atendimento ao público:
+          {{ informacoes["Telefone para atendimento ao público"] }}
+        </p>
+      </div>
+    </q-page>
+  </div>
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, Vue } from "vue";
 import axios from "axios";
+import acoesJson from "../../public/acoes-13-05-2022.json";
+import RedesSociais from "../components/RedesSociais.vue";
 
-export default defineComponent({
-  props: ["id"],
+export default {
+  props: ["index"],
+  components: { RedesSociais },
   methods: {
-    getEventos() {
-      const url = "http://127.0.0.1:8000/eventos/"+ this.id + '/'
-      console.log(url)
+    dropTitle(titulo, size) {
+      return titulo.length < size ? titulo : titulo.slice(0, size) + " ...";
+    },
+    getCursos() {
+      const url = "http://127.0.0.1:8000/cursos/" + this.id + "/";
+      console.log(url);
       axios.get(url).then((response) => {
-        (this.informacoes = response.data.data.attributes), console.log(this.informacoes);
+        (this.informacoes = response.data.data.attributes),
+          console.log(this.informacoes);
       });
     },
     async getProjetosLocal() {
-      this.informacoes = await import("../../public/" + this.id + '.json');
-      this.informacoes = this.informacoes.data.attributes
-      console.log(this.informacoes)
+      var projetos = [];
+      for (var acao of acoesJson) {
+        projetos.push(acao);
+      }
+
+      this.informacoes = projetos.filter(
+        (data) => JSON.stringify(data).indexOf(this.index) !== -1
+      )[0];
+      console.log(this.informacoes);
+    },
+    myImage(src) {
+      if (src.substr(0, 4) == "http") {
+        var imgs = src.split(",")[0];
+        var id = imgs.split("open?id=")[1];
+        return `https://drive.google.com/u/0/uc?id=${id}`;
+      } else {
+        return "images/Template Curso -1.png";
+      }
     },
   },
   beforeMount() {
     this.getProjetosLocal();
   },
+  created() {
+    this.myurl = encodeURIComponent(window.location.href);
+  },
 
   data: function () {
     return {
+      myurl: "",
+      projetos: [],
+      meta: {
+        Projeto: {
+          imagem: "images/projetos1",
+          corTitulo: "rgb(89,16,236)",
+          cor: "black",
+        },
+        Evento: {
+          imagem: "images/eventos1",
+          corTitulo: "rgb(88,16,236)",
+          cor: "white",
+        },
+        Curso: {
+          imagem: "images/cursos3",
+          corTitulo: "rgb(255,255,0)",
+          cor: "white",
+        },
+        Vaga: {
+          imagem: "images/vagas1",
+          corTitulo: "rgb(255,127,46)",
+          cor: "white",
+        },
+      },
       informacoes: null,
     };
   },
-});
+};
 </script>
 
 <style scoped>
-.text-shadow-black{
+.text-shadow-black {
   text-shadow: 1px 1px 2px black;
 }
 .hero {
-  background-size: 100% 100%;
+  height: 100%;
+  max-width: 1600px;
+}
+.q-chip {
+  height: unset !important;
+}
+
+.chip {
+  white-space: initial !important;
 }
 </style>

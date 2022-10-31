@@ -7,7 +7,7 @@
 sociais da Pró-Reitoria de Extensão.</p>
 
       <q-btn href='https://forms.gle/k9nrTJjb9dsQpNHs8' target='_blank' class='q-ma-md q-pa-lg col-10' color='primary' label='Divulgue seu curso ou evento de extensão'></q-btn>
-      <q-btn href='https://forms.gle/Kxu8us3fGPiHSqqP6' target='_blank' class='q-ma-md q-pa-lg col-10' color='grey' label='DIVULGUE ATIVIDADES E SERVIÇOS DE EXTENSÃO'></q-btn>
+      <q-btn href='https://forms.gle/Kxu8us3fGPiHSqqP6' target='_blank' class='q-ma-md q-pa-lg col-10' color='red' label='DIVULGUE ATIVIDADES E SERVIÇOS DE EXTENSÃO'></q-btn>
       <q-btn  href='https://forms.gle/UCMLVJmvqUpKB2FM8' target='_blank' class='q-ma-md q-pa-lg col-10' color='secondary'  label='Divulgue atividades no YouTube da Extensão UFRJ'></q-btn>
       <q-btn  href='https://forms.gle/dAtW2tBG5GuWFfW16' target='_blank' class='q-ma-md q-pa-lg col-10' color='purple' label='Divulgue sua vaga de extensão'></q-btn>
       <q-btn  href='https://forms.gle/DF9pQZbzTftXbYNT6' target='_blank' class='q-ma-md q-pa-lg col-10' color='orange' label='Divulgue sua ação na imprensa'></q-btn>

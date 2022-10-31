@@ -2,7 +2,7 @@
   <q-layout view="hHh lPr fff">
     <q-header class="bg-white">
       <q-toolbar class="q-ma-md">
-        <q-toolbar-title @click="this.$router.push('/')">
+        <q-toolbar-title class="cursor-pointer" @click="this.$router.push('/')">
           <q-img
             fit="contain"
             height="50px"
@@ -11,7 +11,7 @@
           ></q-img>
         </q-toolbar-title>
         <div class="gt-sm">
-    <q-btn round color="purple" :to="links[0].hash" glossy icon="search" />
+    <q-btn round color="purple" to="/pesquisa" glossy icon="search" />
 
           <q-btn
             style="border-right: 3px solid magenta"
@@ -33,11 +33,24 @@
                 <q-item
                   clickable
                   flat
+                  :key="pesquisa"
+                  to="/pesquisa"
+                  class="text-no-wrap btn"
+                >
+
+                  <q-item-section>
+                    Busca
+                  </q-item-section>
+                </q-item>
+                <q-item
+                  clickable
+                  flat
                   v-for="link in links"
                   :key="link.label"
                   :to="link.hash"
                   class="text-no-wrap btn"
                 >
+
                   <q-item-section>
                     {{ link.label }}
                   </q-item-section>
@@ -55,14 +68,14 @@
     <div elevated class="q-px-xl q-py-md" style="background-color: #0268E4; text-shadow: 3px 3px 6px #212121">
 
       <p class="text-h6 text-center" style="color: white">
- Este Portal tem como objetivo informar aos estudantes, docentes, técnicos administrativos e comunidade externa das ações e serviços disponíveis e promovidos pela Pró-Reitoria de Extensão (PR-5) da Universidade Federal do Rio de Janeiro.
-      </p>
+        No Portal da Extensão UFRJ, você fica sabendo dos cursos, eventos, atividades, produtos e serviços gratuitos oferecidos pelas ações de extensão da Universidade para todos os públicos.       </p>
     </div>
     <div elevated class="bg-white q-px-md">
       <div class="row justify-center">
-        <q-img class="col-1" fit="contain" src="images/ufrj.png"></q-img>
+        <q-img style="max-width: 800px" class="col-md-10 col-sm-12" fit="contain" src="images/Rodape - Portal.png"></q-img>
+        <!-- <q-img class="col-1" fit="contain" src="images/ufrj.png"></q-img>
         <q-img class="col-1" fit="contain" src="images/siga.jpg"></q-img>
-        <q-img class="col-1" fit="contain" src="images/tic.png"></q-img>
+        <q-img class="col-1" fit="contain" src="images/tic.png"></q-img> -->
       </div>
       <div class="custom text-black">
         <p style="text-align: center">
@@ -124,10 +137,10 @@
           <span style="font-size: 10pt"
             >Tel. (21) 3938-0482 / (21) 3938-0494 / (21) 3938-0617 -
             E-mail:&nbsp;<a
-              href="mailto:gabinetepr5@pr5.ufrj.br"
+              href="mailto:comunicacao@pr5.ufrj.br"
               target="_blank"
               rel="noopener noreferrer"
-              >gabinetepr5@pr5.ufrj.br</a
+              >comunicacao@pr5.ufrj.br</a
             ></span
           >
         </p>
@@ -148,13 +161,14 @@ export default defineComponent({
   data: function () {
     return {
       links: [
-        { label: "Eventos", hash: "/eventos" },
+        { label: "Eventos", hash: "/eventos",texto:'Um curso de extensão é uma ação pedagógica teórica e/ou prática, com carga horária mínima de 8 horas, critérios de avaliação definidos e que é aberta à participação de pessoas sem vínculo institucional com a universidade. No Portal da Extensão, você encontra cursos presenciais ou à distância para frequentar gratuitamente e obter certificação ao final.' },
         { label: "Cursos", hash: "/cursos" },
         // { label: "Projetos", hash: "/acoes" },
-        { label: "Atividades e Serviços", hash: "/acoes" },
+        { label: "Atividades e Serviços", hash: "/atividades-e-servicos" },
         { label: "Vagas de Extensão", hash: "/vagas" },
         { label: "Todas as Ações", hash: "/acoes" },
         { label: "Divulge sua Ação", hash: "/divulga" },
+        { label: "Sobre", hash: "/sobre" },
       ],
       search: "",
     };

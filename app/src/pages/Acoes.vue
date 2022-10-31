@@ -1,183 +1,254 @@
 <template>
-  <q-page class=" bg-purple ">
-    <q-tabs
-      v-model="tab"
-      dense
-      class="text-white"
-      active-color="yellow"
-      align="justify"
-      narrow-indicator
-      style="max-width: 600px"
-    >
-      <q-tab name="Cursos" label="Cursos" />
-      <q-tab name="Eventos" label="Eventos" />
-      <q-tab name="Projetos" label="Projetos" />
-      <q-tab name="Programas" label="Programas" />
+  <q-page class="bg-white q-pa-xs-sm q-pa-md-xl row">
+    <div class="" v-if="$q.screen.lt.sm">
+      <q-toolbar>
+        <q-btn
+          fab
+          label="Filtros"
+          color="primary"
+          @click="drawerLeft = !drawerLeft"
+          icon="filter_alt"
+        />
+      </q-toolbar>
 
-    </q-tabs>
-
-    <q-tab-panels v-model="tab" animated>
-    <q-tab-panel name='Cursos' class="q-pa-xl col">
-      <p class="text-h5">
-        O Curso de Extensão é responsável por garantir uma formação livre em um determinado tema e é oferecido tanto para o público externo, quanto para a universidade. Um Curso pode ser presencial ou à distância, teórico ou prático e ter a duração de semanas ou meses, a depender de cada coordenação.
-      </p>
-      <div class="q-pa-md" >
-    <q-list bordered expand-separator class="rounded-borders q-mx-xl">
-      
-      <q-expansion-item
-      class='text-h4'
-      style=" border-style: solid; border-color: #8640C4; color:#8640C4"
-       v-for='curso in cursos' :key='curso'
-        expand-separator
-        :label="curso.nome"
+      <q-drawer
+        v-model="drawerLeft"
+        show-if-above
+        :breakpoint="700"
+        elevated
+        class=""
       >
-        <q-card class='q-pa-xl text-h5' style=" border-top-style: solid; border-color: #8640C4; " >
-          <q-card-section >
-            {{curso['conteúdo programático']}}
-          </q-card-section>
-        </q-card>
-      </q-expansion-item>
-
-    </q-list>
-  </div>
-      <!-- <q-table card-class=" text-white full-height" 
-  card-style="padding: 22px; background-image: url('/images/cursos1'); background-size: cover; background-repeat: no-repeat;  " grid  :columns="columns.cursos" :pagination="pagination" :rows="cursos" /> -->
-    </q-tab-panel>
-    <q-tab-panel name='Eventos' class="q-pa-xl col">
-            <p class="text-h5">
-Um Evento de Extensão é uma das formas de mostrar o resultado dos conhecimentos produzidos na Universidade, tendo como público alvo, normalmente, a própria comunidade da UFRJ. De caráter científico, artístico, esportivo, cultural ou multidisciplinar, podem ser organizados em formatos de Congressos, Seminários, Feiras, Festivais, etc., por docentes e discentes de determinada área.
-      </p>
-      <!-- <q-table card-class=" text-white full-height" 
-  card-style="padding: 22px; background-image: url('/images/eventos3'); background-size: cover; background-repeat: no-repeat;  " grid  :columns="columns.eventos" :pagination="pagination" :rows="eventos" /> -->
-        <q-list bordered expand-separator class="rounded-borders q-mx-xl">
-      
-      <q-expansion-item
-      class='text-h4'
-      style=" border-style: solid; border-color: #8640C4; color:#8640C4"
-       v-for='curso in eventos' :key='curso'
-        expand-separator
-        :label="curso.nome"
-      >
-        <q-card class='q-pa-xl text-h5' style=" border-top-style: solid; border-color: #8640C4; " >
-          <q-card-section >
-            {{curso['tema geral']}}
-          </q-card-section>
-        </q-card>
-      </q-expansion-item>
-
-    </q-list>
-    </q-tab-panel>
-    <q-tab-panel name='Projetos' class="q-pa-xl col">
-            <p class="text-h5">
-Os Projetos de Extensão são ações promovidas pela comunidade acadêmica, de caráter educativo, social, cultural, científico ou tecnológico, que promovam a interação dialógica a partir do trabalho com grupos vulneráveis e/ou territórios.
-      </p>
-          <q-list bordered expand-separator class="rounded-borders q-mx-xl">
-      
-      <q-expansion-item
-      class='text-h4'
-      style=" border-style: solid; border-color: #8640C4; color:#8640C4"
-       v-for='curso in projetos' :key='curso'
-        expand-separator
-        :label="curso.nome"
-      >
-        <q-card class='q-pa-xl text-h5' style=" border-top-style: solid; border-color: #8640C4; " >
-          <q-card-section >
-            {{curso['metodologia']}}
-          </q-card-section>
-        </q-card>
-      </q-expansion-item>
-
-    </q-list>
-     <!-- <q-table card-class=" text-white full-height" 
-  card-style="padding: 22px; background-image: url('/images/projetos3'); background-size: cover; background-repeat: no-repeat;  " grid  :columns="columns.projetos"  :pagination="pagination" :rows="projetos" row-key="nome">
-             <template v-slot:body-cell-nome="props">
-        <q-td :props="props">
-          
-          <div>
-            <q-btn :to="'/'+ '/'"  :label="props.value" />
+        <q-list bordered round padding class="">
+          <div
+            v-if="$q.screen.gt.sm || $q.screen.sm"
+            class="text-h5 q-px-sm text-bold full-width"
+            style="text-shadow: 3px 3px 6px #00000030"
+          >
+            <q-input
+              class="col"
+              v-model="search"
+              rounded
+              outlined
+              type="search"
+            >
+              <template v-slot:append>
+                <q-icon name="search" />
+              </template>
+            </q-input>
           </div>
-          <div class="my-table-details">
-            {{ props.row.details }}
-          </div>
-        </q-td>
-      </template>
-       </q-table> -->
-    </q-tab-panel>
-        <q-tab-panel name='Programas' class="q-pa-xl col">
-            <p class="text-h5">
-Um Programa de Extensão é uma coleção de ações com objetivos em comum.
-      </p>
-              <q-list bordered expand-separator class="rounded-borders q-mx-xl">
-      
-      <q-expansion-item
-      class='text-h4'
-      style=" border-style: solid; border-color: #8640C4; color:#8640C4"
-       v-for='curso in programas' :key='curso'
-        expand-separator
-        :label="curso.nome"
-      >
-        <q-card class='q-pa-xl text-h5' style=" border-top-style: solid; border-color: #8640C4; " >
-          <q-card-section >
-            {{curso['conteúdo programático']}}
-          </q-card-section>
-        </q-card>
-      </q-expansion-item>
 
-    </q-list>
-     <!-- <q-table card-class=" text-black full-height" 
-  card-style="padding: 22px; background-image: url('/images/eventos1'); background-size: cover; background-repeat: no-repeat;  " grid :columns='columns.programas'  :pagination="pagination" :rows="programas" /> -->
-    </q-tab-panel>
-    </q-tab-panels>
+          <q-separator spaced inset />
+
+          <q-item-label header>Categoria</q-item-label>
+          <q-item v-for="item in divulgacao.items" :key="item.label" v-ripple>
+            <q-tooltip
+              anchor="center right"
+              self="center left"
+              class="q-pl-xl bg-purple text-h4"
+              :offset="[10, 100]"
+              style="max-width: 500px"
+            >
+              <span class="toltiptext">
+                {{ item.texto }}
+              </span>
+            </q-tooltip>
+            <q-item-section side top>
+              <q-checkbox
+                v-model="divulgacao.select"
+                :val="item.label"
+                color="orange"
+              />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>{{ item.label }}</q-item-label>
+              <q-item-label caption> </q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-list>
+
+        <div
+          class="q-px-sm text-h5 text-bold row"
+          style="text-shadow: 3px 3px 6px #00000030"
+        >
+          <q-input
+            class="col-12 q-pl-sm-none q-pl-md-xl"
+            v-model="search"
+            rounded
+            outlined
+            type="search"
+          >
+            <template v-slot:append>
+              <q-icon name="search" />
+            </template>
+          </q-input>
+        </div>
+      </q-drawer>
+    </div>
+
+    <div v-if="$q.screen.gt.xs || $q.screen.sm" class="col-2">
+      <q-list bordered round padding class="fixed">
+        <div
+          v-if="$q.screen.gt.sm || $q.screen.sm"
+          class="text-h5 q-px-sm text-bold full-width"
+          style="text-shadow: 3px 3px 6px #00000030"
+        >
+          <q-input class="col" v-model="search" rounded outlined type="search">
+            <template v-slot:append>
+              <q-icon name="search" />
+            </template>
+          </q-input>
+        </div>
+
+        <q-separator spaced inset />
+
+        <q-item-label header>Categoria</q-item-label>
+        <q-item v-for="item in divulgacao.items" :key="item.label" v-ripple>
+          <q-tooltip
+            anchor="center right"
+            self="center left"
+            class="q-pl-xl bg-purple"
+            :offset="[10, 100]"
+            style="max-width: 500px"
+          >
+            <span class="toltiptext">
+              {{ item.texto }}
+            </span>
+          </q-tooltip>
+          <q-item-section side top>
+            <q-checkbox
+              v-model="divulgacao.select"
+              :val="item.label"
+              color="orange"
+            />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{ item.label }}</q-item-label>
+            <q-item-label caption> </q-item-label>
+          </q-item-section>
+        </q-item>
+        <div class="q-pa-lg">
+          Resultados: {{filteredList2.length}}
+        <q-pagination
+          v-model="page"
+          :min="currentPage"
+          :max="Math.ceil(filteredList2.length / totalPages)"
+          :input="true"
+          input-class="text-orange-10"
+        >
+        </q-pagination>
+      </div>
+
+      </q-list>
+
+    </div>
+
+    <div class="q-pa-md col-md-10 col-xs-12 row">
+      <q-list bordered expand-separator class="rounded-borders q-mx-xl">
+        <q-expansion-item
+          class="header"
+          style="border-style: solid; border-color: #8640c4; color: #8640c4"
+          v-for="(curso,index) in getData"
+          :key="curso"
+          expand-separator
+          :label="(index+1) + ((page-1)*totalPages) + ' - '+curso.titulo"
+        >
+          <q-card
+            class="q-pa-xl header2"
+            style="border-top-style: solid; border-color: #8640c4"
+          >
+            <q-card-section class="row">
+              <div class="col-4">
+                <p class="header2">Modalidade: {{ curso.modalidade }}</p>
+                <p class="text1 q-pl-md">
+                  Coordenador: {{ curso.coordenador_da_acao_de_extensao }}
+                </p>
+                <p class="text1 q-pl-md">Contato: {{ curso.Contato }}</p>
+                <p class="text1 q-pl-md">Centro: {{ curso.centro }}</p>
+                <p class="text1 q-pl-md">Unidade: {{ curso.unidade }}</p>
+                <p class="text1 q-pl-md">
+                  Links de redes: {{ curso.links_para_redes_sociaus_e_sites }}
+                </p>
+                <a class="text1 q-pl-md" :href="'https://portal.ufrj.br/Inscricao/extensao/acaoExtensao/acao?id='+curso.id" target="_blank"> Saiba mais</a>
+
+              </div>
+              <div class="col-8">
+                <p class="header2">Resumo:</p>
+                <p class="text1 col-6 q-pl-md">{{ curso["Resumo"] }}</p>
+              </div>
+            </q-card-section>
+          </q-card>
+        </q-expansion-item>
+      </q-list>
+    </div>
   </q-page>
 </template>
 
 <script>
 import { defineComponent, ref } from "vue";
-import json from "../../public/dados.json";
+import json from "../../public/todasacoes.json";
 
 export default defineComponent({
   setup() {
     return {};
   },
+  computed: {
+    filteredList() {
+      return this.acoes.filter(
+        (data) =>
+          JSON.stringify(data)
+            .toLowerCase()
+            .indexOf(this.search.toLowerCase()) !== -1
+      );
+    },
+    filteredList2() {
+      return this.filteredList.filter((data) =>
+        this.divulgacao.select.includes(data["modalidade"])
+      );
+    },
+    getData() {
+      return this.filteredList2.slice(
+        (this.page - 1) * this.totalPages,
+        (this.page - 1) * this.totalPages + this.totalPages
+      );
+    },
+  },
   data: function () {
     return {
-      tab: 'Cursos',
+      drawerLeft: ref(false),
+      page: 1,
+      currentPage: 1,
+      nextPage: null,
+      totalPages: 20,
+      tab: "Cursos",
       pagination: {
         rowsPerPage: 30, // current rows per page being displayed
       },
-      cursos: json["SegmentacaoAcaoExtensaoCurso"],
-      eventos: json["AcaoExtensaoEvento"],
-      programas: json["AcaoExtensaoAcaoExtensaoProgram"],
-      projetos: json["AcaoExtensaoProjeto"],
-      columns : {
-        cursos:[
-          { name: 'Nome', label: 'Nome', field: 'nome'},
-          { name: 'Coordenador', label: 'coordenador', field: 'coordenador'},
-          { name: 'Unidade', label: 'Unidade', field: 'unidade'},
-          { name: 'Modalidade', label: 'Modalidade', field: 'modalidade'},
-          { name: 'Classificação curso', label: 'Classificação curso', field: 'classificação curso'},
-          { name: 'Programa de formação', label: 'Programa de formação', field: 'programa de formação'},
+      acoes: json,
+      search: "",
+      divulgacao: {
+        items: [
+          {
+            label: "Curso",
+            texto:
+              "Um curso de extensão é uma ação pedagógica teórica e/ou prática, com carga horária mínima de 8 horas, critérios de avaliação definidos e que é aberta à participação de pessoas sem vínculo institucional com a universidade. No Portal da Extensão, você encontra cursos presenciais ou à distância para frequentar gratuitamente e obter certificação ao final.",
+          },
+          {
+            label: "Evento",
+            texto:
+              "O evento de extensão é uma ação que promove apresentação e/ou exibição pública, livre ou com público específico, do conhecimento ou produto cultural, artístico, esportivo, científico e tecnológico desenvolvido, conservado ou reconhecido pela universidade. No Portal da Extensão, você encontra eventos gratuitos para criar novas conexões com pessoas e ideias.",
+          },
+          {
+            label: "Projeto",
+            texto:
+              "Os projetos de extensão são ações promovidas pela comunidade acadêmica, de caráter educativo, social, cultural, científico ou tecnológico, que promovem a interação dialógica a partir do trabalho com grupos sociais e/ou territórios sem vínculo institucional com a universidade.",
+          },
+          {
+            label: "Programa",
+            texto:
+              "Os programas articulam pelo menos três ações de extensão, sendo pelo menos dois projetos, com objetivos comuns ou correlatos, propiciando a integração de ações interdisciplinares, com participação de professores, alunos e técnicos de diversas unidades e centros da UFRJ.",
+          },
         ],
-         eventos:[
-          { name: 'Nome', label: 'Nome', field: 'nome'},
-          { name: 'Coordenador', label: 'coordenador', field: 'coordenador'},
-          { name: 'Unidade', label: 'Unidade', field: 'unidade'},
-          { name: 'Área temática', label: 'Área temática', field: 'área temática primária'},
-          { name: 'Duração em dias', label: 'Duração em dias', field: 'duração em dias'},
-          { name: 'Carga horária total', label: 'Carga horária total', field: 'carga horária total'},
-        ],
-         projetos:[
-          { name: 'Nome', label: 'Nome', field: 'nome'},
-          { name: 'Coordenador', label: 'coordenador', field: 'coordenador'},
-          { name: 'Unidade', label: 'Unidade', field: 'unidade'},
-          { name: 'Área temática', label: 'Área temática', field: 'área temática primária'},
-        ],
-         programas:[
-          { name: 'Nome', label: 'Nome', field: 'nome'},
-          { name: 'Coordenador', label: 'coordenador', field: 'coordenador'},
-          { name: 'Unidade', label: 'Unidade', field: 'unidade'},
-          { name: 'Área temática', label: 'Área temática', field: 'área temática primária'},
-        ],
+        select: ["Curso", "Evento", "Projeto", "Programa"],
       },
     };
   },
@@ -204,8 +275,23 @@ export default defineComponent({
   max-width: 1600px;
 }
 
-.bgcurso{
-  background-image: url('/images/cursos1');
+.bgcurso {
+  background-image: url("/images/cursos1");
   background-color: red;
+}
+
+.header {
+  font-size: min(25px, 2.5vw);
+  font-weight: bold;
+}
+
+.header2 {
+  font-size: min(20px, 2vw);
+  font-weight: bold;
+}
+
+.text1 {
+  font-size: min(16px, 2vw);
+  font-weight: 400;
 }
 </style>

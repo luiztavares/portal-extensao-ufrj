@@ -5,14 +5,24 @@ const routes = [
     children: [{ path: "", component: () => import("pages/Index.vue") }],
   },
   {
-    path: "/cursos",
+    path: "/pesquisa",
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/Index1.vue") }],
   },
   {
+    path: "/cursos",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/Index-curso.vue") }],
+  },
+  {
+    path: "/atividades-e-servicos",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/Index-atividades.vue") }],
+  },
+  {
     path: "/eventos",
     component: () => import("layouts/MainLayout.vue"),
-    children: [{ path: "", component: () => import("pages/Index2.vue") }],
+    children: [{ path: "", component: () => import("pages/Index-evento.vue") }],
   },
   {
     path: "/vagas",
@@ -38,6 +48,11 @@ const routes = [
     path: "/divulga",
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/Divulga.vue") }],
+  },
+  {
+    path: "/sobre",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/Sobre.vue") }],
   },
   {
     path: "/:catchAll(.*)*",
@@ -93,7 +108,7 @@ const routes = [
   },
   {
     name: "Evento",
-    path: "/evento/:id",
+    path: "/evento/:index",
     component: () => import("layouts/MainLayout.vue"),
     children: [
       { path: "", component: () => import("pages/Evento.vue"), props: true },
@@ -105,6 +120,22 @@ const routes = [
     component: () => import("layouts/MainLayout.vue"),
     children: [
       { path: "", component: () => import("pages/Curso.vue"), props: true },
+    ],
+  },
+  {
+    name: "Vaga",
+    path: "/vaga/:index",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [
+      { path: "", component: () => import("pages/Vaga.vue"), props: true },
+    ],
+  },
+  {
+    name: "Atividade",
+    path: "/atividade-e-servico/:index",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [
+      { path: "", component: () => import("pages/Atividade-e-servico.vue"), props: true },
     ],
   },
 ];

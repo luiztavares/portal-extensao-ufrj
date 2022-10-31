@@ -2,18 +2,20 @@
   <q-container>
     <q-page class="hero">
       <p
-        class="text-h5 text-bold q-px-xl q-my-md"
+        class="text-h5 text-bold q-px-xl q-py-md"
         style="text-shadow: 3px 3px 6px #00000030"
       >
-        <span style="color: magenta">>></span> Em destaque
+        <span style="color: magenta">>>&nbsp;</span>Em destaque
       </p>
       <q-carousel
+        autoplay
+        infinite
         v-model="slide"
         transition-prev="jump-right"
         transition-next="jump-left"
         swipeable
         animated
-        control-color="black"
+        control-color="white"
         prev-icon="arrow_left"
         next-icon="arrow_right"
         navigation-icon="radio_button_unchecked"
@@ -22,39 +24,98 @@
         arrows
         class="bg-purple shadow-1"
       >
+
         <q-carousel-slide
           name="info"
-          class="row no-wrap slideimage"
-          
+          class="slideimage "
+          img-src="images/Galera 2560x1080.png"
         >
-        <q-img :src="$q.screen.gt.sm ? $q.screen.gt.lg ? 'images/Galera 2560x1080.png' : 'images/Slide 01.png' : 'images/Slide 01 - 1080x1080.png'" alt=""></q-img>
+        <div class="absolute-bottom q-mx-xs-sm q-my-xs-xs  q-mx-sm-xl q-my-sm-xl">
+        <q-img class="" position="0% 50%" fit="contain" height="40vh" src="images/Galera - Texto.svg">
+        </q-img>
+        </div>
+
+
         </q-carousel-slide>
         <q-carousel-slide
           name="festival"
-          class="row no-wrap slideimage "
+          class="row no-wrap slideimage"
+          :img-src="
+            $q.screen.gt.sm
+              ? $q.screen.gt.lg
+                ? 'images/Slider Festival 2022- 2560 x1080.png'
+                : 'images/Slider Festival 2022-1920x1080.png'
+              : 'images/Slide Festival 2022 - 1080x1080.png'
+          "
         >
-        <q-img :src="$q.screen.gt.sm ? $q.screen.gt.lg ? 'ima' :  'images/Slider Festival 2022-1920x1080.png' : 'images/Slide Festival 2022 - 1080x1080.png'" alt="">
-        <div class="q-ma-xl custom-caption absolute-bottom transparent">
-<q-btn color="red" label="Veja o festival aqui" :to="{ name: 'Festival' }">
-        </q-btn>
-          </div> </q-img>
+          <div class="q-ma-xl custom-caption absolute-bottom transparent">
+            <q-btn
+              color="red"
+              label="Veja o festival aqui"
+              :to="{ name: 'Festival' }"
+            >
+            </q-btn>
+          </div>
         </q-carousel-slide>
         <q-carousel-slide
           name="newsletter"
-          :img-src="$q.screen.gt.md ? 'images/News-header-16x9.png': 'images/news-header-1x1.png'"
-          class="row no-wrap slideimage "
+          img-src="images/news1.svg"
+          class="row no-wrap slideimage"
         >
+        <q-img class="" position="0% 50%" fit="contain"  src="images/news4.svg">
+        </q-img>
+
           <div class="q-ma-xl custom-caption absolute-bottom-right">
-            <q-btn color="purple" label="Leia" :to="{ name: 'Leia' }">
-            </q-btn>
-            <q-btn class="q-ml-xl" color="purple" label="Assine" :to="{ name: 'Comunica' }">
+            <q-btn color="purple" label="Leia" :to="{ name: 'Leia' }"> </q-btn>
+            <q-btn
+              class="q-ml-xl"
+              color="purple"
+              label="Assine"
+              :to="{ name: 'Comunica' }"
+            >
             </q-btn>
           </div>
         </q-carousel-slide>
         <q-carousel-slide
           name="podcast"
-          :img-src="$q.screen.gt.md ?  'images/podcast-16x9.png' : 'images/podcast-1x1.png'"
-          class="slideimage row no-wrap "
+          img-src="images/Estreia Comunica Extensão Podcast 28 - Fundo.png"
+          class="slideimage justify-center"
+        >
+
+        <div class="col q-mx-xs-sm q-my-xs-xs  q-mx-sm-xl q-my-sm-xl">
+        <q-img class="" position="0% 50%" fit="contain" height="20vh" src="images/comunica28titulo.svg">
+        </q-img>
+        </div>
+        <div class="col q-mx-xs-sm q-my-xs-xs  q-mx-sm-xl q-my-sm-xl">
+        <q-img class="" position="0% 50%" fit="contain" height="20vh" src="images/comunica28episodio.svg">
+        </q-img>
+        </div>
+        <div class="col q-mx-xs-sm q-my-xs-xs  q-mx-sm-xl q-my-sm-xl self-right">
+        <q-img class="" position="100% 50%" fit="contain" height="20vh" src="images/comunica28logo.svg">
+        </q-img>
+        </div>
+
+<!--
+        <div class="col">
+          <q-img fit="contain" height="10vh" src="images/comunica28titulo.svg"></q-img>
+        </div>
+        <div class="col">
+          <q-img src="images/comunica28episodio.svg"></q-img>
+        </div>
+        <div class="col">
+          <q-img src="images/comunica28logo.svg"></q-img>
+        </div> -->
+        </q-carousel-slide>
+        <!-- <q-carousel-slide
+          name="podcast"
+          :img-src="
+            $q.screen.gt.sm
+              ? $q.screen.gt.lg
+                ? 'images/Podcast  - portal 2560x1080.png'
+                : 'images/podcast-16x9.png'
+              : 'images/podcast-1x1.png'
+          "
+          class="slideimage row no-wrap"
         >
           <div class="q-ma-xl custom-caption absolute-bottom-left">
             <q-btn
@@ -64,33 +125,19 @@
               icon="img:https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
               :to="{ name: 'Spotify' }"
             />
-            <!-- <q-btn
-              class="col-1"
-                            size="lg"
-
-              flat
-              icon="img:https://upload.wikimedia.org/wikipedia/commons/e/e7/Podcasts_%28iOS%29.svg"
-            /> -->
           </div>
-        </q-carousel-slide>
-
-        
+        </q-carousel-slide> -->
       </q-carousel>
     </q-page>
 
-    <q-page ref="destaque" id="destaque" class="q-pa-xl">
+    <q-page ref="destaque" id="destaque" class="q-pa-sm-xl q-pa-xs-sm ">
       <p
         class="q-px-sm text-h5 text-bold row"
         style="text-shadow: 3px 3px 6px #00000030"
       >
-        <span style="color: magenta">>> </span> Descubra o que fazer em
+        <span style="color: magenta">>>&nbsp;</span>Descubra o que fazer em
         {{ month }}
         <q-space></q-space>
-        <!-- <q-input v-model="search" rounded outlined type="search">
-        <template v-slot:append>
-          <q-icon name="search" />
-        </template>
-      </q-input> -->
         <q-btn-toggle
           class="float-right"
           v-model="toggleAcoes"
@@ -117,18 +164,18 @@
         </q-btn-toggle>
       </p>
 
-      <q-list v-if="toggleAcoes == 'one'" responsive class="q-mx-xl">
+      <q-list v-if="toggleAcoes == 'one'" responsive class="q-px-sm-none q-px-md-xl">
         <section
-          class="col-auto q-ma-md"
+          class="col-auto q-pa-sm-md q-pa-md-md"
           v-for="(projeto, index) in filteredList3"
           :key="projeto"
         >
           <home-list :vaga="false" :acao="projeto" :index="index"> </home-list>
         </section>
       </q-list>
-      <vue-horizontal v-if="toggleAcoes == 'two'" responsive class="q-mx-xl">
+      <vue-horizontal v-if="toggleAcoes == 'two'" responsive class="q-px-sm-none q-px-md-xl">
         <section
-          class="col-auto q-ma-md"
+          class="col-auto q-pa-sm-md q-pa-md-md"
           v-for="(projeto, index) in filteredList3"
           :key="projeto"
         >
@@ -140,7 +187,7 @@
         class="q-px-sm text-h5 text-bold q-mt-xl"
         style="text-shadow: 3px 3px 6px #00000030"
       >
-        <span style="color: magenta">>></span> VAGAS em Ações de Extensão
+        <span style="color: magenta">>>&nbsp;</span>VAGAS em Ações de Extensão para Estudantes da UFRJ
         <q-btn-toggle
           class="float-right"
           v-model="toggleVagas"
@@ -166,19 +213,20 @@
           </template>
         </q-btn-toggle>
       </p>
-      <q-list v-if="toggleVagas == 'one'" responsive class="q-mx-xl">
+      <q-list v-if="toggleVagas == 'one'" responsive class="q-px-sm-none q-px-md-xl">
         <section
-          class="col-auto q-ma-md"
+          class="col-auto q-pa-sm-md q-pa-md-md"
           v-for="(projeto, index) in vagas"
           :key="projeto"
         >
-          <vagas-list :vaga="false" :acao="projeto" :index="index"> </vagas-list>
+          <vagas-list :vaga="false" :acao="projeto" :index="index">
+          </vagas-list>
         </section>
       </q-list>
 
-      <vue-horizontal v-if="toggleVagas == 'two'"  responsive class="q-mx-xl">
+      <vue-horizontal v-if="toggleVagas == 'two'" responsive class="q-px-sm-none q-px-md-xl">
         <div
-          class="col-auto q-ma-md"
+          class="col-auto q-pa-sm-md q-pa-md-md"
           v-for="(projeto, index) in vagas"
           :key="projeto"
         >
@@ -192,7 +240,8 @@
         target="_blank"
         class="text-red q-px-xl text-center text-h6"
       >
-        Estudantes, vejam aqui tutorial sobre como obter creditação das suas horas de extensão 
+        Estudantes, vejam aqui tutorial sobre como obter creditação das suas
+        horas de extensão
       </a>
 
       <!-- <q-input class="q-pa-xl" style="max-width: 500px"
@@ -216,18 +265,20 @@
     </q-page>
   </q-container>
 
-  <q-page class="column bg-lime q-pa-xl">
+  <!-- <q-page class="column bg-lime q-pa-xl">
     <div class="row">
-    <p class="col q-px-sm text-h5 text-bold" style="text-shadow: 3px 3px 6px #00000030">
-      <span style="color: magenta">>></span> Lives em Destaque
-    </p>
-        <q-tabs class="col">
-      <q-tab>Ao vivo</q-tab>
-      <q-tab>Próximas</q-tab>
-      <q-tab>Passadas</q-tab>
-    </q-tabs>
+      <p
+        class="col q-px-sm text-h5 text-bold"
+        style="text-shadow: 3px 3px 6px #00000030"
+      >
+        <span style="color: magenta">>></span> Lives em Destaque
+      </p>
+      <q-tabs class="col">
+        <q-tab>Ao vivo</q-tab>
+        <q-tab>Próximas</q-tab>
+        <q-tab>Passadas</q-tab>
+      </q-tabs>
     </div>
-
 
     <div class="col row q-pa-xl justify-around">
       <div class="col-3 q-ma-xl" v-for="acao in acoes" :key="acao">
@@ -258,12 +309,13 @@
         </q-card>
       </div>
     </div>
-    <q-btn flat
+    <q-btn
+      flat
       v-on:click="this.$router.push('/lives')"
       class="col-1"
       label="Carregar mais"
     ></q-btn>
-  </q-page>
+  </q-page> -->
 </template>
 
 <script>
@@ -277,19 +329,19 @@ import VagasCard from "../components/VagasCard.vue";
 import vagasJson from "../../public/vagas-13-05-2022.json";
 import acoesJson from "../../public/acoes-13-05-2022.json";
 import VueHorizontal from "vue-horizontal";
-import { useQuasar } from 'quasar'
-import { computed } from 'vue'
+import { useQuasar } from "quasar";
+import { computed } from "vue";
 
 export default defineComponent({
-  components: { HomeCard, VagasCard, HomeList,VagasList, VueHorizontal },
+  components: { HomeCard, VagasCard, HomeList, VagasList, VueHorizontal },
   name: "PageIndex",
-  setup () {
-    const $q = useQuasar()
+  setup() {
+    const $q = useQuasar();
   },
   data: function () {
     return {
       divulgar: ["Curso", "Evento"],
-      modalidade: ["Online", "Presencial"],
+      modalidade: ["Online", "Presencial",'Semi-Presencial'],
       search: "",
       toggleAcoes: "two",
       toggleVagas: "two",
@@ -313,40 +365,65 @@ export default defineComponent({
       });
     },
     getProjetosLocal() {
+      var i = 0;
+      var j = 0;
+
       for (var acao of acoesJson) {
-        var dtstring = acao["Período de realização - Data de Início"];
+        var dtstring = acao["Período de realização (Data de Início)"];
         var dia = dtstring.substring(0, 2);
         var mes = dtstring.substring(3, 5);
         var ano = dtstring.substring(6, 10);
 
-        var dtstringend = acao["Período de realização - Data de Término"];
+        var dtstringend = acao["Período de realização (Data de Término)"];
         var diaend = dtstringend.substring(0, 2);
         var mesend = dtstringend.substring(3, 5);
         var anoend = dtstringend.substring(6, 10);
+
+        acao['id'] = acao['Link da página da ação no SIGA'].split('https://portal.ufrj.br/Inscricao/extensao/acaoExtensao/acao?id=')[1].split('&cid=')[0]
+        if(acao["O que você deseja divulgar?"] == 'Curso' &&  acao['Anexe aqui uma imagem para divulgação do curso/evento, caso deseje'] == ''){
+          acao['Anexe aqui uma imagem para divulgação do curso/evento, caso deseje'] = `images/Template Curso -${i}.png`
+            i+= 1;
+            i = i%3
+        }
+        if(acao["O que você deseja divulgar?"] == 'Evento' &&  acao['Anexe aqui uma imagem para divulgação do curso/evento, caso deseje'] == ''){
+          acao['Anexe aqui uma imagem para divulgação do curso/evento, caso deseje'] = `images/Template Evento -${j}.png`
+            j+= 1;
+            j = i%3
+        }
         if (
-          new Date() >= new Date(ano, mes, dia) &&
-          new Date() <= new Date(anoend, mesend, diaend)
+          new Date() >= new Date(ano, mes-1, dia) &&
+          new Date() <= new Date(anoend, mesend-1, diaend)
         )
           this.projetos.push(acao);
+
       }
 
+      var i = 0;
       for (var acao of vagasJson) {
-        var dtstring2 = acao["Período de inscrições - Data de Início"];
+        var dtstring2 = acao["Período de inscrições (Data de Início)"];
         var dia2 = dtstring2.substring(0, 2);
         var mes2 = dtstring2.substring(3, 5);
         var ano2 = dtstring2.substring(6, 10);
 
-        var dtstringend2 = acao["Período de Inscrições - Data de Término"];
+        var dtstringend2 = acao["Período de inscrições (Data de Término)"];
         var diaend2 = dtstringend2.substring(0, 2);
         var mesend2 = dtstringend2.substring(3, 5);
         var anoend2 = dtstringend2.substring(6, 10);
+        acao['id'] = acao['Link da página da ação no SIGA'].split('https://portal.ufrj.br/Inscricao/extensao/acaoExtensao/acao?id=')[1].split('&cid=')[0]
+        if(acao['Anexe aqui uma imagem para divulgação da vaga, caso deseje'] == ''){
+          acao['Anexe aqui uma imagem para divulgação da vaga, caso deseje'] = `images/Template Vagas -${i}.png`
+            i+= 1;
+            i = i%3
+        }
         if (
-          new Date() >= new Date(ano2, mes2, dia2) &&
-          new Date() <= new Date(anoend2, mesend2, diaend2)
+          new Date() >= new Date(ano2, mes2-1, dia2) &&
+          new Date() <= new Date(anoend2, mesend2-1, diaend2)
         ) {
           this.vagas.push(acao);
           console.log(Date(anoend2, mesend2, diaend2));
         }
+      i+= 1;
+      i = i%3;
       }
       this.projetos = this.projetos.reverse();
       //this.projetos = acoesJson.reverse();
@@ -403,7 +480,7 @@ export default defineComponent({
 }
 
 .slideimage {
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-color: white;

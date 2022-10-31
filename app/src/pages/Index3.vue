@@ -1,10 +1,12 @@
 <template>
 
-  <q-page ref="destaque" id="destaque" class=" q-pa-xl">
-    <p class=" q-px-sm text-h5 text-bold" style="text-shadow: 3px 3px 6px #00000030">
+  <q-page ref="destaque" id="destaque" class=" q-pa-xs-sm q-pa-md-xl">
+    <p class="text-h5 text-bold q-px-xs-sm q-px-md-xl q-pt-md" style="text-shadow: 3px 3px 6px #00000030">
       <span style="color: magenta">>></span> Vagas
     </p>
-    <div class="row">
+    <p class="text-h6 text-bold q-px-xs-sm q-px-md-xl q-ml-xl">
+      As vagas de extensão são oportunidades para estudantes da UFRJ atuarem na equipe de uma ação de extensão, contribuindo para o desenvolvimento das atividades e recebendo creditação de horas (somente estudantes da graduação) e/ou certificado de participação. </p>
+    <div class="row justify-center">
       <div
         class="col-* q-ma-md"
         v-for="(projeto, index) in projetos"
@@ -15,87 +17,17 @@
     </div>
 
 
-
-  <!-- <q-input class="q-pa-xl" style="max-width: 500px"
-        v-model="acoessearch"
-        debounce="1000"
-        filled
-        placeholder="Pesquise sua ação"
-      >
-        <template v-slot:append>
-          <q-icon name="search" />
-        </template>
-      </q-input>
-
-    <div class="col row q-pa-sm justify-around">
-    <q-btn flat
-      v-on:click="this.$router.push('/acoes')"
-      class=""
-      label="Veja todas as ações"
-    ><span style="color:blue" class="q-px-sm"> V</span> </q-btn>
-    </div> -->
-
   </q-page>
 
-  <!-- <q-page class="column bg-lime q-pa-xl">
-    <div class="row">
-    <p class="col q-px-sm text-h5 text-bold" style="text-shadow: 3px 3px 6px #00000030">
-      <span style="color: magenta">>></span> Lives em Destaque
-    </p>
-        <q-tabs class="col">
-      <q-tab>Ao vivo</q-tab>
-      <q-tab>Próximas</q-tab>
-      <q-tab>Passadas</q-tab>
-    </q-tabs>
-    </div>
 
-
-    <div class="col row q-pa-xl justify-around">
-      <div class="col-3 q-ma-xl" v-for="acao in acoes" :key="acao">
-        <q-card
-          flat
-          vertical
-          class="my-card"
-          :style="'border-color: ' + acao.cor"
-        >
-          <iframe
-            width="400"
-            height="315"
-            src="https://www.youtube.com/embed/Xz3bMCj6BFI"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-
-          <q-card-section>
-            <div class="text-h6">{{ acao.titulo }}</div>
-            <div class="text-subtitle2">{{ acao.coordenador }}</div>
-          </q-card-section>
-
-          <q-card-section class="q-pt-none">
-            {{ acao.descricao }}
-          </q-card-section>
-        </q-card>
-      </div>
-    </div>
-    <q-btn flat
-      v-on:click="this.$router.push('/lives')"
-      class="col-1"
-      label="Carregar mais"
-    ></q-btn>
-  </q-page> -->
 </template>
 
 <script>
 import { defineComponent } from "vue";
 import "@quasar/extras/fontawesome-v5";
 import axios from "axios";
-import HomeCard from "../components/HomeCard.vue";
 import VagasCard from "../components/VagasCard.vue";
 import vagasJson from "../../public/vagas-13-05-2022.json";
-import acoesJson from "../../public/acoes-13-05-2022.json";
-import VueHorizontal from "vue-horizontal";
 
 export default defineComponent({
   components: { VagasCard, },
@@ -122,14 +54,33 @@ export default defineComponent({
       });
     },
     getProjetosLocal() {
-      for(var acao of vagasJson){
-      
-          this.projetos.push(acao)
-      }
+         var i = 0;
+      for (var acao of vagasJson) {
+        var dtstring2 = acao["Período de inscrições (Data de Início)"];
+        var dia2 = dtstring2.substring(0, 2);
+        var mes2 = dtstring2.substring(3, 5);
+        var ano2 = dtstring2.substring(6, 10);
 
-  
-      this.projetos = this.projetos.reverse()
+        var dtstringend2 = acao["Período de inscrições (Data de Término)"];
+        var diaend2 = dtstringend2.substring(0, 2);
+        var mesend2 = dtstringend2.substring(3, 5);
+        var anoend2 = dtstringend2.substring(6, 10);
+        acao['id'] = acao['Link da página da ação no SIGA'].split('https://portal.ufrj.br/Inscricao/extensao/acaoExtensao/acao?id=')[1].split('&cid=')[0]
+        if(acao['Anexe aqui uma imagem para divulgação da vaga, caso deseje'] == ''){
+          acao['Anexe aqui uma imagem para divulgação da vaga, caso deseje'] = `images/Template Vagas -${i}.png`
+            i+= 1;
+            i = i%3
+        }
+
+          this.projetos.push(acao);
+          console.log(Date(anoend2, mesend2, diaend2));
+
+      i+= 1;
+      i = i%3;
+      }
+      this.projetos = this.projetos.reverse();
       //this.projetos = acoesJson.reverse();
+      this.vagas = this.vagas.reverse();
     },
   },
   computed: {
