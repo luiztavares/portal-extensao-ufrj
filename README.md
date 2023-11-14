@@ -1,18 +1,41 @@
-# portal-extensao-frontend
+# Portal Extensão (portal-extensao-ufrj)
 
-Frontend do Portal da Extensão da UFRJ.
+Portal da Extensão UFRJ
 
-# Pré-Requisitos
+## Install the dependencies
+```bash
+yarn
+# or
+npm install
+```
 
-    node
-        https://nodejs.org/en/download/
-    vue (permissão de administrador pode ser necessária)
-        npm install -g @vue/cli
-    quasar (permissão de administrador pode ser necessária)
-        npm install -g @quasar/cli
+### Start the app in development mode (hot-code reloading, error reporting, etc.)
+```bash
+quasar dev
+```
 
-# Como rodar
 
-    cd app
-    npm install
-    quasar dev
+### Lint the files
+```bash
+yarn lint
+# or
+npm run lint
+```
+
+
+### Format the files
+```bash
+yarn format
+# or
+npm run format
+```
+
+
+
+### Build the app for production
+```bash
+quasar build
+```
+
+### Customize the configuration
+See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
