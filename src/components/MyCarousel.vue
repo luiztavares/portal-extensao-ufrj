@@ -46,12 +46,19 @@
       </q-img>
 
       <div class="q-ma-xl custom-caption absolute-bottom-right">
-        <q-btn color="purple" label="Leia" :to="{ name: 'Leia' }"> </q-btn>
+        <q-btn
+          color="purple"
+          label="Leia"
+          href="https://xn--extenso-2wa.ufrj.br/index.php/80-comunica-extensao/399-comunica-ufrj"
+          target="_blank"
+        >
+        </q-btn>
         <q-btn
           class="q-ml-xl"
           color="purple"
           label="Assine"
-          :to="{ name: 'Comunica' }"
+          href="https://mailchi.mp/pr5/assine-a-comunica-extensao"
+          target="_blank"
         >
         </q-btn>
       </div>
@@ -73,7 +80,13 @@
       </div>
 
       <div class="q-ma-xl custom-caption absolute-bottom-right">
-        <q-btn color="purple" label="Ouça" :to="{ name: 'Ouca' }"> </q-btn>
+        <q-btn
+          color="purple"
+          label="Ouça"
+          href="https://spoti.fi/3SxZ6tC"
+          target="_blank"
+        >
+        </q-btn>
       </div>
     </q-carousel-slide>
   </q-carousel>

@@ -47,8 +47,10 @@
     "Observações sobre dias e horários": "dateObservations",
     "Local de realização com endereço completo (para presencial e semi-presencial)": "place",
     "Página/link de inscrições (se houver)": "enrollLink",
-    "E-mail de contato para inscrições (se houver)": "enrollEmail",
-    "A atividade será transmitida abertamente na internet? Em caso afirmativo, adicione o link direto de acesso do participante": "liveLink"
+    "E-mail para inscrições": "enrollEmail",
+    "Telefone para atendimento ao público": "contactPhone",
+    "E-mail para atendimento ao público:": "contactEmail",
+    "Se a atividade for transmitida abertamente na internet, adicione o link direto de acesso do participante.": "liveLink"
   },
   "vagas": {
     "url": "https://opensheet.elk.sh/1sDeH_MtOYcVNMd7z3i7N2TQVnSlAn7C3BSGbZlr2Izo/Form%20Responses%201",

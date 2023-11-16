@@ -1,7 +1,7 @@
 <template>
-  <q-page class="">
+  <q-page v-if="acoesStore.current" class="">
     <div class="bg-header q-py-xl q-px-md">
-      <div v-if="acoesStore.current && siga" class="row maxwidth">
+      <div v-if="acoesStore.current" class="row maxwidth">
         <div class="col-md-6 col-xs-12 q-px-md">
           <div class="centro" v-if="siga">{{ siga.centro }}</div>
           <div class="titulo">{{ acoesStore.current.titulo }}</div>
@@ -10,7 +10,7 @@
             v-if="acoesStore.current.tipo != 'Vaga'"
             class="texto q-pl-sm q-pt-sm"
           >
-            {{ acoesStore.current.description }}
+            <span v-html="acoesStore.current.description"></span>
           </div>
           <div
             v-if="acoesStore.current.tipo == 'Vaga'"
@@ -78,22 +78,69 @@
           >
             Como se inscrever:
           </div>
-          <div v-if="acoesStore.current.comoCandidatar" class="texto">
-            {{ acoesStore.current.comoCandidatar }}
+          <div v-html="acoesStore.current.comoCandidatar" class="texto"></div>
+          <div v-if="acoesStore.current.funcao" class="coordenador q-mt-md">
+            Função:
+            <div class="texto q-pt-sm">
+              {{ acoesStore.current.funcao }}
+            </div>
+          </div>
+          <div v-if="acoesStore.current.requisito" class="coordenador q-mt-md">
+            Requisitos:
+            <div class="texto q-pt-sm">
+              {{ acoesStore.current.requisito }}
+            </div>
           </div>
 
-          <div class="coordenador q-pt-md">Contatos:</div>
+          <div v-if="acoesStore.current.atribuicao" class="coordenador q-mt-md">
+            Atribuições:
+            <div class="texto q-pt-sm">
+              {{ acoesStore.current.atribuicao }}
+            </div>
+          </div>
+
+          <div v-if="acoesStore.current.liveLink" class="coordenador q-mt-md">
+            Acesse:
+            <div>
+              <q-btn
+                size="lg"
+                color="teal"
+                outline
+                rounded
+                icon="link"
+                v-if="acoesStore.current.liveLink"
+                :label="acoesStore.current.liveLink"
+                :href="acoesStore.current.liveLink"
+                target="_blank"
+              ></q-btn>
+            </div>
+          </div>
+
+          <div
+            v-if="
+              acoesStore.current.enrollLink ||
+              acoesStore.current.enrollEmail ||
+              acoesStore.current.contactPhone ||
+              acoesStore.current.contactEmail ||
+              acoesStore.current.enrollEmail ||
+              acoesStore.current.contato
+            "
+            class="coordenador q-pt-md"
+          >
+            Contatos:
+          </div>
           <q-btn
-            class="q-py-lg q-mt-sm q-mx-md"
+            class="q-mt-sm q-mr-md"
             color="purple"
+            icon-right="edit_note"
             rounded
             size="lg"
+            label="Inscrever-se"
             v-if="acoesStore.current.enrollLink"
             :href="acoesStore.current.enrollLink"
             target="_blank"
           >
-            Inscrever-se</q-btn
-          >
+          </q-btn>
           <q-chip
             size="lg"
             color="purple"
@@ -120,8 +167,21 @@
             "
             :label="acoesStore.current.contactEmail"
           ></q-chip>
+
           <div class="texto">
             {{ acoesStore.current.contato }}
+          </div>
+
+          <div class="q-pt-md">
+            <q-btn
+              size="lg"
+              color="teal"
+              rounded
+              icon-right="add"
+              label="Saiba mais"
+              :href="acoesStore.current.siga"
+              target="_blank"
+            ></q-btn>
           </div>
         </div>
         <div class="col-md-6 col-xs-12">
@@ -138,6 +198,7 @@ import { tipoToIcon, useAcoes } from 'src/stores/store';
 import { defineProps, toRefs } from 'vue';
 import axios from 'axios';
 import { copyToClipboard } from 'quasar';
+import { symlinkSync } from 'fs';
 
 const acoesStore = useAcoes();
 const props = defineProps({
@@ -148,8 +209,10 @@ const props = defineProps({
 const { id, timestamp } = toRefs(props);
 
 const showing = ref(false);
-acoesStore.setCurrent(id.value, timestamp.value);
 let siga = ref(null);
+acoesStore.getDados();
+acoesStore.setCurrent(id.value, timestamp.value);
+
 getSigaData();
 
 function getSigaData() {

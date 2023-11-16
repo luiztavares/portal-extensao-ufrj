@@ -114,7 +114,7 @@ const tabs = ref({
     },
     {
       name: 'outros',
-      label: 'Atividades e Serviços',
+      label: 'Mais ações',
       hash: '/atividades',
       option: ['Mais ações'],
       icon: 'playlist_add',

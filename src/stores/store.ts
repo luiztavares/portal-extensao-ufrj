@@ -44,6 +44,21 @@ function normalizeString(str: string) {
   return r;
 }
 
+function urlify(text: string) {
+  if (!text) return text;
+  const urlRegex =
+    /(\b((https?|ftp|file):\/\/)[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi;
+  return text.replace('www.', 'https://').replace(urlRegex, function (url) {
+    return (
+      '<a class="bold700" target="_blank" rel="noreferrer noopener" href="' +
+      url +
+      '">' +
+      url +
+      '</a>'
+    );
+  });
+}
+
 function filtraData(item, filtros) {
   const hoje = new Date();
   let dtInicio = item.dtInscricaoInicio
@@ -130,6 +145,8 @@ function mapping(data: Array<object>, map: object, tipo = '') {
       if (property in map) novaAcao[map[property]] = item[property];
     }
     if (tipo != '') novaAcao.tipo = tipo;
+    novaAcao.description = urlify(novaAcao.description);
+    novaAcao.comoCandidatar = urlify(novaAcao.comoCandidatar);
     novaAcao.image = getGoogleImageUrl(novaAcao.image, novaAcao.tipo);
     novaAcao.siga = novaAcao.id;
     novaAcao.id = getAcaoId(novaAcao.id);
@@ -260,37 +277,118 @@ export const useAcoes = defineStore('acoes', {
       }
     },
     async setCurrent(id, timestamp) {
-      this.getDados().then(() => (this.current = this.index[id][timestamp]));
+      axios
+        .get(
+          'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
+            mapper.acoes.url
+        )
+        .then((data) => {
+          this.acoes = [...this.acoes, ...mapping(data.data, mapper.acoes)];
+          for (const i in this.acoes) {
+            const acao = this.acoes[i];
+            if (!this.index[acao.id]) this.index[acao.id] = {};
+            this.index[acao.id][acao.timestamp] = acao;
+          }
+          try {
+            if (id in this.index)
+              this.getDados().then(
+                () => (this.current = this.index[id][timestamp])
+              );
+          } catch {}
+        });
+      axios
+        .get(
+          'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
+            mapper.maisAcoes.url
+        )
+        .then((data) => {
+          this.acoes = [
+            ...this.acoes,
+            ...mapping(data.data, mapper.maisAcoes, 'Mais ações'),
+          ];
+          for (const i in this.acoes) {
+            const acao = this.acoes[i];
+            if (!this.index[acao.id]) this.index[acao.id] = {};
+            this.index[acao.id][acao.timestamp] = acao;
+          }
+          try {
+            if (id in this.index)
+              this.getDados().then(
+                () => (this.current = this.index[id][timestamp])
+              );
+          } catch {}
+        });
+      axios
+        .get(
+          'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
+            mapper.vagas.url
+        )
+        .then((data) => {
+          this.acoes = [
+            ...this.acoes,
+            ...mapping(data.data, mapper.vagas, 'Vaga'),
+          ];
+          for (const i in this.acoes) {
+            const acao = this.acoes[i];
+            if (!this.index[acao.id]) this.index[acao.id] = {};
+            this.index[acao.id][acao.timestamp] = acao;
+          }
+          try {
+            if (id in this.index)
+              this.getDados().then(
+                () => (this.current = this.index[id][timestamp])
+              );
+          } catch {}
+        });
     },
     async getDados() {
       if (!this.loaded) {
-        const resp1 = await axios.get(
-          'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
-            mapper.acoes.url
-        );
-        const resp2 = await axios.get(
-          'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
-            mapper.maisAcoes.url
-        );
-        const resp3 = await axios.get(
-          'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
-            mapper.vagas.url
-        );
+        axios
+          .get(
+            'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
+              mapper.acoes.url
+          )
+          .then((data) => {
+            this.acoes = [...this.acoes, ...mapping(data.data, mapper.acoes)];
+            for (const i in this.acoes) {
+              const acao = this.acoes[i];
+              if (!this.index[acao.id]) this.index[acao.id] = {};
+              this.index[acao.id][acao.timestamp] = acao;
+            }
+          });
+        axios
+          .get(
+            'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
+              mapper.maisAcoes.url
+          )
+          .then((data) => {
+            this.acoes = [
+              ...this.acoes,
+              ...mapping(data.data, mapper.maisAcoes, 'Mais ações'),
+            ];
+            for (const i in this.acoes) {
+              const acao = this.acoes[i];
+              if (!this.index[acao.id]) this.index[acao.id] = {};
+              this.index[acao.id][acao.timestamp] = acao;
+            }
+          });
+        axios
+          .get(
+            'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
+              mapper.vagas.url
+          )
+          .then((data) => {
+            this.acoes = [
+              ...this.acoes,
+              ...mapping(data.data, mapper.vagas, 'Vaga'),
+            ];
+            for (const i in this.acoes) {
+              const acao = this.acoes[i];
+              if (!this.index[acao.id]) this.index[acao.id] = {};
+              this.index[acao.id][acao.timestamp] = acao;
+            }
+          });
 
-        this.acoes = [...this.acoes, ...mapping(resp1.data, mapper.acoes)];
-        this.acoes = [
-          ...this.acoes,
-          ...mapping(resp2.data, mapper.maisAcoes, 'Mais ações'),
-        ];
-        this.acoes = [
-          ...this.acoes,
-          ...mapping(resp3.data, mapper.vagas, 'Vaga'),
-        ];
-        for (const i in this.acoes) {
-          const acao = this.acoes[i];
-          if (!this.index[acao.id]) this.index[acao.id] = {};
-          this.index[acao.id][acao.timestamp] = acao;
-        }
         this.loaded = true;
       }
     },

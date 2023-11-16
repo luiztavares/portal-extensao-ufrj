@@ -72,6 +72,7 @@ const routes: RouteRecordRaw[] = [
       },
     ],
   },
+
   {
     name: 'acao',
     path: '/acao/:id',

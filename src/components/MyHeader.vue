@@ -92,7 +92,7 @@ const headerSrc = ref('/images/header.png');
 const links = ref([
   { label: 'Eventos', hash: 'eventos', option: 'Evento' },
   { label: 'Cursos', hash: 'cursos', option: 'Curso' },
-  { label: 'Atividades e Serviços', hash: 'atividades', option: 'Mais ações' },
+  { label: 'Mais ações', hash: 'atividades', option: 'Mais ações' },
   { label: 'Vagas de Extensão', hash: 'vagas', option: 'Vaga' },
   { label: 'Todas as Ações', hash: 'acoes', option: '' },
   { label: 'Divulgue sua Ação', hash: 'divulga', option: '' },

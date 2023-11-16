@@ -4,120 +4,29 @@
   </q-page>
   <q-page class="maxwidth q-px-md">
     <HomeFeatured></HomeFeatured>
-
-    <div class="row q-py-xl justify-center">
-      <q-img
-        id="extensao"
-        class="col-sm-12 col-md-10"
-        src="images/oqueeh.png"
-      ></q-img>
-    </div>
-    <div class="row justify-start reverse">
-      <div class="col-md-12 col-xs-12 text-justify">
-        <q-separator class="q-mb-md" />
-        <span class="text1 text-shadow-black withouthhifens"
-          >A extensão conecta a universidade com todos os demais setores da
-          sociedade. São ações realizadas pela comunidade acadêmica em parceria
-          e em diálogo com grupos sociais e territórios sem vínculo
-          institucional com a Universidade.
-        </span>
-        <q-separator class="q-my-md" />
-      </div>
-    </div>
-    <div class="text2 row q-py-md">
-      <div class="col-md-4 q-pa-md row">
-        <div class="q-pa-md shadow-2 radius16 column">
-          <p class="text-justify col">
-            <span style="color: magenta">>></span>
-            <span class="text-bold">
-              Para quem não estuda e nem trabalha na UFRJ,
-            </span>
-            a extensão oferece gratuitamente cursos, eventos, projetos,
-            programas, atividades, serviços e produtos em diferentes áreas do
-            conhecimento como saúde, cultura, meio ambiente, ciência e
-            tecnologia.
-          </p>
-          <q-btn
-            rounded
-            color="primary"
-            label="Oportunidades para externos"
-            to="/pesquisa"
-          ></q-btn>
-        </div>
-      </div>
-
-      <div class="col-md-4 q-pa-md row">
-        <div class="q-pa-md shadow-2 radius16 column">
-          <p class="text-justify col">
-            <span style="color: magenta">>></span>
-            <span class="text-bold"> Para os estudantes da UFRJ, </span> a
-            extensão contribui para sua formação humanista articulando os
-            processos de desenvolvimento científico, tecnológico e cultural com
-            práticas cidadãs.
-          </p>
-          <q-btn
-            rounded
-            color="purple"
-            label="Oportunidades para estudantes da ufrj"
-            to="/pesquisa"
-          ></q-btn>
-        </div>
-      </div>
-
-      <div class="col-md-4 q-pa-md row">
-        <div class="q-pa-md shadow-2 radius16 column">
-          <p class="text-justify col">
-            <span style="color: magenta">>></span>
-            <span class="text-bold">
-              Para professores e técnicos-administrativos da UFRJ,
-            </span>
-            a extensão é a dimensão da universidade que permite trocas com um
-            público mais amplo, promovendo o desenvolvimento pessoal e
-            profissional, bem como mantendo a produção acadêmica e a instituição
-            atualizadas com as questões mais relevantes para a sociedade.
-          </p>
-          <q-btn
-            rounded
-            color="teal"
-            label="Divulgue suas acões"
-            to="/divulga"
-          ></q-btn>
-        </div>
-      </div>
-    </div>
-  </q-page>
-  <q-page id="fiquepordentro" class="">
     <div class="q-px-md max1440">
       <p class="header3 text-bold text-h1 q-pt-xl q-px-md-xl">
         Fique por dentro
       </p>
-      <div class="row q-px-md-xl">
-        <div class="col-md-6 col-sm-12 q-pr-md text-center">
-          <q-img
-            class="radius16"
-            src="images/sobre-comunica.png"
-            max-width="500px"
-          ></q-img>
+      <div class="row q-px-md-xl justify-around">
+        <div class="col-md-auto col-sm-12 q-pr-md text-center mw500">
+          <q-img class="radius16" src="images/sobre-comunica.png"></q-img>
           <p class="text4 text-bold q-pt-sm">
             Conheça a Newsletter Comunica Extensão
           </p>
-          <p class="text2 text-center">
+          <p class="text2 text-justify">
             A Comunica Extensão é uma newsletter mensal, produzida pela
             Pró-Reitoria de Extensão da UFRJ, que reúne os principais informes,
             chamadas-públicas, eventos e notícias da nossa universidade e que
             envolvem toda a comunidade extensionista.
           </p>
         </div>
-        <div class="col-md-6 col-sm-12 q-pl-md text-center">
-          <q-img
-            class="radius16"
-            src="images/sobre-podcast.png"
-            max-width="500px"
-          ></q-img>
+        <div class="col-md-auto col-sm-12 q-pl-md text-center mw500">
+          <q-img class="radius16" src="images/sobre-podcast.png"></q-img>
           <p class="text4 text-bold q-pt-sm">
             Conheça o Comunica Extensão Podcast
           </p>
-          <p class="text2 text-center">
+          <p class="text2 text-justify">
             O podcast Comunica Extensão é um programa da Pró-Reitoria de
             Extensão da UFRJ, em parceria com a Rádio UFRJ, que te ajuda a
             acompanhar as ações extensionistas da universidade. Você encontra
@@ -127,6 +36,149 @@
           </p>
         </div>
       </div>
+    </div>
+  </q-page>
+
+  <q-page id="fiquepordentro" class="">
+    <div class="row q-py-xl justify-center">
+      <q-img
+        id="extensao"
+        class="col-sm-12 col-md-12"
+        src="images/sobre-portal.png"
+      ></q-img>
+    </div>
+    <div class="max1440 q-px-md">
+      <div>
+        <span class="h1 darkblue bold700">O QUE É EXTENSÃO?</span>
+      </div>
+      <div>
+        <span class="h2 darkblue bold500">
+          Você sabe o que a Extensão Universitária faz?
+        </span>
+      </div>
+      <div class="q-pt-lg">
+        <span class="h3 darkblue text-justify withouthhifens"
+          >A extensão conecta a universidade com todos os demais setores da
+          sociedade. São ações realizadas pela comunidade acadêmica em parceria
+          e em diálogo com grupos sociais e territórios sem vínculo
+          institucional com a Universidade.
+        </span>
+      </div>
+
+      <div class="text2 row q-py-md">
+        <div class="col-md-4 q-pa-md row">
+          <div class="q-pa-md shadow-2 radius16 column">
+            <p class="text-justify col">
+              <span style="color: magenta">>></span>
+              <span class="text-bold">
+                Para quem não estuda e nem trabalha na UFRJ,
+              </span>
+              a extensão oferece gratuitamente cursos, eventos, projetos,
+              programas, atividades, serviços e produtos em diferentes áreas do
+              conhecimento como saúde, cultura, meio ambiente, ciência e
+              tecnologia.
+            </p>
+            <q-btn
+              rounded
+              color="primary"
+              label="Oportunidades para externos"
+              to="/pesquisa"
+            ></q-btn>
+          </div>
+        </div>
+
+        <div class="col-md-4 q-pa-md row">
+          <div class="q-pa-md shadow-2 radius16 column">
+            <p class="text-justify col">
+              <span style="color: magenta">>></span>
+              <span class="text-bold"> Para os estudantes da UFRJ, </span> a
+              extensão contribui para sua formação humanista articulando os
+              processos de desenvolvimento científico, tecnológico e cultural
+              com práticas cidadãs.
+            </p>
+            <q-btn
+              rounded
+              color="purple"
+              label="Oportunidades para estudantes da ufrj"
+              to="/pesquisa"
+            ></q-btn>
+          </div>
+        </div>
+
+        <div class="col-md-4 q-pa-md row">
+          <div class="q-pa-md shadow-2 radius16 column">
+            <p class="text-justify col">
+              <span style="color: magenta">>></span>
+              <span class="text-bold">
+                Para professores e técnicos-administrativos da UFRJ,
+              </span>
+              a extensão é a dimensão da universidade que permite trocas com um
+              público mais amplo, promovendo o desenvolvimento pessoal e
+              profissional, bem como mantendo a produção acadêmica e a
+              instituição atualizadas com as questões mais relevantes para a
+              sociedade.
+            </p>
+            <q-btn
+              rounded
+              color="teal"
+              label="Divulgue suas acões"
+              to="/divulga"
+            ></q-btn>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-mt-lg">
+        <span class="darkblue h1 bold700">O PORTAL DA EXTENSÃO</span>
+      </div>
+      <div class="q-mt-md">
+        <span class="darkblue h3 bold500">
+          Criado pela
+          <a
+            class="darkblue"
+            target="_blank"
+            rel="noreferrer"
+            href="http://www.extensao.ufrj.br"
+            >Pró-Reitoria de Extensão da UFRJ</a
+          >, o Portal da Extensão é o principal canbal de divulgação das ações
+          de extensão da Universidade Federal do Rio de Janeiro para a popupação
+          em geral e para a sua própria comunidade acadêmica
+        </span>
+      </div>
+
+      <div class="text2 row q-py-md">
+        <div class="col-md-6 q-pa-md row">
+          <p class="text-justify col">
+            O objetivo é facilitar a busca e o acesso a divesas ações de
+            extensão oferecidas pela nossa universidade. No Portal é possível
+            utilizar os filtros de: data, modalidade(presencial, semi-presencial
+            ou virtual), categoria(curso, eventos, vagas de extensão,
+            atividades, serviços e produtos) entre outros.
+          </p>
+        </div>
+        <div class="col-md-6 q-pa-md row">
+          <p class="text-justify col">
+            Na seção de Vagas de Extensão, os aludos da UFRJ podem consultar
+            quais ações estão comn vagas abertas para atuação como extensionista
+            e as informações sobre os requisitos necessários para preenchê-las.
+          </p>
+        </div>
+        <div class="col-md-6 q-pa-md row">
+          <p class="text-justify col">
+            Através do Portal, os coordenadores de ações de extensão podem
+            solicitar a divulgação de suas ações e agendar a transmissão de
+            atividades ao vivo no canal da Extensão UFRJ (YouTube).
+          </p>
+        </div>
+        <div class="col-md-6 q-pa-md row">
+          <p class="text-justify col">
+            Ao lado das atividades de ensino e pesquisa, a extensão é um dos
+            três pilares da rotina universitária. A extensão é uma porta aberta
+            para a participação de todos e vai além dos muros da universidade!
+          </p>
+        </div>
+      </div>
+
       <p class="header3 text-bold text-h1 q-pt-xl q-mt-xl q-px-md-xl">
         Veja aqui os nossos canais
       </p>
