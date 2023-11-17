@@ -197,8 +197,6 @@ import { ref } from 'vue';
 import { tipoToIcon, useAcoes } from 'src/stores/store';
 import { defineProps, toRefs } from 'vue';
 import axios from 'axios';
-import { copyToClipboard } from 'quasar';
-import { symlinkSync } from 'fs';
 
 const acoesStore = useAcoes();
 const props = defineProps({
@@ -208,7 +206,6 @@ const props = defineProps({
 
 const { id, timestamp } = toRefs(props);
 
-const showing = ref(false);
 let siga = ref(null);
 acoesStore.getDados();
 acoesStore.setCurrent(id.value, timestamp.value);

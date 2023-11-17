@@ -147,26 +147,6 @@ const tabs = ref({
     },
   ],
 });
-
-const data = ref({
-  title: 'Curso de Capacitação',
-  image: 'https://drive.google.com/u/0/uc?id=1AHTx21_Bvavw5NUwX6T3QV6EnyiZZ_5E',
-  type: 'Curso',
-  tags: [
-    { label: 'Curso', icon: 'school', color: 'pink' },
-    { label: 'Presencial', icon: 'public', color: 'teal' },
-    {
-      label: 'Inscrições de 11/03/2023 até 21/03/2023',
-      icon: 'event',
-      color: 'red',
-    },
-    {
-      label: 'Realização de 11/03/2023 até 21/03/2023',
-      icon: 'event',
-      color: 'orange',
-    },
-  ],
-});
 </script>
 
 <style>

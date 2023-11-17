@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
 import mapper from './map.json';
-import { date } from 'quasar';
 
 function dateBrToIso(date: string) {
   if (!date) return true;

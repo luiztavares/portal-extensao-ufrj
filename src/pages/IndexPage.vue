@@ -140,8 +140,8 @@
             rel="noreferrer"
             href="http://www.extensao.ufrj.br"
             >Pró-Reitoria de Extensão da UFRJ</a
-          >, o Portal da Extensão é o principal canbal de divulgação das ações
-          de extensão da Universidade Federal do Rio de Janeiro para a popupação
+          >, o Portal da Extensão é o principal canal de divulgação das ações
+          de extensão da Universidade Federal do Rio de Janeiro para a população
           em geral e para a sua própria comunidade acadêmica
         </span>
       </div>
