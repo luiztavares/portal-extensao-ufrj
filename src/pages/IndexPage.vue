@@ -9,7 +9,7 @@
         Fique por dentro
       </p>
       <div class="row q-px-md-xl justify-around">
-        <div class="col-md-auto col-sm-12 q-pr-md text-center mw500">
+        <div class="col-md-auto col-sm-12 q-px-sm text-center mw500">
           <q-img class="radius16" src="images/sobre-comunica.png"></q-img>
           <p class="text4 text-bold q-pt-sm">
             Conheça a Newsletter Comunica Extensão
@@ -21,7 +21,7 @@
             envolvem toda a comunidade extensionista.
           </p>
         </div>
-        <div class="col-md-auto col-sm-12 q-pl-md text-center mw500">
+        <div class="col-md-auto col-sm-12 q-px-sm text-center mw500">
           <q-img class="radius16" src="images/sobre-podcast.png"></q-img>
           <p class="text4 text-bold q-pt-sm">
             Conheça o Comunica Extensão Podcast
@@ -61,7 +61,7 @@
           >A extensão conecta a universidade com todos os demais setores da
           sociedade. São ações realizadas pela comunidade acadêmica em parceria
           e em diálogo com grupos sociais e territórios sem vínculo
-          institucional com a Universidade.
+          institucional com a Universidade. 
         </span>
       </div>
 
@@ -185,7 +185,7 @@
     </div>
 
     <div class="bg-cyan">
-      <div class="row q-pa-xl q-px-xs-md maxwidth">
+      <div class="row q-py-xl q-px-md maxwidth">
         <div class="col-6 q-py-md" v-for="icone in icones" :key="icone">
           <a target="_blank" :href="icone.url"
             ><q-img height="100px" fit="contain" :src="icone.name"></q-img
@@ -312,17 +312,18 @@ const prs = ref([
   }
 
   .text2 {
-    font-size: 4.2vw;
+    font-size: 1.1rem;
+    line-height: 1.2rem;
   }
 
   .text4 {
-    font-size: 4.5vw;
-    line-height: 4.5vw;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
   }
 
   .header3 {
-    font-size: 6vw;
-    line-height: 6vw;
+    font-size: 2rem;
+    line-height: 2rem;
     color: #999999;
   }
 }

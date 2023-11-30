@@ -3,68 +3,30 @@
 
   <div class="">
     <div style="max-width: inherit">
-      <q-tabs
-        v-model="tabs.selected"
-        inline-label
-        narrow-indicator
-        align="left"
-      >
-        <q-tab
-          v-for="item in tabs.options"
-          :class="item.classes"
-          :name="item.name"
-          :label="item.label"
-          :icon="item.icon"
-          :key="item.name"
-          content-class="tabHeader"
-        />
+      <q-tabs v-model="tabs.selected" inline-label narrow-indicator align="left">
+        <q-tab v-for="item in tabs.options" :class="item.classes" :name="item.name" :label="item.label" :icon="item.icon"
+          :key="item.name" content-class="tabHeader" />
       </q-tabs>
 
       <div class="q-pt-md">
-        <q-tab-panels
-          class="outline"
-          v-model="tabs.selected"
-          animated
-          transition-prev="slide-right"
-          transition-next="slide-left"
-        >
-          <q-tab-panel
-            class="no-scroll"
-            v-for="item in tabs.options"
-            :name="item.name"
-            :key="item.name"
-          >
+        <q-tab-panels class="outline" v-model="tabs.selected" animated transition-prev="slide-right"
+          transition-next="slide-left">
+          <q-tab-panel class="no-scroll" v-for="item in tabs.options" :name="item.name" :key="item.name">
             <div class="q-pa-sm texto">
               {{ item.texto }}
             </div>
-            <q-btn
-              size="lg"
-              rounded
-              :color="item.color"
-              class="q-mx-xl q-mb-xl q-mt-md"
-              :icon="item.icon"
-              @click="
-                router.push(item.hash);
-                acoesStore.limparFiltros();
-                acoesStore.filters.tipo.select = item.option;
-              "
-              :label="'Explorar ' + item.label"
-            ></q-btn>
+            <q-btn size="lg" rounded :color="item.color" class="q-mx-xl q-mb-xl q-mt-md" :icon="item.icon" @click="
+                            router.push({'name': item.name});
+                            acoesStore.limparFiltros();
+                            acoesStore.filters.tipo.select = item.option;
+                          " :label="'Explorar ' + item.label"></q-btn>
             <vue-horizontal scroll v-if="acoesStore[item.name].length">
-              <section
-                class="q-px-md q-py-md"
-                v-for="item in acoesStore[item.name]"
-                :key="item.id + item.timestamp"
-              >
+              <section class="q-px-md q-py-md" v-for="item in acoesStore[item.name]" :key="item.id + item.timestamp">
                 <my-card :data="item"></my-card>
               </section>
             </vue-horizontal>
-            <a
-              class="estudantes q-pl-md"
-              v-if="item.name == 'vagas'"
-              href="https://www.youtube.com/watch?v=pucam0lCHzI"
-              target="_blank"
-            >
+            <a class="estudantes q-pl-md" v-if="item.name == 'vagas'" href="https://www.youtube.com/watch?v=pucam0lCHzI"
+              target="_blank">
               Estudantes, vejam aqui tutorial sobre como obter creditação das
               suas horas de extensão
             </a>
@@ -92,7 +54,6 @@ const tabs = ref({
   options: [
     {
       name: 'eventos',
-      hash: '/eventos',
       option: ['Evento'],
       label: 'Eventos',
       icon: 'celebration',
@@ -103,7 +64,6 @@ const tabs = ref({
     },
     {
       name: 'cursos',
-      hash: '/cursos',
       option: ['Curso'],
       label: 'Cursos',
       icon: 'school',
@@ -114,9 +74,8 @@ const tabs = ref({
     },
     {
       name: 'outros',
-      label: 'Mais ações',
-      hash: '/atividades',
-      option: ['Mais ações'],
+      label: 'Atividades e Produtos',
+      option: ['Atividades e Produtos'],
       icon: 'playlist_add',
       classes: 'text-teal',
       color: 'teal',
@@ -125,7 +84,6 @@ const tabs = ref({
     },
     {
       name: 'vagas',
-      hash: '/vagas',
       option: ['Vaga'],
       label: 'Vagas',
       icon: 'badge',
@@ -136,7 +94,6 @@ const tabs = ref({
     },
     {
       name: 'apartirDeHoje',
-      hash: '/pesquisa',
       option: [],
       label: 'Todas as ações',
       icon: 'workspaces',
@@ -150,11 +107,11 @@ const tabs = ref({
 </script>
 
 <style>
-.tabHeader > .q-tab__label {
+.tabHeader>.q-tab__label {
   font-size: 20px !important;
 }
 
-.tabHeader > i {
+.tabHeader>i {
   font-size: 24px !important;
 }
 
@@ -169,6 +126,7 @@ const tabs = ref({
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 500;
 }
+
 .centro {
   font-size: 24px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
@@ -203,7 +161,7 @@ const tabs = ref({
   user-select: all;
 }
 
-.enrollEmail > div > div {
+.enrollEmail>div>div {
   overflow: unset !important;
   text-overflow: unset !important;
   white-space: break-spaces !important;
@@ -212,7 +170,8 @@ const tabs = ref({
 .v-hl-btn {
   margin: 20px !important;
 }
-.v-hl-btn > svg {
+
+.v-hl-btn>svg {
   width: 60px !important;
   height: 60px !important;
 }

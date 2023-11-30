@@ -191,6 +191,16 @@
           </q-card>
         </q-expansion-item>
       </q-list>
+      <div class="q-pa-lg">
+            <q-pagination
+              v-model="page"
+              :min="currentPage"
+              :max="Math.ceil(filteredList2.length / totalPages)"
+              :input="true"
+              input-class="text-orange-10"
+            >
+            </q-pagination>
+          </div>
       <q-page-sticky v-if="$q.screen.lt.md" position="top" :offset="[18, 18]">
         <q-btn
           fab

@@ -172,7 +172,7 @@
             {{ acoesStore.current.contato }}
           </div>
 
-          <div class="q-pt-md">
+          <div class="q-pt-md q-mb-lg">
             <q-btn
               size="lg"
               color="teal"
@@ -195,7 +195,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { tipoToIcon, useAcoes } from 'src/stores/store';
-import { defineProps, toRefs } from 'vue';
+import { toRefs } from 'vue';
 import axios from 'axios';
 
 const acoesStore = useAcoes();

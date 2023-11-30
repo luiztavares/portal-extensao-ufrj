@@ -1,4 +1,16 @@
 import { RouteRecordRaw } from 'vue-router';
+import { useAcoes } from 'src/stores/store';
+
+function definirFiltroInicial(categoria: string) {
+  const acoesStore = useAcoes();
+  acoesStore.limparFiltros();
+  acoesStore.filters.tipo.select = [categoria];
+}
+
+function limparFiltros() {
+  const acoesStore = useAcoes();
+  acoesStore.limparFiltros();
+}
 
 const routes: RouteRecordRaw[] = [
   {
@@ -22,30 +34,35 @@ const routes: RouteRecordRaw[] = [
         path: '',
         component: () => import('pages/SearchPage.vue'),
         props: true,
+        beforeEnter: () => limparFiltros(),
       },
       {
         name: 'cursos',
-        path: '/cursos',
+        path: 'cursos',
         component: () => import('pages/SearchPage.vue'),
         props: true,
+        beforeEnter: () => definirFiltroInicial('Curso'),
       },
       {
         name: 'eventos',
-        path: '/eventos',
+        path: 'eventos',
         component: () => import('pages/SearchPage.vue'),
         props: true,
+        beforeEnter: () => definirFiltroInicial('Evento'),
       },
       {
         name: 'atividades',
-        path: '/atividades',
+        path: 'atividades',
         component: () => import('pages/SearchPage.vue'),
         props: true,
+        beforeEnter: () => definirFiltroInicial('Atividades e Produtos'),
       },
       {
         name: 'vagas',
-        path: '/vagas',
+        path: 'vagas',
         component: () => import('pages/SearchPage.vue'),
         props: true,
+        beforeEnter: () => definirFiltroInicial('Vaga'),
       },
     ],
   },

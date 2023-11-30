@@ -5,7 +5,7 @@ import mapper from './map.json';
 function dateBrToIso(date: string) {
   if (!date) return true;
   const pattern = /(\d{2})\/(\d{2})\/(\d{4})/;
-  return new Date(date.replace(pattern, '$3-$2-$1'));
+  return new Date(date.replace(pattern, '$3-$2-$1 GMT-0300'));
 }
 
 export function tipoToIcon(name: string) {
@@ -14,7 +14,7 @@ export function tipoToIcon(name: string) {
       return 'celebration';
     case 'Curso':
       return 'school';
-    case 'Mais ações':
+    case 'Atividades e Produtos':
       return 'playlist_add';
     case 'Vaga':
       return 'badge';
@@ -60,6 +60,8 @@ function urlify(text: string) {
 
 function filtraData(item, filtros) {
   const hoje = new Date();
+  hoje.setHours(0, 0, 0, 0);
+
   let dtInicio = item.dtInscricaoInicio
     ? item.dtInscricaoInicio.substring(0, 10)
     : item.dtRealizacaoInicio;
@@ -124,7 +126,7 @@ function getGoogleImageUrl(src: string, tipo: string) {
     if (tipo == 'Curso') return `/images/template-curso-${i++ % 3}.png`;
     if (tipo == 'Evento') return `/images/template-evento-${j++ % 3}.png`;
     if (tipo == 'Vaga') return `/images/template-vaga-${k++ % 3}.png`;
-    if (tipo == 'Mais ações')
+    if (tipo == 'Atividades e Produtos')
       return `/images/template-atividades-${l++ % 3}.png`;
   }
 }
@@ -154,6 +156,10 @@ function mapping(data: Array<object>, map: object, tipo = '') {
   return acoes;
 }
 
+function acaoUnica(value: Acao, index: number, self: Array<Acao>): boolean {
+  return self.find((acao) => acao.id === value.id) === value;
+}
+
 export const useAcoes = defineStore('acoes', {
   state: () => ({
     acoes: [] as Array<Acao>,
@@ -177,8 +183,8 @@ export const useAcoes = defineStore('acoes', {
             value: 'Vaga',
           },
           {
-            label: 'Mais ações',
-            value: 'Mais ações',
+            label: 'Atividades e Produtos',
+            value: 'Atividades e Produtos',
           },
         ],
         select: [],
@@ -261,7 +267,7 @@ export const useAcoes = defineStore('acoes', {
     eventos: (state) => state.apartirDeHoje.filter((x) => x.tipo == 'Evento'),
     vagas: (state) => state.apartirDeHoje.filter((x) => x.tipo == 'Vaga'),
     outros: (state) =>
-      state.apartirDeHoje.filter((x) => x.tipo == 'Mais ações'),
+      state.apartirDeHoje.filter((x) => x.tipo == 'Atividades e Produtos'),
     apartirDeHoje: (state) =>
       state.acoes.filter(
         (x) =>
@@ -283,6 +289,7 @@ export const useAcoes = defineStore('acoes', {
         )
         .then((data) => {
           this.acoes = [...this.acoes, ...mapping(data.data, mapper.acoes)];
+          this.acoes = this.acoes.filter(acaoUnica);
           for (const i in this.acoes) {
             const acao = this.acoes[i];
             if (!this.index[acao.id]) this.index[acao.id] = {};
@@ -303,8 +310,9 @@ export const useAcoes = defineStore('acoes', {
         .then((data) => {
           this.acoes = [
             ...this.acoes,
-            ...mapping(data.data, mapper.maisAcoes, 'Mais ações'),
+            ...mapping(data.data, mapper.maisAcoes, 'Atividades e Produtos'),
           ];
+          this.acoes = this.acoes.filter(acaoUnica);
           for (const i in this.acoes) {
             const acao = this.acoes[i];
             if (!this.index[acao.id]) this.index[acao.id] = {};
@@ -327,6 +335,8 @@ export const useAcoes = defineStore('acoes', {
             ...this.acoes,
             ...mapping(data.data, mapper.vagas, 'Vaga'),
           ];
+          this.acoes = this.acoes.filter(acaoUnica);
+          console.log('acoes', this.acoes);
           for (const i in this.acoes) {
             const acao = this.acoes[i];
             if (!this.index[acao.id]) this.index[acao.id] = {};
@@ -363,7 +373,7 @@ export const useAcoes = defineStore('acoes', {
           .then((data) => {
             this.acoes = [
               ...this.acoes,
-              ...mapping(data.data, mapper.maisAcoes, 'Mais ações'),
+              ...mapping(data.data, mapper.maisAcoes, 'Atividades e Produtos'),
             ];
             for (const i in this.acoes) {
               const acao = this.acoes[i];

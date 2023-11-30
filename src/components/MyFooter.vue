@@ -13,7 +13,8 @@
         flat
         color="yellow"
         :label="content.feedback.reportBtn.label"
-        :to="content.feedback.reportBtn.to"
+        :href="content.feedback.reportBtn.href"
+        target="_blank"
       ></q-btn>
     </p>
   </div>
@@ -69,7 +70,7 @@ const content = ref({
     report: 'Encontrou algum problema no Portal?',
     reportBtn: {
       label: 'Clique Aqui',
-      to: { name: 'Reportar' },
+      href: 'https://docs.google.com/forms/d/e/1FAIpQLSd4RBDrsla3TkHeLzJV0CDOVKkcUxqwF19iGpdENESKrdKyTQ/viewform',
     },
   },
   images: {

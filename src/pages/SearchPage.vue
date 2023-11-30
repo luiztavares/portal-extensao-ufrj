@@ -141,7 +141,7 @@
         </q-list>
       </q-drawer>
     </div>
-    <div v-if="$q.screen.gt.md || $q.screen.md" class="col-xs-12 col-md-3">
+    <div v-if="$q.screen.gt.md || $q.screen.md" class="col-xs-12 col-md-3 q-mt-md">
       <q-list bordered padding class="radius16">
         <q-input
           class="q-pa-md"
@@ -263,8 +263,8 @@
         >
       </div>
 
-      <div class="row justify-center">
-        <div class="row q-px-sm justify-center">
+      <div class="row q-my-md justify-center">
+        <div class="row q-px-sm justify-left">
           <div
             class="col-* q-ma-md row"
             v-for="item in acoesStore.getFilters.slice(0, 50)"

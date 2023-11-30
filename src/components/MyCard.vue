@@ -86,7 +86,7 @@
 </template>
 
 <script setup>
-import { defineProps, toRefs } from 'vue';
+import { toRefs } from 'vue';
 import { tipoToIcon } from 'stores/store.ts';
 
 const props = defineProps({
@@ -100,6 +100,13 @@ const { data } = toRefs(props);
 .mycard {
   width: 350px;
   height: 100%;
+}
+
+@media screen  and (max-width: 400px) {
+  .mycard {
+    width: 300px;
+    height: 100%;
+  }
 }
 
 .nounderline {
