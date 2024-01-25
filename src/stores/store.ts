@@ -121,7 +121,7 @@ function getGoogleImageUrl(src: string, tipo: string) {
   if (src.substring(0, 5) == 'https') {
     const imgs = src.split(',')[0];
     const id = imgs.split('open?id=')[1];
-    return `https://drive.google.com/u/0/uc?id=${id}`;
+    return 'https://portal.extensao.ufrj.br/php/proxy.php?url=' + `https://drive.google.com/u/0/uc?id=${id}`;
   } else {
     if (tipo == 'Curso') return `/images/template-curso-${i++ % 3}.png`;
     if (tipo == 'Evento') return `/images/template-evento-${j++ % 3}.png`;
