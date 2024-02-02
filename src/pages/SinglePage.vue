@@ -19,7 +19,7 @@
             {{ siga.resumo }}
           </div>
           <div class="q-pt-lg coordenador" v-if="siga">
-            {{ siga.coordenador }}
+            Coordenação: {{ siga.coordenador.toLowerCase().replace(/(^\w{1})|(\s+\w{1})/g, (l: string) => l.toUpperCase()) }}
           </div>
           <div class="texto q-pb-md" v-if="siga">
             {{ siga.unidade }}
@@ -244,8 +244,8 @@ function getSigaData() {
 }
 
 .coordenador {
-  font-size: 24px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 19px;
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 500;
 }
 .centro {
