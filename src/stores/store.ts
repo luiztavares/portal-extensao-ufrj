@@ -18,7 +18,7 @@ export function tipoToIcon(name: string) {
       return 'playlist_add';
     case 'Vaga':
       return 'badge';
-    case 'apartirDeHoje':
+    case 'pesquisa':
       return 'workspaces';
   }
 }
@@ -121,7 +121,10 @@ function getGoogleImageUrl(src: string, tipo: string) {
   if (src.substring(0, 5) == 'https') {
     const imgs = src.split(',')[0];
     const id = imgs.split('open?id=')[1];
-    return 'https://portal.extensao.ufrj.br/php/proxy.php?url=' + `https://drive.google.com/u/0/uc?id=${id}`;
+    return (
+      'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
+      `https://drive.google.com/u/0/uc?id=${id}`
+    );
   } else {
     if (tipo == 'Curso') return `/images/template-curso-${i++ % 3}.png`;
     if (tipo == 'Evento') return `/images/template-evento-${j++ % 3}.png`;
@@ -266,6 +269,7 @@ export const useAcoes = defineStore('acoes', {
     cursos: (state) => state.apartirDeHoje.filter((x) => x.tipo == 'Curso'),
     eventos: (state) => state.apartirDeHoje.filter((x) => x.tipo == 'Evento'),
     vagas: (state) => state.apartirDeHoje.filter((x) => x.tipo == 'Vaga'),
+    pesquisa: (state) => state.apartirDeHoje,
     outros: (state) =>
       state.apartirDeHoje.filter((x) => x.tipo == 'Atividades e Produtos'),
     apartirDeHoje: (state) =>
