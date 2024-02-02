@@ -7,8 +7,7 @@
         name: 'acaoChildren',
         params: {
           // acao: 'ACAO LINK',
-          id: data.id,
-          timestamp: data.timestamp,
+          id: data.id
         },
       }"
     >

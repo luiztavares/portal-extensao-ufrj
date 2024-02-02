@@ -95,9 +95,9 @@ function filtraData(item, filtros) {
 
 export interface Acao {
   titulo: string;
+  titulo_curto: string;
   id: string;
   siga: string;
-  timestamp: string;
   tipo: string;
   modalidade: string;
   dtRealizacaoInicio: string;
@@ -139,6 +139,7 @@ function getAcaoId(url: string) {
 
 function mapping(data: Array<object>, map: object, tipo = '') {
   let acoes = [] as Array<Acao>;
+  console.log('data', data);
   data.forEach((item) => {
     const novaAcao = {} as Acao;
     novaAcao.image = '';
@@ -149,10 +150,10 @@ function mapping(data: Array<object>, map: object, tipo = '') {
     novaAcao.description = urlify(novaAcao.description);
     novaAcao.comoCandidatar = urlify(novaAcao.comoCandidatar);
     novaAcao.image = getGoogleImageUrl(novaAcao.image, novaAcao.tipo);
-    novaAcao.siga = novaAcao.id;
-    novaAcao.id = getAcaoId(novaAcao.id);
+    novaAcao.siga = 'https://portal.ufrj.br/Inscricao/extensao/acaoExtensao/acao?id=' + novaAcao.id;
     acoes = acoes.concat(novaAcao);
   });
+  console.log(acoes)
   return acoes;
 }
 
@@ -336,7 +337,6 @@ export const useAcoes = defineStore('acoes', {
             ...mapping(data.data, mapper.vagas, 'Vaga'),
           ];
           this.acoes = this.acoes.filter(acaoUnica);
-          console.log('acoes', this.acoes);
           for (const i in this.acoes) {
             const acao = this.acoes[i];
             if (!this.index[acao.id]) this.index[acao.id] = {};
@@ -354,48 +354,10 @@ export const useAcoes = defineStore('acoes', {
       if (!this.loaded) {
         axios
           .get(
-            'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
               mapper.acoes.url
           )
           .then((data) => {
-            this.acoes = [...this.acoes, ...mapping(data.data, mapper.acoes)];
-            for (const i in this.acoes) {
-              const acao = this.acoes[i];
-              if (!this.index[acao.id]) this.index[acao.id] = {};
-              this.index[acao.id][acao.timestamp] = acao;
-            }
-          });
-        axios
-          .get(
-            'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
-              mapper.maisAcoes.url
-          )
-          .then((data) => {
-            this.acoes = [
-              ...this.acoes,
-              ...mapping(data.data, mapper.maisAcoes, 'Atividades e Produtos'),
-            ];
-            for (const i in this.acoes) {
-              const acao = this.acoes[i];
-              if (!this.index[acao.id]) this.index[acao.id] = {};
-              this.index[acao.id][acao.timestamp] = acao;
-            }
-          });
-        axios
-          .get(
-            'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
-              mapper.vagas.url
-          )
-          .then((data) => {
-            this.acoes = [
-              ...this.acoes,
-              ...mapping(data.data, mapper.vagas, 'Vaga'),
-            ];
-            for (const i in this.acoes) {
-              const acao = this.acoes[i];
-              if (!this.index[acao.id]) this.index[acao.id] = {};
-              this.index[acao.id][acao.timestamp] = acao;
-            }
+            this.acoes = mapping(data.data, mapper.acoes);
           });
 
         this.loaded = true;

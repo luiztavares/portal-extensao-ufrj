@@ -268,7 +268,7 @@
           <div
             class="col-* q-ma-md row"
             v-for="item in acoesStore.getFilters.slice(0, 50)"
-            :key="item.id + item.timestamp"
+            :key="item.id"
           >
             <my-card :data="item"></my-card>
           </div>

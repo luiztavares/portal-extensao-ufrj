@@ -95,15 +95,15 @@ const routes: RouteRecordRaw[] = [
     path: '/acao/:id',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      {
-        name: 'mural',
-        path: '',
-        component: () => import('pages/MuralPage.vue'),
-        props: true,
-      },
+      // {
+      //   name: 'mural',
+      //   path: '',
+      //   component: () => import('pages/MuralPage.vue'),
+      //   props: true,
+      // },
       {
         name: 'acaoChildren',
-        path: ':timestamp',
+        path: '',
         component: () => import('pages/SinglePage.vue'),
         props: true,
       },

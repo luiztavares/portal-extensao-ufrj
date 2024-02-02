@@ -200,15 +200,14 @@ import axios from 'axios';
 
 const acoesStore = useAcoes();
 const props = defineProps({
-  id: String,
-  timestamp: String,
+  id: String
 });
 
-const { id, timestamp } = toRefs(props);
+const { id } = toRefs(props);
 
 let siga = ref(null);
 acoesStore.getDados();
-acoesStore.setCurrent(id.value, timestamp.value);
+acoesStore.setCurrent(id.value);
 
 getSigaData();
 
@@ -221,10 +220,6 @@ function getSigaData() {
     });
 }
 
-//console.log(minhacao);
-
-// const minhacao = acoesStore.index[id.value][timestamp.value];
-// console.log(Object.keys(acoesStore.index[id.value]).length);
 </script>
 
 <style>
