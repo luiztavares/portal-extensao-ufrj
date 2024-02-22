@@ -217,7 +217,6 @@ function getSigaData() {
     .get('https://portal.extensao.ufrj.br/php/infoAcao.php?id=' + id.value)
     .then((response) => {
       siga.value = response.data;
-      console.log(siga);
     });
 }
 
@@ -228,10 +227,6 @@ function getNomeLongoTipo(tipo: string) {
   return tipo;
 }
 
-//console.log(minhacao);
-
-// const minhacao = acoesStore.index[id.value][timestamp.value];
-// console.log(Object.keys(acoesStore.index[id.value]).length);
 </script>
 
 <style>

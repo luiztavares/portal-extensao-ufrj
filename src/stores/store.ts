@@ -340,7 +340,6 @@ export const useAcoes = defineStore('acoes', {
             ...mapping(data.data, mapper.vagas, 'Vaga'),
           ];
           this.acoes = this.acoes.filter(acaoUnica);
-          console.log('acoes', this.acoes);
           for (const i in this.acoes) {
             const acao = this.acoes[i];
             if (!this.index[acao.id]) this.index[acao.id] = {};
