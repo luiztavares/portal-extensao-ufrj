@@ -131,12 +131,6 @@ function getGoogleImageUrl(src: string, tipo: string) {
   }
 }
 
-function getAcaoId(url: string) {
-  return url
-    .split('https://portal.ufrj.br/Inscricao/extensao/acaoExtensao/acao?id=')[1]
-    .split('&cid=')[0];
-}
-
 function mapping(data: Array<object>, map: object, tipo = '') {
   let acoes = [] as Array<Acao>;
   console.log('data', data);
