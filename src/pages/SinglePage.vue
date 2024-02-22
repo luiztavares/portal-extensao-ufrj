@@ -30,7 +30,7 @@
             color="primary"
             outline
             v-if="acoesStore.current.tipo"
-            :label="acoesStore.current.tipo"
+            :label="getNomeLongoTipo(acoesStore.current.tipo)"
             :icon="tipoToIcon(acoesStore.current.tipo)"
           ></q-chip>
           <q-chip
@@ -219,6 +219,13 @@ function getSigaData() {
       siga.value = response.data;
       console.log(siga);
     });
+}
+
+function getNomeLongoTipo(tipo: string) {
+  if (tipo === 'Vaga') {
+    return 'Vagas para alunos de graduação da UFRJ'
+  }
+  return tipo;
 }
 
 //console.log(minhacao);
