@@ -13,6 +13,9 @@
             {{ siga.resumo }}
           </div>
           <div class="q-pt-lg coordenador" v-if="siga">
+            <span class="text-weight-bold">Nome cadastrado no SIGA:</span> {{ siga.titulo }}
+          </div>
+          <div class="q-pt-lg coordenador" v-if="siga">
             <span class="text-weight-bold">Coordenação:</span> {{ siga.coordenador.toLowerCase().replace(/(^\w{1})|(\s+\w{1})/g, (l: string) => l.toUpperCase())
             }}
           </div>
