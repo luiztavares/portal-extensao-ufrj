@@ -136,7 +136,6 @@ function getGoogleImageUrl(src: string, tipo: string) {
 
 function mapping(data: Array<object>, map: object, tipo = '') {
   let acoes = [] as Array<Acao>;
-  console.log('data', data);
   data.forEach((item) => {
     const novaAcao = {} as Acao;
     novaAcao.image = '';
@@ -150,7 +149,6 @@ function mapping(data: Array<object>, map: object, tipo = '') {
     novaAcao.siga = 'https://portal.ufrj.br/Inscricao/extensao/acaoExtensao/acao?id=' + novaAcao.id;
     acoes = acoes.concat(novaAcao);
   });
-  console.log(acoes)
   return acoes;
 }
 
