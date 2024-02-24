@@ -6,95 +6,58 @@
           <div class="centro" v-if="siga">{{ siga.centro }}</div>
           <div class="titulo">{{ acoesStore.current.titulo }}</div>
 
-          <div
-            v-if="acoesStore.current.tipo != 'Vaga'"
-            class="texto q-pl-sm q-pt-sm"
-          >
+          <div v-if="acoesStore.current.tipo != 'Vaga'" class="texto q-pl-sm q-pt-sm">
             <span v-html="acoesStore.current.description"></span>
           </div>
-          <div
-            v-if="acoesStore.current.tipo == 'Vaga'"
-            class="texto q-pl-sm q-pt-sm"
-          >
+          <div v-if="acoesStore.current.tipo == 'Vaga'" class="texto q-pt-sm">
             {{ siga.resumo }}
           </div>
           <div class="q-pt-lg coordenador" v-if="siga">
-            Coordenação: {{ siga.coordenador.toLowerCase().replace(/(^\w{1})|(\s+\w{1})/g, (l: string) => l.toUpperCase()) }}
+            <span class="text-weight-bold">Coordenação:</span> {{ siga.coordenador.toLowerCase().replace(/(^\w{1})|(\s+\w{1})/g, (l: string) => l.toUpperCase())
+            }}
           </div>
           <div class="texto q-pb-md" v-if="siga">
             {{ siga.unidade }}
           </div>
 
-          <q-chip
-            size="lg"
-            color="primary"
-            outline
-            v-if="acoesStore.current.tipo"
-            :label="getNomeLongoTipo(acoesStore.current.tipo)"
-            :icon="tipoToIcon(acoesStore.current.tipo)"
-          ></q-chip>
-          <q-chip
-            size="lg"
-            v-if="acoesStore.current.modalidade"
-            color="pink"
-            outline
-            :label="acoesStore.current.modalidade"
-            :icon="
-              acoesStore.current.modalidade == 'Online'
+          <q-chip size="lg" color="primary" outline v-if="acoesStore.current.tipo"
+            :label="getNomeLongoTipo(acoesStore.current.tipo)" :icon="tipoToIcon(acoesStore.current.tipo)"></q-chip>
+          <q-chip size="lg" v-if="acoesStore.current.modalidade" color="pink" outline
+            :label="acoesStore.current.modalidade" :icon="acoesStore.current.modalidade == 'Online'
                 ? 'public'
                 : 'location_city'
-            "
-          ></q-chip>
-          <q-chip
-            size="lg"
-            v-if="acoesStore.current.dtRealizacaoInicio"
-            color="green"
-            outline
-            :label="
-              'Realização de ' +
-              acoesStore.current.dtRealizacaoInicio +
-              ' até ' +
-              acoesStore.current.dtRealizacaoFim
-            "
-            icon="event"
-          ></q-chip>
-          <q-chip
-            size="lg"
-            color="purple"
-            outline
-            icon="edit_note"
-            v-if="acoesStore.current.dtInscricaoInicio"
-            :label="
-              'Inscricão de ' +
-              acoesStore.current.dtInscricaoInicio.substring(0, 10) +
-              ' até ' +
-              acoesStore.current.dtInscricaoFim.substring(0, 10)
-            "
-          ></q-chip>
+              "></q-chip>
+          <q-chip size="lg" v-if="acoesStore.current.dtRealizacaoInicio" color="green" outline :label="'Realização de ' +
+            acoesStore.current.dtRealizacaoInicio +
+            ' até ' +
+            acoesStore.current.dtRealizacaoFim
+            " icon="event"></q-chip>
+          <q-chip size="lg" color="purple" outline icon="edit_note" v-if="acoesStore.current.dtInscricaoInicio" :label="'Inscricão de ' +
+            acoesStore.current.dtInscricaoInicio.substring(0, 10) +
+            ' até ' +
+            acoesStore.current.dtInscricaoFim.substring(0, 10)
+            "></q-chip>
           <br />
-          <div
-            v-if="acoesStore.current.comoCandidatar"
-            class="coordenador q-pt-md"
-          >
-            Como se inscrever:
+          <div v-if="acoesStore.current.comoCandidatar" class="coordenador q-pt-md">
+            <div class="text-weight-bold">Como se inscrever</div>
           </div>
           <div v-html="acoesStore.current.comoCandidatar" class="texto"></div>
           <div v-if="acoesStore.current.funcao" class="coordenador q-mt-md">
-            Função:
-            <div class="texto q-pt-sm">
+            <div class="text-weight-bold">Função</div>
+            <div class="texto">
               {{ acoesStore.current.funcao }}
             </div>
           </div>
           <div v-if="acoesStore.current.requisito" class="coordenador q-mt-md">
-            Requisitos:
-            <div class="texto q-pt-sm">
+            <div class="text-weight-bold">Requisitos</div>
+            <div class="texto">
               {{ acoesStore.current.requisito }}
             </div>
           </div>
 
           <div v-if="acoesStore.current.atribuicao" class="coordenador q-mt-md">
-            Atribuições:
-            <div class="texto q-pt-sm">
+            <div class="text-weight-bold">Atribuições</div>
+            <div class="texto">
               {{ acoesStore.current.atribuicao }}
             </div>
           </div>
@@ -102,86 +65,37 @@
           <div v-if="acoesStore.current.liveLink" class="coordenador q-mt-md">
             Acesse:
             <div>
-              <q-btn
-                size="lg"
-                color="teal"
-                outline
-                rounded
-                icon="link"
-                v-if="acoesStore.current.liveLink"
-                :label="acoesStore.current.liveLink"
-                :href="acoesStore.current.liveLink"
-                target="_blank"
-              ></q-btn>
+              <q-btn size="lg" color="teal" outline rounded icon="link" v-if="acoesStore.current.liveLink"
+                :label="acoesStore.current.liveLink" :href="acoesStore.current.liveLink" target="_blank"></q-btn>
             </div>
           </div>
 
-          <div
-            v-if="
-              acoesStore.current.enrollLink ||
-              acoesStore.current.enrollEmail ||
-              acoesStore.current.contactPhone ||
-              acoesStore.current.contactEmail ||
-              acoesStore.current.enrollEmail ||
-              acoesStore.current.contato
-            "
-            class="coordenador q-pt-md"
-          >
-            Contatos:
+          <div v-if="acoesStore.current.enrollLink ||
+            acoesStore.current.enrollEmail ||
+            acoesStore.current.contactPhone ||
+            acoesStore.current.contactEmail ||
+            acoesStore.current.enrollEmail ||
+            acoesStore.current.contato
+            " class="coordenador q-pt-md">
+            <div class="text-weight-bold">Contatos</div>
           </div>
-          <q-btn
-            class="q-mt-sm q-mr-md"
-            color="purple"
-            icon-right="edit_note"
-            rounded
-            size="lg"
-            label="Inscrever-se"
-            v-if="acoesStore.current.enrollLink"
-            :href="acoesStore.current.enrollLink"
-            target="_blank"
-          >
+          <q-btn class="q-mt-sm q-mr-md" color="purple" icon-right="edit_note" rounded size="lg" label="Inscrever-se"
+            v-if="acoesStore.current.enrollLink" :href="acoesStore.current.enrollLink" target="_blank">
           </q-btn>
-          <q-chip
-            size="lg"
-            color="purple"
-            outline
-            icon="email"
-            v-if="acoesStore.current.enrollEmail"
-            :label="acoesStore.current.enrollEmail"
-          ></q-chip>
-          <q-chip
-            size="lg"
-            color="purple"
-            outline
-            icon="phone"
-            v-if="acoesStore.current.contactPhone"
-            :label="acoesStore.current.contactPhone"
-          ></q-chip>
-          <q-chip
-            size="lg"
-            color="purple"
-            outline
-            icon="email"
-            v-if="
-              acoesStore.current.contactEmail != acoesStore.current.enrollEmail
-            "
-            :label="acoesStore.current.contactEmail"
-          ></q-chip>
+          <q-chip size="lg" color="purple" outline icon="email" v-if="acoesStore.current.enrollEmail"
+            :label="acoesStore.current.enrollEmail"></q-chip>
+          <q-chip size="lg" color="purple" outline icon="phone" v-if="acoesStore.current.contactPhone"
+            :label="acoesStore.current.contactPhone"></q-chip>
+          <q-chip size="lg" color="purple" outline icon="email" v-if="acoesStore.current.contactEmail != acoesStore.current.enrollEmail
+            " :label="acoesStore.current.contactEmail"></q-chip>
 
           <div class="texto">
             {{ acoesStore.current.contato }}
           </div>
 
           <div class="q-pt-md q-mb-lg">
-            <q-btn
-              size="lg"
-              color="teal"
-              rounded
-              icon-right="add"
-              label="Saiba mais"
-              :href="acoesStore.current.siga"
-              target="_blank"
-            ></q-btn>
+            <q-btn size="lg" color="teal" rounded icon-right="add" label="Saiba mais" :href="acoesStore.current.siga"
+              target="_blank"></q-btn>
           </div>
         </div>
         <div class="col-md-6 col-xs-12">
@@ -235,11 +149,9 @@ function getNomeLongoTipo(tipo: string) {
 }
 
 .bg-header {
-  background: linear-gradient(
-      217deg,
+  background: linear-gradient(217deg,
       rgba(255, 0, 0, 0.3),
-      rgba(255, 0, 0, 0) 70.71%
-    ),
+      rgba(255, 0, 0, 0) 70.71%),
     linear-gradient(127deg, rgba(0, 255, 0, 0.3), rgba(0, 255, 0, 0) 70.71%),
     linear-gradient(336deg, rgba(0, 0, 255, 0.3), rgba(0, 0, 255, 0) 70.71%);
   min-height: 500px;
@@ -250,6 +162,7 @@ function getNomeLongoTipo(tipo: string) {
   font-family: Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 500;
 }
+
 .centro {
   font-size: 24px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
@@ -284,7 +197,7 @@ function getNomeLongoTipo(tipo: string) {
   user-select: all;
 }
 
-.enrollEmail > div > div {
+.enrollEmail>div>div {
   overflow: unset !important;
   text-overflow: unset !important;
   white-space: break-spaces !important;
