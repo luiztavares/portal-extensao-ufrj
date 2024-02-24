@@ -50,8 +50,18 @@ const text = 'O que está rolando na extensão da UFRJ';
 const acoesStore = useAcoes();
 
 const tabs = ref({
-  selected: 'eventos',
+  selected: 'pesquisa',
   options: [
+    {
+      name: 'pesquisa',
+      option: [],
+      label: 'Todas as ações',
+      icon: 'workspaces',
+      classes: 'text-blue',
+      color: 'blue',
+      texto:
+        'A  Extensão UFRJ é um processo interdisciplinar educativo, cultural,  científico e político que   promove a interação transformadora entre a universidade e outros setores da sociedade. Ela está sob o princípio da indissociabilidade entre ensino, pesquisa e extensão, ou seja, qualquer uma dessas dimensões não existe sem a outra.',
+    },
     {
       name: 'eventos',
       option: ['Evento'],
@@ -91,16 +101,6 @@ const tabs = ref({
       color: 'red',
       texto:
         'As vagas de extensão são oportunidades para estudantes da UFRJ atuarem na equipe de uma ação de extensão, contribuindo para o desenvolvimento das atividades e recebendo creditação de horas (somente estudantes da graduação) e/ou certificado de participação.',
-    },
-    {
-      name: 'apartirDeHoje',
-      option: [],
-      label: 'Todas as ações',
-      icon: 'workspaces',
-      classes: 'text-blue',
-      color: 'blue',
-      texto:
-        'A  Extensão UFRJ é um processo interdisciplinar educativo, cultural,  científico e político que   promove a interação transformadora entre a universidade e outros setores da sociedade. Ela está sob o princípio da indissociabilidade entre ensino, pesquisa e extensão, ou seja, qualquer uma dessas dimensões não existe sem a outra.',
     },
   ],
 });
