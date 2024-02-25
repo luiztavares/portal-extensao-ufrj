@@ -91,7 +91,7 @@
       <q-list expand-separator style="width: 100%;">
         <q-expansion-item class="header" style="border-style: solid; border-color: #8640c4; color: #8640c4"
           v-for="(curso, index) in getData" :key="curso" expand-separator
-          :label="index + 1 + (page - 1) * totalPages + ' - ' + curso.titulo">
+          :label="index + 1 + (page - 1) * totalPages + ' - ' + curso.titulo_curto">
           <q-card class="q-pa-md-xl header2" style="border-top-style: solid; border-color: #8640c4">
             <q-card-section class="row">
               <div class="col-md-4 col-sm-12 q-pb-md">

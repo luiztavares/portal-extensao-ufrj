@@ -157,16 +157,6 @@ const tabs = ref({
   transform: translate(-50%, -50%);
 }
 
-.enrollEmail {
-  user-select: all;
-}
-
-.enrollEmail>div>div {
-  overflow: unset !important;
-  text-overflow: unset !important;
-  white-space: break-spaces !important;
-}
-
 .v-hl-btn {
   margin: 20px !important;
 }

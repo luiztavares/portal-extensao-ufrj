@@ -4,8 +4,7 @@ import mapper from './map.json';
 
 function dateBrToIso(date: string) {
   if (!date) return true;
-  const pattern = /(\d{2})\/(\d{2})\/(\d{4})/;
-  return new Date(date.replace(pattern, '$3-$2-$1 GMT-0300'));
+  return new Date(date + ' GMT-0300');
 }
 
 export function tipoToIcon(name: string) {
@@ -63,11 +62,9 @@ function filtraData(item, filtros) {
   hoje.setHours(0, 0, 0, 0);
 
   let dtInicio = item.dtInscricaoInicio
-    ? item.dtInscricaoInicio.substring(0, 10)
+    ? item.dtInscricaoInicio
     : item.dtRealizacaoInicio;
-  let dtFim = item.dtInscricaoFim
-    ? item.dtInscricaoFim.substring(0, 10)
-    : item.dtRealizacaoFim;
+  let dtFim = item.dtInscricaoFim ? item.dtInscricaoFim : item.dtRealizacaoFim;
   dtInicio = dateBrToIso(dtInicio);
   dtFim = dateBrToIso(dtFim);
 
@@ -94,9 +91,13 @@ function filtraData(item, filtros) {
 }
 
 export interface Acao {
+  id: string;
+  id_acao: string;
   titulo: string;
   titulo_curto: string;
-  id: string;
+  unidade: string;
+  centro: string;
+  coordenador: string;
   siga: string;
   tipo: string;
   modalidade: string;
@@ -106,7 +107,6 @@ export interface Acao {
   dtInscricaoFim: string;
   place: string;
   enrollLink: string;
-  enrollEmail: string;
   contactEmail: string;
   contactPhone: string;
   liveLink: string;
@@ -117,13 +117,11 @@ let j = 0;
 let k = 0;
 let l = 0;
 
-function getGoogleImageUrl(src: string, tipo: string) {
-  if (src.substring(0, 5) == 'https') {
-    const imgs = src.split(',')[0];
-    const id = imgs.split('open?id=')[1];
+function getImageUrl(src: string, tipo: string) {
+  if (src != null) {
     return (
-      'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
-      `https://drive.google.com/u/0/uc?id=${id}`
+      'https://portal.extensao.ufrj.br/formularios/wp-content/uploads/cfdb7_uploads/' +
+      src
     );
   } else {
     if (tipo == 'Curso') return `/images/template-curso-${i++ % 3}.png`;
@@ -145,8 +143,10 @@ function mapping(data: Array<object>, map: object, tipo = '') {
     if (tipo != '') novaAcao.tipo = tipo;
     novaAcao.description = urlify(novaAcao.description);
     novaAcao.comoCandidatar = urlify(novaAcao.comoCandidatar);
-    novaAcao.image = getGoogleImageUrl(novaAcao.image, novaAcao.tipo);
-    novaAcao.siga = 'https://portal.ufrj.br/Inscricao/extensao/acaoExtensao/acao?id=' + novaAcao.id;
+    novaAcao.image = getImageUrl(novaAcao.image, novaAcao.tipo);
+    novaAcao.siga =
+      'https://portal.ufrj.br/Inscricao/extensao/acaoExtensao/acao?id=' +
+      novaAcao.id_acao;
     acoes = acoes.concat(novaAcao);
   });
   return acoes;
@@ -189,16 +189,20 @@ export const useAcoes = defineStore('acoes', {
       modalidade: {
         options: [
           {
-            label: 'Online',
-            value: 'Online',
+            label: 'Remoto',
+            value: 'Remoto',
+          },
+          {
+            label: 'Ensino à Distância',
+            value: 'Ensino à Distância',
+          },
+          {
+            label: 'Híbrido',
+            value: 'Híbrido',
           },
           {
             label: 'Presencial',
             value: 'Presencial',
-          },
-          {
-            label: 'Semi-Presencial',
-            value: 'Semi-Presencial',
           },
         ],
         select: [],
@@ -279,26 +283,21 @@ export const useAcoes = defineStore('acoes', {
       }
     },
     async setCurrent(id, timestamp) {
-      axios
-        .get(
-          'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
-            mapper.acoes.url
-        )
-        .then((data) => {
-          this.acoes = [...this.acoes, ...mapping(data.data, mapper.acoes)];
-          this.acoes = this.acoes.filter(acaoUnica);
-          for (const i in this.acoes) {
-            const acao = this.acoes[i];
-            if (!this.index[acao.id]) this.index[acao.id] = {};
-            this.index[acao.id][acao.timestamp] = acao;
-          }
-          try {
-            if (id in this.index)
-              this.getDados().then(
-                () => (this.current = this.index[id][timestamp])
-              );
-          } catch {}
-        });
+      axios.get(mapper.acoes.url).then((data) => {
+        this.acoes = [...this.acoes, ...mapping(data.data, mapper.acoes)];
+        this.acoes = this.acoes.filter(acaoUnica);
+        for (const i in this.acoes) {
+          const acao = this.acoes[i];
+          if (!this.index[acao.id]) this.index[acao.id] = {};
+          this.index[acao.id][acao.timestamp] = acao;
+        }
+        try {
+          if (id in this.index)
+            this.getDados().then(
+              () => (this.current = this.index[id][timestamp])
+            );
+        } catch {}
+      });
       axios
         .get(
           'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
@@ -348,13 +347,9 @@ export const useAcoes = defineStore('acoes', {
     },
     async getDados() {
       if (!this.loaded) {
-        axios
-          .get(
-              mapper.acoes.url
-          )
-          .then((data) => {
-            this.acoes = mapping(data.data, mapper.acoes);
-          });
+        axios.get(mapper.acoes.url).then((data) => {
+          this.acoes = mapping(data.data, mapper.acoes);
+        });
 
         this.loaded = true;
       }
