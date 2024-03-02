@@ -82,6 +82,10 @@
             <q-btn class="q-mt-sm q-mr-md" color="purple" icon-right="edit_note" rounded size="lg" label="Inscrever-se"
               v-if="acoesStore.current.enrollLink" :href="acoesStore.current.enrollLink" target="_blank">
             </q-btn>
+
+            <div class="texto q-mt-sm aviso" v-if="acoesStore.current.tipo == 'Vaga'">
+              Somente estudantes com requerimento aceito no SIGA poderão creditar horas de extensão por esta ação.
+            </div>
           </div>
 
           <div v-if="acoesStore.current.enrollLink ||
@@ -186,5 +190,12 @@ function getNomeLongoTipo(tipo: string) {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.aviso {
+  font-size: 18px;
+  font-weight: bold;
+  color: crimson;
+  max-width: 500px;
 }
 </style>
