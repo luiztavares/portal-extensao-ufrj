@@ -106,6 +106,7 @@ export interface Acao {
   dtInscricaoInicio: string;
   dtInscricaoFim: string;
   place: string;
+  howToEnroll: string;
   enrollLink: string;
   contactEmail: string;
   contactPhone: string;

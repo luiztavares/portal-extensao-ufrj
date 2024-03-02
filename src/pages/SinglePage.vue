@@ -74,6 +74,16 @@
             </div>
           </div>
 
+          <div v-if="acoesStore.current.enrollLink || acoesStore.current.howToEnroll" class="coordenador q-mt-md">
+            <div class="text-weight-bold">Inscrição</div>
+            <div class="texto">
+              {{ acoesStore.current.howToEnroll }}
+            </div>
+            <q-btn class="q-mt-sm q-mr-md" color="purple" icon-right="edit_note" rounded size="lg" label="Inscrever-se"
+              v-if="acoesStore.current.enrollLink" :href="acoesStore.current.enrollLink" target="_blank">
+            </q-btn>
+          </div>
+
           <div v-if="acoesStore.current.enrollLink ||
             acoesStore.current.contactPhone ||
             acoesStore.current.contactEmail ||
@@ -81,9 +91,6 @@
             " class="coordenador q-pt-md">
             <div class="text-weight-bold">Contatos</div>
           </div>
-          <q-btn class="q-mt-sm q-mr-md" color="purple" icon-right="edit_note" rounded size="lg" label="Inscrever-se"
-            v-if="acoesStore.current.enrollLink" :href="acoesStore.current.enrollLink" target="_blank">
-          </q-btn>
           <q-chip size="lg" color="purple" outline icon="phone" v-if="acoesStore.current.contactPhone"
             :label="acoesStore.current.contactPhone"></q-chip>
           <q-chip size="lg" color="purple" outline icon="email" :label="acoesStore.current.contactEmail"></q-chip>

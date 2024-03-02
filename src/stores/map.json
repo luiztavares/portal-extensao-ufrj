@@ -18,6 +18,7 @@
     "descricao": "description",
     "observacoes_horarios_realizacao": "dateObservations",
     "endereco_completo": "place",
+    "como_inscrever": "howToEnroll",
     "link_inscricoes": "enrollLink",
     "email_atendimento": "contactEmail",
     "telefone_atendimento": "contactPhone",
