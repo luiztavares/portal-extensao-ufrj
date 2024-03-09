@@ -87,7 +87,7 @@
 
     <div class="col-md-9 col-xs-12 row justify-center">
       <span class="text-h4 q-pb-md" style="color: royalblue; width: bold">
-        Veja aqui todas as ações de extensão ativas da UFRJ</span>
+        Veja aqui todas as ações de extensão ativas no sistema SIGA da UFRJ</span>
       <q-list expand-separator style="width: 100%;">
         <q-expansion-item class="header" style="border-style: solid; border-color: #8640c4; color: #8640c4"
           v-for="(curso, index) in getData" :key="curso" expand-separator

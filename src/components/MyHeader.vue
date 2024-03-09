@@ -64,7 +64,7 @@ const links = ref([
   { label: 'Cursos', hash: 'cursos', option: 'Curso' },
   { label: '+ Atividades e Produtos', hash: 'atividades', option: 'Atividades e Produtos' },
   { label: 'Vagas de Extensão', hash: 'vagas', option: 'Vaga' },
-  { label: 'Todas as Ações', hash: 'acoes', option: '' },
+  { label: 'Ações no SIGA UFRJ', hash: 'acoes', option: '' },
   { label: 'Divulgue sua Ação', hash: 'divulga', option: '' },
 ]);
 </script>
