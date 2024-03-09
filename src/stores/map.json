@@ -48,7 +48,6 @@
     "Local de realização com endereço completo (para presencial e semi-presencial)": "place",
     "Página/link de inscrições (se houver)": "enrollLink",
     "E-mail para inscrições": "enrollEmail",
-    "Telefone para atendimento ao público": "contactPhone",
     "E-mail para atendimento ao público:": "contactEmail",
     "Se a atividade for transmitida abertamente na internet, adicione o link direto de acesso do participante.": "liveLink"
   },
