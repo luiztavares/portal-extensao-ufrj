@@ -12,7 +12,7 @@
     "Fim do prazo de inscrições (se houver)": "dtInscricaoFim",
     "Anexe aqui uma imagem para divulgação do curso/evento, caso deseje": "image",
     "Descreva brevemente o curso, ou evento, e como será desenvolvido.": "description",
-    "Observações sobre dias e horários": "dateObservations",
+    "Observações sobre dias e horários de realização": "dateObservations",
     "Local de realização com endereço completo (para presencial e semi-presencial)": "place",
     "Página/link de inscrições (se houver)": "enrollLink",
     "E-mail de contato para inscrições (se houver)": "enrollEmail",

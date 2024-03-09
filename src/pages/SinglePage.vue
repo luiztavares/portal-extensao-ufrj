@@ -73,6 +73,13 @@
             </div>
           </div>
 
+          <div v-if="acoesStore.current.dateObservations" class="coordenador q-mt-md">
+            <div class="text-weight-bold">Observações sobre dias e horários</div>
+            <div class="texto">
+              {{ acoesStore.current.dateObservations }}
+            </div>
+          </div>
+
           <div v-if="acoesStore.current.enrollLink ||
             acoesStore.current.enrollEmail ||
             acoesStore.current.contactPhone ||
