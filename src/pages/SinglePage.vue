@@ -17,8 +17,8 @@
           </div>
           <div class="q-pt-lg coordenador">
             <span class="text-weight-bold">Coordenação:</span> {{
-              acoesStore.current.coordenador.toLowerCase().replace(/(^\w{1})|(\s+\w{1})/g, (l: string) => l.toUpperCase())
-            }}
+    acoesStore.current.coordenador.toLowerCase().replace(/(^\w{1})|(\s+\w{1})/g, (l: string) => l.toUpperCase())
+  }}
           </div>
           <div class="texto q-pb-md">
             {{ acoesStore.current.unidade }}
@@ -28,19 +28,19 @@
             :label="getNomeLongoTipo(acoesStore.current.tipo)" :icon="tipoToIcon(acoesStore.current.tipo)"></q-chip>
           <q-chip size="lg" v-if="acoesStore.current.modalidade" color="pink" outline
             :label="acoesStore.current.modalidade" :icon="acoesStore.current.modalidade == 'Remoto'
-              ? 'public'
-              : 'location_city'
-              "></q-chip>
+    ? 'public'
+    : 'location_city'
+    "></q-chip>
           <q-chip size="lg" v-if="acoesStore.current.dtRealizacaoInicio" color="green" outline :label="'Realização de ' +
-            new Date(acoesStore.current.dtRealizacaoInicio).toLocaleDateString('pt-BR') +
-            ' até ' +
-            new Date(acoesStore.current.dtRealizacaoFim).toLocaleDateString('pt-BR')
-            " icon="event"></q-chip>
-          <q-chip size="lg" color="purple" outline icon="edit_note" v-if="acoesStore.current.dtInscricaoInicio" :label="'Inscricão de ' +
-            new Date(acoesStore.current.dtInscricaoInicio).toLocaleDateString('pt-BR') +
-            ' até ' +
-            new Date(acoesStore.current.dtInscricaoFim).toLocaleDateString('pt-BR')
-            "></q-chip>
+    new Date(acoesStore.current.dtRealizacaoInicio + 'T00:00:00-0300').toLocaleDateString('pt-BR') +
+    ' até ' +
+    new Date(acoesStore.current.dtRealizacaoFim + 'T00:00:00-0300').toLocaleDateString('pt-BR')
+    " icon="event"></q-chip>
+          <q-chip size="lg" color="purple" outline icon="edit_note" v-if="acoesStore.current.dtInscricaoInicio" :label="'Inscrição de ' +
+    new Date(acoesStore.current.dtInscricaoInicio + 'T00:00:00-0300').toLocaleDateString('pt-BR') +
+    ' até ' +
+    new Date(acoesStore.current.dtInscricaoFim + 'T00:00:00-0300').toLocaleDateString('pt-BR')
+    "></q-chip>
           <br />
           <div v-if="acoesStore.current.comoCandidatar" class="coordenador q-pt-md">
             <div class="text-weight-bold">Como se inscrever</div>
@@ -96,10 +96,10 @@
           </div>
 
           <div v-if="acoesStore.current.enrollLink ||
-            acoesStore.current.contactPhone ||
-            acoesStore.current.contactEmail ||
-            acoesStore.current.contato
-            " class="coordenador q-pt-md">
+    acoesStore.current.contactPhone ||
+    acoesStore.current.contactEmail ||
+    acoesStore.current.contato
+    " class="coordenador q-pt-md">
             <div class="text-weight-bold">Contatos</div>
           </div>
           <q-chip size="lg" color="purple" outline icon="phone" v-if="acoesStore.current.contactPhone"

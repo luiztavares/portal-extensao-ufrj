@@ -23,14 +23,14 @@
         <q-chip v-if="data.modalidade" color="pink" outline :label="data.modalidade"
           :icon="data.modalidade == 'Remoto' ? 'public' : 'location_city'"></q-chip>
         <q-chip v-if="data.dtRealizacaoInicio" color="green" outline :label="'Realização de ' +
-          new Date(data.dtRealizacaoInicio).toLocaleDateString('pt-BR') +
+          new Date(data.dtRealizacaoInicio + 'T00:00:00-0300').toLocaleDateString('pt-BR') +
           ' até ' +
-          new Date(data.dtRealizacaoFim).toLocaleDateString('pt-BR')
+          new Date(data.dtRealizacaoFim + 'T00:00:00-0300').toLocaleDateString('pt-BR')
           " icon="event"></q-chip>
-        <q-chip color="purple" outline icon="edit_note" v-if="data.dtInscricaoInicio" :label="'Inscricão de ' +
-          new Date(data.dtInscricaoInicio).toLocaleDateString('pt-BR') +
+        <q-chip color="purple" outline icon="edit_note" v-if="data.dtInscricaoInicio" :label="'Inscrição de ' +
+          new Date(data.dtInscricaoInicio + 'T00:00:00-0300').toLocaleDateString('pt-BR') +
           ' até ' +
-          new Date(data.dtInscricaoFim).toLocaleDateString('pt-BR')
+          new Date(data.dtInscricaoFim + 'T00:00:00-0300').toLocaleDateString('pt-BR')
           "></q-chip>
 
         <q-chip class="mychip" v-for="item in data.tags" :color="item.color" :icon="item.icon" outline
