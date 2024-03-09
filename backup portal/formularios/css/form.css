@@ -1,0 +1,168 @@
+:root {
+ --hue: 0;
+}
+
+body {
+  background-color: hsl(var(--hue), 98%, 92%);
+}
+
+.wp-block-post-title {
+  display: none;
+}
+
+form {
+  min-width: 340px;
+}
+
+form p {
+  margin: unset;
+}
+
+form hr {
+  border: 0;
+  border-top: 1px solid gray;
+}
+
+form #vitrine {
+  padding: 0;
+  overflow: hidden;
+}
+
+form #vitrine img {
+  width: 100%;
+  margin-bottom: -8px
+}
+
+form #introducao {
+  border-top: 5px hsl(var(--hue), 90%, 50%) solid;
+}
+
+form #introducao>.descricao>p,
+form #orientacoes>.descricao>p,
+form #tipo>.descricao>p {
+  margin-bottom: 20px;
+}
+
+form #introducao>.titulo {
+  font-size: 30px;
+}
+
+form .pergunta {
+  border: 1px solid rgb(218, 220, 224);
+  border-radius: 10px;
+  padding: 20px;
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+form .pergunta>.titulo {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+form .pergunta>.descricao {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+form .pergunta input,
+form .pergunta textarea,
+form .pergunta select {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 4px 5px;
+  background: transparent;
+  font-family: var(--wp--preset--font-family--system-font);
+  font-size: 13px;
+}
+
+form .pergunta textarea {
+  resize: none;
+  width: 98.5%;
+  height: 30px;
+}
+/*
+form .pergunta textarea,
+form .pergunta input[type="date"],
+form .pergunta input[type="time"] {
+  font-family: var(--wp--preset--font-family--system-font);
+  font-size: 13px;
+
+}
+*/
+form .pergunta .select-date {
+  width: fit-content;
+  height: 25px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+form .pergunta .select-date > select {
+  border: 0;
+  background: none;
+}
+form .pergunta .select-date > p {
+  line-height: 20px;
+}
+
+form .pergunta .weekly_time_select {
+  max-width: 270px;
+  margin-top: 20px;
+}
+
+form .pergunta .weekly_time_select > div {
+  margin-bottom: 20px;
+}
+
+form .pergunta .weekly_time_select > div > p {
+  display: inline;
+}
+
+form .pergunta .weekly_time_select > div > button {
+  float: right;
+  margin-top: 5px;
+}
+
+form .pergunta .weekly_time_select > div > div {
+  display: inline-table;
+}
+
+form .pergunta span.wpcf7-list-item {
+  display: block;
+}
+
+form .pergunta.larguraCompleta input {
+  width: 98.5%
+}
+
+form .wpcf7-list-item-label,
+form .pergunta td {
+  font-size: 16px;
+}
+
+form .pergunta td {
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+  background-color: rgb(248, 249, 250);
+}
+
+form input.wpcf7-submit {
+  height: 36px;
+  width: 79px;
+  background-color: hsl(var(--hue), 90%, 50%);
+  border-width: 0;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+}
+
+form input.wpcf7-submit:disabled {
+  background-color: hsl(var(--hue), 90%, 42%);
+}
+
+form input.wpcf7-submit:hover:enabled {
+  background-color: hsl(var(--hue), 90%, 58%);
+  cursor: pointer;
+}

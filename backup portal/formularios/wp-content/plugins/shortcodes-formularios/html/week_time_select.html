@@ -1,0 +1,74 @@
+<div class="weekly_time_select">
+
+    <script>
+        const __NAME___funcs = {
+            addTimePeriod: function (day) {
+                const dayDiv = document.getElementById(day);
+                const newTimePeriod = document.createElement("div");
+                newTimePeriod.innerHTML = `
+                    <label>De: <input type="time" name="horario_inicio_${day}[]" value="00:00" onblur="__NAME___funcs.checkTimeValidity(this)" onchange="__NAME___funcs.checkTimeInputs(this)" required></label>
+                    <label>Até: <input type="time" name="horario_fim_${day}[]" value="00:00" onblur="__NAME___funcs.checkTimeValidity(this)" onchange="__NAME___funcs.checkTimeInputs(this)" required></label>
+                    <button type="button" onclick="__NAME___funcs.removeTimePeriod(this)">Remover</button>
+                `;
+                dayDiv.appendChild(newTimePeriod);
+            },
+            removeTimePeriod: function (button) {
+                button.parentNode.remove();
+            },
+
+            checkTimeValidity: function (input) {
+                if (input.validity.badInput || input.value === '') {
+                    input.value = input.defaultValue;
+                }
+            },
+            checkTimeInputs: function (input) {
+                const startInput = input.parentNode.parentNode.querySelector("input[name^='horario_inicio']");
+                const endInput = input.parentNode.parentNode.querySelector("input[name^='horario_fim']");
+
+                if (startInput && endInput) {
+                    const startTime = new Date(`2000-01-01 ${startInput.value}`);
+                    const endTime = new Date(`2000-01-01 ${endInput.value}`);
+
+                    if (startTime.getTime() > endTime.getTime() || isNaN(endTime.getTime())) {
+                        endInput.value = startInput.value;
+                    }
+                }
+            }
+        };
+    </script>
+
+    <div id="__NAME__-Monday">
+        <p class = "titulo">Segunda-feira</p>
+        <button type="button" onclick="__NAME___funcs.addTimePeriod('__NAME__-Monday')">Adicionar Horário</button>
+    </div>
+
+    <div id="__NAME__-Tuesday">
+        <p class = "titulo">Terça-feira</p>
+        <button type="button" onclick="__NAME___funcs.addTimePeriod('__NAME__-Tuesday')">Adicionar Horário</button>
+    </div>
+
+    <div id="__NAME__-Wednesday">
+        <p class = "titulo">Quarta-feira</p>
+        <button type="button" onclick="__NAME___funcs.addTimePeriod('__NAME__-Wednesday')">Adicionar Horário</button>
+    </div>
+
+    <div id="__NAME__-Thursday">
+        <p class = "titulo">Quinta-feira</p>
+        <button type="button" onclick="__NAME___funcs.addTimePeriod('__NAME__-Thursday')">Adicionar Horário</button>
+    </div>
+
+    <div id="__NAME__-Friday">
+        <p class = "titulo">Sexta-feira</p>
+        <button type="button" onclick="__NAME___funcs.addTimePeriod('__NAME__-Friday')">Adicionar Horário</button>
+    </div>
+
+    <div id="__NAME__-Saturday">
+        <p class = "titulo">Sábado</p>
+        <button type="button" onclick="__NAME___funcs.addTimePeriod('__NAME__-Saturday')">Adicionar Horário</button>
+    </div>
+
+    <div id="__NAME__-Sunday">
+        <p class = "titulo">Domingo</p>
+        <button type="button" onclick="__NAME___funcs.addTimePeriod('__NAME__-Sunday')">Adicionar Horário</button>
+    </div>
+</div>
