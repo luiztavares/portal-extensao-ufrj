@@ -74,10 +74,24 @@
             </div>
           </div>
 
+          <div v-if="acoesStore.current.public" class="coordenador q-mt-md">
+            <div class="text-weight-bold">Público</div>
+            <div class="texto">
+              {{ acoesStore.current.public }}
+            </div>
+          </div>
+
           <div v-if="acoesStore.current.dateObservations" class="coordenador q-mt-md">
             <div class="text-weight-bold">Observações sobre dias e horários</div>
             <div class="texto">
               {{ acoesStore.current.dateObservations }}
+            </div>
+          </div>
+
+          <div v-if="acoesStore.current.observations" class="coordenador q-mt-md">
+            <div class="text-weight-bold">Observações gerais</div>
+            <div class="texto">
+              {{ acoesStore.current.observations }}
             </div>
           </div>
 

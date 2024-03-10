@@ -16,6 +16,8 @@
     "data_termino_inscricoes": "dtInscricaoFim",
     "imagem_divulgacao": "image",
     "descricao": "description",
+    "publico": "public",
+    "observacoes": "observations",
     "observacoes_horarios_realizacao": "dateObservations",
     "endereco_completo": "place",
     "como_inscrever": "howToEnroll",

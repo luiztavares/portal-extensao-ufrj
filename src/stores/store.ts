@@ -101,6 +101,8 @@ export interface Acao {
   siga: string;
   tipo: string;
   modalidade: string;
+  public: string;
+  observations: string;
   dtRealizacaoInicio: string;
   dtRealizacaoFim: string;
   dtInscricaoInicio: string;
