@@ -111,6 +111,10 @@ export interface Acao {
   contactEmail: string;
   contactPhone: string;
   liveLink: string;
+  instagramLink: string;
+  facebookLink: string;
+  twitterLink: string;
+  youtubeLink: string;
 }
 
 let i = 0;

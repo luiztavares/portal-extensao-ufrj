@@ -114,7 +114,16 @@
             <q-btn size="lg" color="teal" rounded icon-right="add" label="Saiba mais" :href="acoesStore.current.siga"
               target="_blank"></q-btn>
           </div>
+
+          <div v-if="acoesStore.current.instagramLink" class="coordenador q-mt-md">
+            <div class="text-weight-bold">Redes sociais</div>
+            <a v-if="acoesStore.current.facebookLink" :href="acoesStore.current.facebookLink" class="fa fa-facebook" target="_blank"></a>
+            <a v-if="acoesStore.current.twitterLink" :href="acoesStore.current.twitterLink" class="fa fa-twitter" target="_blank"></a>
+            <a v-if="acoesStore.current.youtubeLink" :href="acoesStore.current.youtubeLink" class="fa fa-youtube" target="_blank"></a>
+            <a v-if="acoesStore.current.instagramLink" :href="acoesStore.current.instagramLink" class="fa fa-instagram" target="_blank"></a>
+          </div>
         </div>
+
         <div class="col-md-6 col-xs-12">
           <q-img class="myimage" :src="acoesStore.current.image"></q-img>
         </div>
@@ -127,7 +136,6 @@
 import { ref } from 'vue';
 import { tipoToIcon, useAcoes } from 'src/stores/store';
 import { toRefs } from 'vue';
-import axios from 'axios';
 
 const acoesStore = useAcoes();
 const props = defineProps({
@@ -205,4 +213,40 @@ function getNomeLongoTipo(tipo: string) {
   color: crimson;
   max-width: 500px;
 }
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 5px;
+  border-radius: 35px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #405DE6;
+  color: white;
+}
+
 </style>
