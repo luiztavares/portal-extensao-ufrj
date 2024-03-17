@@ -51,7 +51,7 @@
               </q-card-section>
             </q-card>
           </q-expansion-item>
-          <q-expansion-item expand-separator icon="category" label="Modalidade" caption="Modalidade da ação"
+          <q-expansion-item expand-separator icon="category" label="Formato" caption="Formato da ação"
             header-class="text-white bg-teal" expand-icon-class="text-white" v-model="flagModalidade">
             <q-card>
               <q-card-section>
@@ -112,7 +112,7 @@
             </q-card-section>
           </q-card>
         </q-expansion-item>
-        <q-expansion-item expand-separator icon="category" label="Modalidade" caption="Modalidade da ação"
+        <q-expansion-item expand-separator icon="category" label="Formato" caption="Formato da ação"
           header-class="text-white bg-teal" expand-icon-class="text-white" v-model="flagModalidade">
           <q-card>
             <q-card-section>

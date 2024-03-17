@@ -199,16 +199,16 @@ export const useAcoes = defineStore('acoes', {
       modalidade: {
         options: [
           {
-            label: 'Remoto',
-            value: 'Remoto',
+            label: 'Remoto (Online)',
+            value: 'Remoto (Online)',
           },
           {
-            label: 'Ensino à Distância',
-            value: 'Ensino à Distância',
+            label: 'Educação à Distância (Online)',
+            value: 'Educação à Distância (Online)',
           },
           {
-            label: 'Híbrido',
-            value: 'Híbrido',
+            label: 'Híbrido (Semi-Presencial)',
+            value: 'Híbrido (Semi-Presencial)',
           },
           {
             label: 'Presencial',

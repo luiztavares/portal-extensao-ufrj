@@ -9,7 +9,7 @@
     "centro": "centro",
     "coordenador": "coordenador",
     "modalidade": "tipo",
-    "modalidade_curso": "modalidade",
+    "formato_realizacao": "modalidade",
     "data_inicio": "dtRealizacaoInicio",
     "data_termino": "dtRealizacaoFim",
     "data_inicio_inscricoes": "dtInscricaoInicio",
