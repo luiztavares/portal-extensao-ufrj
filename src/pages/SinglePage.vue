@@ -166,7 +166,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import { tipoToIcon, useAcoes } from 'src/stores/store';
 import { toRefs } from 'vue';
 

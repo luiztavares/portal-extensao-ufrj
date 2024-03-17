@@ -162,10 +162,6 @@ function mapping(data: Array<object>, map: object, tipo = '') {
   return acoes;
 }
 
-function acaoUnica(value: Acao, index: number, self: Array<Acao>): boolean {
-  return self.find((acao) => acao.id === value.id) === value;
-}
-
 export const useAcoes = defineStore('acoes', {
   state: () => ({
     acoes: [] as Array<Acao>,
