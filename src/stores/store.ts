@@ -103,6 +103,7 @@ export interface Acao {
   tipo: string;
   modalidade: string;
   public: string;
+  publicAge: Array<string>;
   schedule: string;
   observations: string;
   dtRealizacaoInicio: string;

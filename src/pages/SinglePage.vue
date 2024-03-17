@@ -84,6 +84,15 @@
             </div>
           </div>
 
+          <div v-if="acoesStore.current.publicAge" class="coordenador q-mt-md">
+            <div class="text-weight-bold">Faixa etária</div>
+            <ul class="q-ma-none">
+              <li class="texto" v-for="age in acoesStore.current.publicAge" :key="age">
+                {{ age }}
+              </li>
+            </ul>
+          </div>
+
           <div v-if="acoesStore.current.dateObservations || acoesStore.current.schedule" class="coordenador q-mt-md">
             <div class="text-weight-bold">Dias e horários</div>
             <div class="texto">

@@ -17,6 +17,7 @@
     "imagem_divulgacao": "image",
     "descricao": "description",
     "publico": "public",
+    "faixa_etaria_publico": "publicAge",
     "observacoes": "observations",
     "horarios": "schedule",
     "observacoes_horarios_realizacao": "dateObservations",
