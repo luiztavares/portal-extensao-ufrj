@@ -88,10 +88,15 @@
             </div>
           </div>
 
-          <div v-if="acoesStore.current.dateObservations" class="coordenador q-mt-md">
-            <div class="text-weight-bold">Observações sobre dias e horários</div>
+          <div v-if="acoesStore.current.dateObservations || acoesStore.current.schedule" class="coordenador q-mt-md">
+            <div class="text-weight-bold">Dias e horários</div>
             <div class="texto">
-              {{ acoesStore.current.dateObservations }}
+              <q-table class="tabelaHorarios q-mb-sm" table-header-class="bg-purple text-white"
+                v-if="acoesStore.current.schedule" :rows="linhasTabelaHorarios(acoesStore.current.schedule)"
+                :columns="colunasTabelaHorarios" row-key="name" hide-bottom />
+              <div class="texto">
+                {{ acoesStore.current.dateObservations }}
+              </div>
             </div>
           </div>
 
@@ -150,7 +155,7 @@
           </div>
         </div>
 
-        <div class="col-md-6 col-xs-12 q-mt-lg">
+        <div class="col-md-6 col-xs-12 q-mt-lg colunaImagem">
           <q-img class="myimage" :src="acoesStore.current.image"></q-img>
         </div>
       </div>
@@ -169,6 +174,33 @@ const props = defineProps({
   id: String,
 });
 
+const colunasTabelaHorarios = [
+  {
+    name: 'dias',
+    label: 'Dias da semana',
+    required: true,
+    align: 'left',
+    field: row => row.dia,
+  },
+  {
+    name: 'horarios',
+    label: 'Horários',
+    required: true,
+    align: 'left',
+    field: row => row.horarios,
+  },
+];
+
+const nomes_dias_semana = {
+  domingo: 'Domingo',
+  segunda: 'Segunda-feira',
+  terca: 'Terça-feira',
+  quarta: 'Quarta-feira',
+  quinta: 'Quinta-feira',
+  sexta: 'Sexta-feira',
+  sabado: 'Sábado',
+}
+
 const { tipo, id } = toRefs(props);
 
 acoesStore.getDados();
@@ -179,6 +211,20 @@ function getNomeLongoTipo(tipo: string) {
     return 'Vagas para alunos de graduação da UFRJ'
   }
   return tipo;
+}
+
+function linhasTabelaHorarios(schedule) {
+  const linhas = [];
+  for (let chaveDia in nomes_dias_semana) {
+    const dia = nomes_dias_semana[chaveDia];
+    const horariosDia = schedule[chaveDia];
+    if (horariosDia.inicio == null || horariosDia.inicio.length == 0) {
+      continue;
+    }
+    const horarios = horariosDia.inicio.map((value, index) => `${value} - ${horariosDia.fim[index]}`).join('\n');
+    linhas.push({ dia, horarios })
+  }
+  return linhas;
 }
 
 </script>
@@ -273,5 +319,26 @@ function getNomeLongoTipo(tipo: string) {
 .fa-instagram {
   background: #405DE6;
   color: white;
+}
+
+.tabelaHorarios {
+  max-width: fit-content;
+}
+
+.tabelaHorarios .q-table td,
+.tabelaHorarios .q-table th {
+  font-size: 16px !important;
+}
+
+.tabelaHorarios th {
+  font-weight: bold;
+}
+
+.tabelaHorarios td {
+  white-space: pre-line;
+}
+
+.colunaImagem {
+  max-height: 1024px;
 }
 </style>

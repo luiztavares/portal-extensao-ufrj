@@ -18,6 +18,7 @@
     "descricao": "description",
     "publico": "public",
     "observacoes": "observations",
+    "horarios": "schedule",
     "observacoes_horarios_realizacao": "dateObservations",
     "endereco_completo": "place",
     "como_inscrever": "howToEnroll",
