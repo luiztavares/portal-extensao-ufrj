@@ -30,7 +30,8 @@
     "link_instagram": "instagramLink",
     "link_facebook": "facebookLink",
     "link_twitter": "twitterLink",
-    "link_youtube": "youtubeLink"
+    "link_youtube": "youtubeLink",
+    "link_site_acao": "pageLink"
   },
   "maisAcoes": {
     "url": "https://opensheet.elk.sh/1sYb3vrA6w6GQm86Wd8p8bAOFUkmukKmHeu5_W9h3At4/Respostas%20ao%20formul%C3%A1rio%201",
@@ -85,6 +86,7 @@
     "link_facebook": "facebookLink",
     "link_twitter": "twitterLink",
     "link_youtube": "youtubeLink",
+    "link_site_acao": "pageLink",
     "observacoes": "observations"
   }
 }

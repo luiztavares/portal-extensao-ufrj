@@ -121,6 +121,7 @@ export interface Acao {
   facebookLink: string;
   twitterLink: string;
   youtubeLink: string;
+  pageLink: string;
 }
 
 let i = 0;

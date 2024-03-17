@@ -117,7 +117,8 @@
             <div v-html="acoesStore.current.comoCandidatar" class="texto"></div>
             <div class="texto q-mt-sm aviso" v-if="acoesStore.current.tipo == 'Vaga'">
               <ul>
-                <li>Somente estudantes com requerimento aceito no SIGA poderão creditar horas de extensão por esta ação.</li>
+                <li>Somente estudantes com requerimento aceito no SIGA poderão creditar horas de extensão por esta ação.
+                </li>
               </ul>
             </div>
           </div>
@@ -153,8 +154,14 @@
               target="_blank"></q-btn>
           </div>
 
-          <div v-if="acoesStore.current.instagramLink" class="coordenador q-mt-md">
-            <div class="text-weight-bold">Redes sociais</div>
+          <div v-if="acoesStore.current.pageLink ||
+    acoesStore.current.facebookLink ||
+    acoesStore.current.twitterLink ||
+    acoesStore.current.youtubeLink ||
+    acoesStore.current.instagramLink" class="coordenador q-mt-md">
+            <div class="text-weight-bold">Páginas da ação</div>
+            <a v-if="acoesStore.current.pageLink" :href="acoesStore.current.pageLink" class="fa fa-link bg-teal text-white"
+              target="_blank"></a>
             <a v-if="acoesStore.current.facebookLink" :href="acoesStore.current.facebookLink" class="fa fa-facebook"
               target="_blank"></a>
             <a v-if="acoesStore.current.twitterLink" :href="acoesStore.current.twitterLink" class="fa fa-twitter"
