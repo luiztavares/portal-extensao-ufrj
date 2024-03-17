@@ -42,10 +42,6 @@
     new Date(acoesStore.current.dtInscricaoFim + 'T00:00:00-0300').toLocaleDateString('pt-BR')
     "></q-chip>
           <br />
-          <div v-if="acoesStore.current.comoCandidatar" class="coordenador q-pt-md">
-            <div class="text-weight-bold">Como se inscrever</div>
-          </div>
-          <div v-html="acoesStore.current.comoCandidatar" class="texto"></div>
           <div v-if="acoesStore.current.funcao" class="coordenador q-mt-md">
             <div class="text-weight-bold">Função</div>
             <div class="texto">
@@ -107,6 +103,16 @@
             </div>
           </div>
 
+          <div v-if="acoesStore.current.comoCandidatar" class="coordenador q-pt-md">
+            <div class="text-weight-bold">Como se candidatar</div>
+            <div v-html="acoesStore.current.comoCandidatar" class="texto"></div>
+            <div class="texto q-mt-sm aviso" v-if="acoesStore.current.tipo == 'Vaga'">
+              <ul>
+                <li>Somente estudantes com requerimento aceito no SIGA poderão creditar horas de extensão por esta ação.</li>
+              </ul>
+            </div>
+          </div>
+
           <div v-if="acoesStore.current.enrollLink || acoesStore.current.howToEnroll" class="coordenador q-mt-md">
             <div class="text-weight-bold">Inscrição</div>
             <div class="texto">
@@ -115,10 +121,6 @@
             <q-btn class="q-mt-sm q-mr-md" color="purple" icon-right="edit_note" rounded size="lg" label="Inscrever-se"
               v-if="acoesStore.current.enrollLink" :href="acoesStore.current.enrollLink" target="_blank">
             </q-btn>
-
-            <div class="texto q-mt-sm aviso" v-if="acoesStore.current.tipo == 'Vaga'">
-              Somente estudantes com requerimento aceito no SIGA poderão creditar horas de extensão por esta ação.
-            </div>
           </div>
 
           <div v-if="acoesStore.current.enrollLink ||
@@ -280,10 +282,16 @@ function linhasTabelaHorarios(schedule) {
 }
 
 .aviso {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: crimson;
   max-width: 500px;
+}
+
+.aviso ul {
+  margin: 0;
+  list-style: square;
+  padding-left: 20px;
 }
 
 .fa {
