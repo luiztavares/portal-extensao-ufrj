@@ -21,7 +21,7 @@
                             acoesStore.filters.tipo.select = item.option;
                           " :label="'Explorar ' + item.label"></q-btn>
             <vue-horizontal scroll v-if="acoesStore[item.name].length">
-              <section class="q-px-md q-py-md" v-for="item in acoesStore[item.name]" :key="item.id">
+              <section class="q-px-md q-py-md" v-for="item in acoesStore[item.name]" :key="item.tipo + '_' + item.id">
                 <my-card :data="item"></my-card>
               </section>
             </vue-horizontal>

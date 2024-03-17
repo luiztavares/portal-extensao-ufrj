@@ -92,7 +92,7 @@ const routes: RouteRecordRaw[] = [
 
   {
     name: 'acao',
-    path: '/acao/:id',
+    path: '/:tipo',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       // {
@@ -103,7 +103,7 @@ const routes: RouteRecordRaw[] = [
       // },
       {
         name: 'acaoChildren',
-        path: '',
+        path: ':id',
         component: () => import('pages/SinglePage.vue'),
         props: true,
       },

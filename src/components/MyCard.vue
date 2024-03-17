@@ -4,6 +4,7 @@
       name: 'acaoChildren',
       params: {
         // acao: 'ACAO LINK',
+        tipo: data.tipo,
         id: data.id
       },
     }">

@@ -10,7 +10,7 @@
             <span v-html="acoesStore.current.description"></span>
           </div>
           <div v-if="acoesStore.current.tipo == 'Vaga'" class="texto q-pt-sm">
-            {{ siga.resumo }}
+            {{ acoesStore.current.resumo }}
           </div>
           <div class="q-pt-lg coordenador">
             <span class="text-weight-bold">Nome cadastrado no SIGA:</span> {{ acoesStore.current.titulo }}
@@ -66,6 +66,13 @@
             </div>
           </div>
 
+          <div v-if="acoesStore.current.remuneracao" class="coordenador q-mt-md">
+            <div class="text-weight-bold">Remuneração</div>
+            <div class="texto">
+              {{ acoesStore.current.remuneracao }}
+            </div>
+          </div>
+
           <div v-if="acoesStore.current.liveLink" class="coordenador q-mt-md">
             Acesse:
             <div>
@@ -116,13 +123,14 @@
     " class="coordenador q-pt-md">
             <div class="text-weight-bold">Contatos</div>
           </div>
-          <q-chip size="lg" color="purple" outline icon="phone" v-if="acoesStore.current.contactPhone"
-            :label="acoesStore.current.contactPhone"></q-chip>
-          <q-chip size="lg" color="purple" outline icon="email" :label="acoesStore.current.contactEmail"></q-chip>
 
           <div class="texto">
             {{ acoesStore.current.contato }}
           </div>
+
+          <q-chip size="lg" color="purple" outline icon="phone" v-if="acoesStore.current.contactPhone"
+            :label="acoesStore.current.contactPhone"></q-chip>
+          <q-chip size="lg" color="purple" outline icon="email" :label="acoesStore.current.contactEmail"></q-chip>
 
           <div class="q-pt-md q-mb-lg">
             <q-btn size="lg" color="teal" rounded icon-right="add" label="Saiba mais" :href="acoesStore.current.siga"
@@ -131,14 +139,18 @@
 
           <div v-if="acoesStore.current.instagramLink" class="coordenador q-mt-md">
             <div class="text-weight-bold">Redes sociais</div>
-            <a v-if="acoesStore.current.facebookLink" :href="acoesStore.current.facebookLink" class="fa fa-facebook" target="_blank"></a>
-            <a v-if="acoesStore.current.twitterLink" :href="acoesStore.current.twitterLink" class="fa fa-twitter" target="_blank"></a>
-            <a v-if="acoesStore.current.youtubeLink" :href="acoesStore.current.youtubeLink" class="fa fa-youtube" target="_blank"></a>
-            <a v-if="acoesStore.current.instagramLink" :href="acoesStore.current.instagramLink" class="fa fa-instagram" target="_blank"></a>
+            <a v-if="acoesStore.current.facebookLink" :href="acoesStore.current.facebookLink" class="fa fa-facebook"
+              target="_blank"></a>
+            <a v-if="acoesStore.current.twitterLink" :href="acoesStore.current.twitterLink" class="fa fa-twitter"
+              target="_blank"></a>
+            <a v-if="acoesStore.current.youtubeLink" :href="acoesStore.current.youtubeLink" class="fa fa-youtube"
+              target="_blank"></a>
+            <a v-if="acoesStore.current.instagramLink" :href="acoesStore.current.instagramLink" class="fa fa-instagram"
+              target="_blank"></a>
           </div>
         </div>
 
-        <div class="col-md-6 col-xs-12">
+        <div class="col-md-6 col-xs-12 q-mt-lg">
           <q-img class="myimage" :src="acoesStore.current.image"></q-img>
         </div>
       </div>
@@ -153,14 +165,14 @@ import { toRefs } from 'vue';
 
 const acoesStore = useAcoes();
 const props = defineProps({
-  id: String
+  tipo: String,
+  id: String,
 });
 
-const { id } = toRefs(props);
+const { tipo, id } = toRefs(props);
 
-let siga = ref(null);
 acoesStore.getDados();
-acoesStore.setCurrent(id.value);
+acoesStore.setCurrent(tipo.value, id.value);
 
 function getNomeLongoTipo(tipo: string) {
   if (tipo === 'Vaga') {
@@ -240,7 +252,7 @@ function getNomeLongoTipo(tipo: string) {
 }
 
 .fa:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .fa-facebook {
@@ -262,5 +274,4 @@ function getNomeLongoTipo(tipo: string) {
   background: #405DE6;
   color: white;
 }
-
 </style>

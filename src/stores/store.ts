@@ -97,6 +97,7 @@ export interface Acao {
   titulo_curto: string;
   unidade: string;
   centro: string;
+  resumo: string;
   coordenador: string;
   siga: string;
   tipo: string;
@@ -108,6 +109,7 @@ export interface Acao {
   dtInscricaoInicio: string;
   dtInscricaoFim: string;
   place: string;
+  remuneracao: string;
   howToEnroll: string;
   enrollLink: string;
   contactEmail: string;
@@ -125,7 +127,7 @@ let k = 0;
 let l = 0;
 
 function getImageUrl(src: string, tipo: string) {
-  if (src != null) {
+  if (src != null && src != '') {
     return (
       'https://portal.extensao.ufrj.br/formularios/wp-content/uploads/cfdb7_uploads/' +
       src
@@ -289,73 +291,21 @@ export const useAcoes = defineStore('acoes', {
         this.filters[filter].select = this.filters[filter].default;
       }
     },
-    async setCurrent(id, timestamp) {
-      axios.get(mapper.acoes.url).then((data) => {
-        this.acoes = [...this.acoes, ...mapping(data.data, mapper.acoes)];
-        this.acoes = this.acoes.filter(acaoUnica);
-        for (const i in this.acoes) {
-          const acao = this.acoes[i];
-          if (!this.index[acao.id]) this.index[acao.id] = {};
-          this.index[acao.id][acao.timestamp] = acao;
-        }
-        try {
-          if (id in this.index)
-            this.getDados().then(
-              () => (this.current = this.index[id][timestamp])
-            );
-        } catch {}
-      });
-      axios
-        .get(
-          'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
-            mapper.maisAcoes.url
-        )
-        .then((data) => {
-          this.acoes = [
-            ...this.acoes,
-            ...mapping(data.data, mapper.maisAcoes, 'Atividades e Produtos'),
-          ];
-          this.acoes = this.acoes.filter(acaoUnica);
-          for (const i in this.acoes) {
-            const acao = this.acoes[i];
-            if (!this.index[acao.id]) this.index[acao.id] = {};
-            this.index[acao.id][acao.timestamp] = acao;
-          }
-          try {
-            if (id in this.index)
-              this.getDados().then(
-                () => (this.current = this.index[id][timestamp])
-              );
-          } catch {}
+    async setCurrent(tipo, id) {
+      await this.getDados();
+      this.current = this.acoes.find((a) => a.tipo === tipo && a.id === id);
+    },
+
+    async getDados() {
+      if (!this.loaded) {
+        await axios.get(mapper.acoes.url).then((data) => {
+          this.acoes = mapping(data.data, mapper.acoes);
         });
-      axios
-        .get(
-          'https://portal.extensao.ufrj.br/php/proxy.php?url=' +
-            mapper.vagas.url
-        )
-        .then((data) => {
+        await axios.get(mapper.vagas.url).then((data) => {
           this.acoes = [
             ...this.acoes,
             ...mapping(data.data, mapper.vagas, 'Vaga'),
           ];
-          this.acoes = this.acoes.filter(acaoUnica);
-          for (const i in this.acoes) {
-            const acao = this.acoes[i];
-            if (!this.index[acao.id]) this.index[acao.id] = {};
-            this.index[acao.id][acao.timestamp] = acao;
-          }
-          try {
-            if (id in this.index)
-              this.getDados().then(
-                () => (this.current = this.index[id][timestamp])
-              );
-          } catch {}
-        });
-    },
-    async getDados() {
-      if (!this.loaded) {
-        axios.get(mapper.acoes.url).then((data) => {
-          this.acoes = mapping(data.data, mapper.acoes);
         });
 
         this.loaded = true;
